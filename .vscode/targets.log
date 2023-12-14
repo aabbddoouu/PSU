@@ -1,0 +1,2080 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# Ceci est un logiciel libre ; voir le source pour les conditions de copie.
+# Il n'y a PAS de garantie ; tant pour une utilisation COMMERCIALE que pour
+# R�PONDRE � UN BESOIN PARTICULIER.
+
+# Ce logiciel est construit pour i386-pc-mingw32
+ 
+
+# Base de donn�es de Make, imprim�e le Sat Sep 17 16:23:36 2022
+
+# Variables
+
+# automatique
+<D = $(patsubst %/,%,$(dir $<))
+# automatique
+?F = $(notdir $?)
+# makefile (de � makefile �, ligne 175)
+LDSCRIPT = stm32f.ld
+# makefile
+MAKEFLAGS = Rrqp
+# makefile (de � makefile �, ligne 75)
+CPP_SOURCES = 
+# makefile (de � makefile �, ligne 21)
+TARGET = LCD_debug
+# automatique
+?D = $(patsubst %/,%,$(dir $?))
+# environnement
+PLATFORMIO_IDE = 2.5.2
+# makefile (de � makefile �, ligne 123)
+AS_DEFS = 
+# makefile (de � m 
+akefile �, ligne 132)
+AS_INCLUDES = 
+# automatique
+@D = $(patsubst %/,%,$(dir $@))
+# environnement
+HOMEDRIVE = C:
+# automatique
+@F = $(notdir $@)
+# automatique
+^D = $(patsubst %/,%,$(dir $^))
+# environnement
+SIGRITY_EDA_DIR = D:\Programs\Python\Sigrity
+# d�faut
+SHELL := C:/msys/1.0/bin/sh.exe
+# makefile (de � makefile �, ligne 104)
+BIN = $(CP) -O binary -S
+# environnement
+WINDIR = C:\Windows
+# environnement
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# makefile (de � makefile �, ligne 101)
+SZ = $(PREFIX)size
+# environnement
+VBOX_MSI_INSTALL_PATH = C:\Programs\Oracle\VirtualBox\
+# makefile (de � makefile �, ligne 166)
+CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"$(@:%.o=%.d)" -w
+# environnement
+ONEDRIVE = C:\Users\rahma\OneDrive
+# environnement
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+# makefile (de � build/syscall.d �, ligne 1)
+MAKEFILE_LIST :=  makefile build/bitmap.d build/buttons.d build/current.d build/diskio.d build/fatfs_sd.d build/ff.d build/ffunicode.d build/font12.d build/font16.d build/font20.d build/font24.d build/font8.d build/fsm.d build/i2c_oled.d build/ili9341.d build/lcd_.d build/lcd_fsmc8.d build/main.d build/ov2640.d build/parameters.d build/printf.d build/spi_sd.d build/ssd1306.d build/ssd1306_fonts.d build/ssd1306_tests.d build/stm32_adafruit_lcd.d build/syscall.d
+# makefile (de � makefile �, ligne 100)
+CP = $(PREFIX)objcopy
+# makefile (de � makefile �, ligne 28)
+DEBUG = 1
+# environnement
+TMP = C:\Users\rahma\AppData\Local\Temp
+# environnement
+MPV = C:\Program Files\mpv\mpv.exe
+# environnement
+VSARM = C:\VSARM
+# makefile (de � makefile �, ligne 99)
+AS = $(PREFIX)gcc -x assembler-with-cpp
+# environnement
+PROGRAMW6432 = C:\Program Files
+# environnement
+PROGRAMDATA = C:\ProgramData
+# environnement
+CUDA_PATH_V10_1 = C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1
+# environnement
+VSCODE_CWD = D:\Programs\Microsoft VS Code
+# environnement
+CDS_LIC_ONLY = 1
+# environnement
+NO_PROXY = 127.0.0.1
+# environnement
+SW_SIM_HYDRA = C:\Program Files\Common Files\SolidWorks Shared\Simulation Worker Agent\
+# environnement
+ONLINESERVICES = Online Services
+# environnement
+COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# makefile
+CURDIR := d:/Documents/STM_WS/LCD-Visual-Debug
+# environnement
+NIEXTCCOMPILERSUPP = C:\Program Files (x86)\National Instruments\Shared\ExternalCompilerSupport\C\
+# environnement
+PROCESSOR_ARCHITECTURE = x86
+# environnement
+VXIPNPPATH64 = C:\Program Files\IVI Foundation\VISA\
+# environnement
+VSCODE_IPC_HOOK = \\.\pipe\435b0bd3e872c9bc5316ed669963381b-1.70.2-main-sock
+# environnement
+USERPROFILE = C:\Users\rahma
+# environnement
+ALLUSERSPROFILE = C:\ProgramData
+# environnement
+NUMBER_OF_PROCESSORS = 12
+# environnement
+ELECTRON_RUN_AS_NODE = 1
+# makefile (de � makefile �, ligne 181)
+LDFLAGS = $(MCU) -specs=nosys.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
+# d�faut
+.FEATURES := target-specific order-only second-expansion else-if archives
+# environnement
+NVTOOLSEXT_PATH = C:\Program Files\NVIDIA Corporation\NvToolsExt\
+# environnement
+NIIVIPATH = C:\Program Files (x86)\IVI Foundation\IVI\
+# automatique
+%F = $(notdir $%)
+# environnement
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_12928_UXZIUDVXUEVZRYLV
+# environnement
+EXTRAPUTTY = C:\Program Files\ExtraPuTTY\Bin
+# makefile (de � makefile �, ligne 79)
+ASM_SOURCES = 
+# makefile (de � makefile �, ligne 30)
+OPT = -Og 
+# environnement
+COMPUTERNAME = OMEN-ABDOU
+# environnement
+PROGRAMFILES = C:\Program Files (x86)
+# environnement
+DRIVERDATA = C:\Windows\System32\Drivers\DriverData
+# environnement
+NVCUDASAMPLES_ROOT = C:\ProgramData\NVIDIA Corporation\CUDA Samples\v10.1
+# environnement
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environnement
+USERNAME = rahma
+# environnement
+PUBLIC = C:\Users\Public
+# environnement
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environnement
+HOME = D:\Programs\Python
+# environnement
+VSCODE_CODE_CACHE_PATH = C:\Users\rahma\AppData\Roaming\Code\CachedData\e4503b30fc78200f846c62cf8091b76ff5547662
+# environnement
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environnement
+EXTRAPUTTY_BOXSIZE = AUTO
+# environnement
+COMMONPROGRAMFILES = C:\Program Files (x86)\Common Files
+# environnement
+LOGONSERVER = \\OMEN-ABDOU
+# makefile (de � makefile �, ligne 86)
+PREFIX = arm-none-eabi-
+# environnement
+CDS_LIC_FILE = 5280@localhost
+# environnement
+ONEDRIVECONSUMER = C:\Users\rahma\OneDrive
+# environnement
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# environnement
+USERDOMAIN = OMEN-ABDOU
+# makefile (de � makefile �, ligne 126)
+C_DEFS = -DSTM32F7 -DSTM32F767xx
+# makefile (de � makefile �, ligne 119)
+MCU = $(CPU) -mthumb $(FPU) $(FLOAT-ABI)
+# environnement
+PLATFORMIO_PATH = C:\Users\rahma\.platformio\python3;D:\Programs\VMware\VMware Player\bin\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\libnvvp;C:\SIMULIA\Commands;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;D:\Programs\bin;D:\Programs\MATLAB\runtime\win64;D:\Programs\MATLAB\bin;D:\Programs\mplab_platform\compilers\bin;C:\Program Files\PuTTY\;D:\Programs\Miktex\miktex\bin\x64\;D:\Programs\Microsoft Visual Studio\Shared\Python37_64\Scripts;C:\Program Files\NVIDIA Corporation\Nsight Compute 2019.1\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\extras\CUPTI\lib64;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include;C:\tools\cuda\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;D:\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin;C:\Program Files (x86)\IVI Foundation\IVI\bin;C:\Program Files\IVI Foundation\IVI\bin;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin\;C:\Program Files\IVI Foundation\VISA\Win64\Bin\;;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Users\rahma\AppData\Local\Microsoft\WindowsApps;D:\Programs\Microsoft VS Code\bin;D:\Programs\Microsoft Visual Studio\Shared\Python37_64\Scripts;C:\VSARM\stlink\ST-LINK Utility;D:\Programs\qemu;C:\Users\rahma\AppData\Roaming\npm;C:\Users\rahma\AppData\Roaming\xPacks\@xpack-dev-tools\qemu-arm\2.8.0-11.1\.content\bin;D:\Documents\STM_WS\libopencm3-master\lib;C:\Users\rahma\.dotnet\tools;C:\VSARM\stlink;C:\msys\1.0\bin;C:\VSARM\GnuWin32\bin;C:\VSARM\OpenOCD\bin;C:\Program Files\mpv;C:\Program Files (x86);C:\Program Files;C:\VSARM\armcc\arm-none-eabi\bin;C:\VSARM\armcc\bin;;D:\Programs\VMware\VMware Player\bin\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\libnvvp;C:\SIMULIA\Commands;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;D:\Programs\bin;D:\Programs\MATLAB\runtime\win64;D:\Programs\MATLAB\bin;D:\Programs\mplab_platform\compilers\bin;C:\Program Files\PuTTY\;D:\Programs\Miktex\miktex\bin\x64\;D:\Programs\Microsoft Visual Studio\Shared\Python37_64\Scripts;C:\Program Files\NVIDIA Corporation\Nsight Compute 2019.1\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\extras\CUPTI\lib64;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include;C:\tools\cuda\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;D:\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin;C:\Program Files (x86)\IVI Foundation\IVI\bin;C:\Program Files\IVI Foundation\IVI\bin;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin\;C:\Program Files\IVI Foundation\VISA\Win64\Bin\;;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Users\rahma\AppData\Local\Microsoft\WindowsApps;D:\Programs\Microsoft VS Code\bin;D:\Programs\Microsoft Visual Studio\Shared\Python37_64\Scripts;C:\VSARM\stlink\ST-LINK Utility;D:\Programs\qemu;C:\Users\rahma\AppData\Roaming\npm;C:\Users\rahma\AppData\Roaming\xPacks\@xpack-dev-tools\qemu-arm\2.8.0-11.1\.content\bin;D:\Documents\STM_WS\libopencm3-master\lib;C:\Users\rahma\.dotnet\tools;C:\VSARM\stlink;C:\msys\1.0\bin;C:\VSARM\GnuWin32\bin;C:\VSARM\OpenOCD\bin;C:\Program Files\mpv;C:\Program Files (x86);C:\Program Files;C:\VSARM\armcc\arm-none-eabi\bin;C:\VSARM\armcc\bin;
+# d�faut
+MAKE = $(MAKE_COMMAND)
+# d�faut
+MAKECMDGOALS := all
+# environnement
+PATH = D:\Programs\VMware\VMware Player\bin\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\libnvvp;C:\SIMULIA\Commands;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;D:\Programs\bin;D:\Programs\MATLAB\runtime\win64;D:\Programs\MATLAB\bin;D:\Programs\mplab_platform\compilers\bin;C:\Program Files\PuTTY\;D:\Programs\Miktex\miktex\bin\x64\;D:\Programs\Microsoft Visual Studio\Shared\Python37_64\Scripts;C:\Program Files\NVIDIA Corporation\Nsight Compute 2019.1\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\extras\CUPTI\lib64;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include;C:\tools\cuda\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;D:\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin;C:\Program Files (x86)\IVI Foundation\IVI\bin;C:\Program Files\IVI Foundation\IVI\bin;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin\;C:\Program Files\IVI Foundation\VISA\Win64\Bin\;;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Users\rahma\AppData\Local\Microsoft\WindowsApps;D:\Programs\Microsoft VS Code\bin;D:\Programs\Microsoft Visual Studio\Shared\Python37_64\Scripts;C:\VSARM\stlink\ST-LINK Utility;D:\Programs\qemu;C:\Users\rahma\AppData\Roaming\npm;C:\Users\rahma\AppData\Roaming\xPacks\@xpack-dev-tools\qemu-arm\2.8.0-11.1\.content\bin;D:\Documents\STM_WS\libopencm3-master\lib;C:\Users\rahma\.dotnet\tools;C:\VSARM\stlink;C:\msys\1.0\bin;C:\VSARM\GnuWin32\bin;C:\VSARM\OpenOCD\bin;C:\Program Files\mpv;C:\Program Files (x86);C:\Program Files;C:\VSARM\armcc\arm-none-eabi\bin;C:\VSARM\armcc\bin;
+# environnement
+IVIROOTDIR32 = C:\Program Files (x86)\IVI Foundation\IVI\
+# makefile (de � makefile �, ligne 116)
+FLOAT-ABI = -mfloat-abi=hard -fsingle-precision-constant
+# makefile (de � makefile �, ligne 103)
+HEX = $(CP) -O ihex
+# makefile (de � makefile �, ligne 98)
+CC = $(PREFIX)gcc
+# environnement
+JAVA_HOME = C:\Program Files (x86)\Common Files\Oracle\Java
+# makefile (de � makefile �, ligne 37)
+BUILD_DIR = build
+# makefile (de � makefile �, ligne 156)
+ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
+# d�faut
+MAKE_VERSION := 3.81
+# makefile
+.DEFAULT_GOAL := all
+# environnement
+PROGRAMFILES(X86) = C:\Program Files (x86)
+# automatique
+%D = $(patsubst %/,%,$(dir $%))
+# makefile (de � makefile �, ligne 110)
+CPU = -mcpu=cortex-m7
+# makefile (de � makefile �, ligne 113)
+FPU = -mfpu=fpv5-d16 
+# environnement
+LOCALAPPDATA = C:\Users\rahma\AppData\Local
+# environnement
+PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules
+# d�faut
+MAKE_COMMAND := make.exe
+# environnement
+PROCESSOR_ARCHITEW6432 = AMD64
+# makefile (de � makefile �, ligne 179)
+LIBDIR = -L../libopencm3-master/lib
+# d�faut
+.VARIABLES := 
+# automatique
+*F = $(notdir $*)
+# environnement
+PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
+# environnement
+OS = Windows_NT
+# environnement
+IVIROOTDIR64 = C:\Program Files\IVI Foundation\IVI\
+# environnement
+HOMEPATH = \Users\rahma
+# environnement
+COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
+# environnement
+PROMPT = $P$G
+# environnement
+MFLAGS = -Rrqp
+# automatique
+*D = $(patsubst %/,%,$(dir $*))
+# environnement
+REGIONCODE = EMEA
+# makefile (de � makefile �, ligne 16)
+MAIN = main
+# environnement
+SYSTEMROOT = C:\Windows
+# automatique
++D = $(patsubst %/,%,$(dir $+))
+# environnement
+EXTRAPUTTY_MODE = DIR_MODE
+# environnement
+PLATFORMCODE = KV
+# automatique
++F = $(notdir $+)
+# environnement
+APPDATA = C:\Users\rahma\AppData\Roaming
+# environnement
+VXIPNPPATH = C:\Program Files (x86)\IVI Foundation\VISA\
+# environnement
+TEMP = C:\Users\rahma\AppData\Local\Temp
+# makefile (de � makefile �, ligne 135)
+C_INCLUDES = -I../libopencm3-master/include -I../libopencm3-master/include/libopencmsis -I../libopencm3-master/include/libopencm3/stm32 -I../libopencm3-master/include/libopencm3/stm32/common -I../libopencm3-master/include/libopencm3/stm32/f7 -I../STMems_Standard_C_drivers -ICore/Inc -Ifatfs -ILCD -ILCD\lcd -ILCD\Fonts -ILCD\stm32f7xx -Ifatfs/drivers -Issd1306 -IOV2640 -IDrivers/CMSIS/Include
+# environnement
+COMSPEC = C:\Windows\system32\cmd.exe
+# d�faut
+MAKEFILES := 
+# makefile (de � makefile �, ligne 169)
+CXXFLAGS =  -feliminate-unused-debug-types
+# automatique
+<F = $(notdir $<)
+# environnement
+PLATFORMIO_CALLER = vscode
+# makefile (de � makefile �, ligne 97)
+CXX = $(PREFIX)g++
+# environnement
+NVCUDASAMPLES10_1_ROOT = C:\ProgramData\NVIDIA Corporation\CUDA Samples\v10.1
+# environnement
+LC_ALL = C
+# environnement
+SW_SIM_TEMP = C:\ProgramData\SOLIDWORKS\SW_net_sim_temp\
+# makefile (de � makefile �, ligne 178)
+LIBS = -lc -lm -lnosys -lopencm3_stm32f7
+# automatique
+^F = $(notdir $^)
+# environnement
+CUDA_PATH = C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1
+# makefile (de � makefile �, ligne 43)
+C_SOURCES = Core/Src/$(MAIN).c Core/Src/printf.c Core/Src/lcd_.c Core/Src/spi_sd.c Core/Src/i2c_oled.c Core/Src/current.c Core/Src/buttons.c Core/Src/parameters.c Core/Src/fsm.c fatfs/drivers/fatfs_sd.c fatfs/option/syscall.c fatfs/diskio.c fatfs/ff.c fatfs_text\fatfs\ffunicode.c LCD/stm32f7xx/lcd_fsmc8.c LCD/stm32_adafruit_lcd.c LCD/lcd/ili9341/ili9341.c LCD/Fonts/font8.c LCD/Fonts/font12.c LCD/Fonts/font16.c LCD/Fonts/font20.c LCD/Fonts/font24.c bitmap.c ssd1306/ssd1306_fonts.c ssd1306/ssd1306.c ssd1306/ssd1306_tests.c OV2640/ov2640.c
+# d�faut
+SUFFIXES := 
+# environnement
+SYSTEMDRIVE = C:
+# environnement
+SESSIONNAME = Console
+# environnement
+PROCESSOR_REVISION = 9e0a
+# environnement
+SW_SIM_MPIT = INTELMPI
+# environnement
+XPACKS_REPO_FOLDER = C:\Users\rahma\AppData\Roaming\xPacks
+# environnement
+MAKELEVEL := 0
+# makefile (de � makefile �, ligne 197)
+OBJECTS = $(addprefix $(BUILD_DIR)/,$(notdir $(CPP_SOURCES:.cpp=.o))) $(addprefix $(BUILD_DIR)/,$(notdir $(C_SOURCES:.c=.o))) $(addprefix $(BUILD_DIR)/,$(notdir $(ASM_SOURCES:.s=.o)))
+# environnement
+LANG = C
+# env 
+ironnement
+PROCESSOR_LEVEL = 6
+# environnement
+VSCODE_PID = 12928
+# environnement
+USERDOMAIN_ROAMINGPROFILE = OMEN-ABDOU
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=147/1024=14%, Refait le hachage=0, Collisions=21/271=8%
+
+# Valeurs de variable avec mod�le sp�cifique
+
+# pas de valeurs de variable avec mod�le sp�cifique
+
+# R�pertoires
+
+#  : statut indisponible.
+# C:\Program Files (x86)\IVI Foundation\IVI\bin (p�riph�rique C:/Program Files (x86)/IVI Foundation/IVI/bin, mtime 1613174115): 56 fichiers, non impossibilit�s.
+# fatfs/option (p�riph�rique d:/Documents/STM_WS/LCD-Visual-Debug/fatfs/option, mtime 1645304890): 10 fichiers, non impossibilit�s.
+# D:\Programs\MATLAB\runtime\win64 (p�riph�rique D:/Programs/MATLAB/runtime/win64, mtime 1577050303): 10 fichiers, non impossibilit�s.
+# D:\Programs\Miktex\miktex\bin\x64\ (p�riph�rique D:/Programs/Miktex/miktex/bin/x64/, mtime 1579776761): 630 fichiers, non impossibilit�s.
+# D:\Documents\STM_WS\libopencm3-master\lib (p�riph�rique D:/Documents/STM_WS/libopencm3-master/lib, mtime 1650971942): 59 fichiers, non impossibilit�s.
+# C:\Users\rahma\.dotnet\tools : statut indisponible.
+# D:\Windows Kits\10\Windows Performance Toolkit\ (p�riph�rique D:/Windows Kits/10/Windows Performance Toolkit/, mtime 1612646949): 144 fichiers, non impossibilit�s.
+# fatfs_text\fatfs\ : statut indisponible.
+# D:\Programs\mplab_platform\compilers\bin : statut indisponible.
+# build (p�riph�rique d:/Documents/STM_WS/LCD-Visual-Debug/build, mtime 1661291208): 87 fichiers, non impossibilit�s.
+# fatfs/drivers (p�riph�rique d:/Documents/STM_WS/LCD-Visual-Debug/fatfs/drivers, mtime 1645304890): 14 fichiers, non impossibilit�s.
+# C:\windows\System32\WindowsPowerShell\v1.0\ (p�riph�rique C:/windows/System32/WindowsPowerShell/v1.0/, mtime 1618867640): 32 fichiers, non impossibilit�s.
+# C:\windows\System32\Wbem (p�riph�rique C:/windows/System32/Wbem, mtime 1658581422): 155 fichiers, non impossibilit�s.
+# . (p�riph�rique d:/Documents/STM_WS/LCD-Visual-Debug, mtime 1657136291): 23 fichiers, non impossibilit�s.
+# C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\ (p�riph�rique C:/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/, mtime 1570994556): 73 fichiers, non impossibilit�s.
+# Core/Src (p�riph�rique d:/Documents/STM_WS/LCD-Visual-Debug/Core/Src, mtime 1652624593): 12 fichiers, non impossibilit�s.
+# C:\Program Files\nodejs\ (p�riph�rique C:/Program Files/nodejs/, mtime 1609157275): 11 fichiers, non impossibilit�s.
+# C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common (p�riph�rique C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common, mtime 1570994655): 11 fichiers, non impossibilit�s.
+# C:\Users\rahma\AppData\Roaming\xPacks\@xpack-dev-tools\qemu-arm\2.8.0-11.1\.content\bin (p�riph�rique C:/Users/rahma/AppData/Roaming/xPacks/@xpack-dev-tools/qemu-arm/2.8.0-11.1/.content/bin, mtime 1609164418): 14 fichiers, non impossibilit�s.
+# LCD/Fonts (p�riph�rique d:/Documents/STM_WS/LCD-Visual-Debug/LCD/Fonts, mtime 1645304890): 9 fichiers, non impossibilit�s.
+# C:\Program Files\IVI Foundation\VISA\Win64\Bin\ (p�riph�rique C:/Program Files/IVI Foundation/VISA/Win64/Bin/, mtime 1613174187): 9 fichiers, non impossibilit�s.
+# C:\Program Files\dotnet\ (p�riph�rique C:/Program Files/dotnet/, mtime 1631696694): 11 fichiers, non impossibilit�s.
+# C:\tools\cuda\bin (p�riph�rique C:/tools/cuda/bin, mtime 1604491523): 3 fichiers, non impossibilit�s.
+# C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\libnvvp (p�riph�rique C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v10.1/libnvvp, mtime 1603307666): 14 fichiers, non impossibilit�s.
+# D:\Programs\bin (p�riph�rique D:/Programs/bin, mtime 1603563795): 20 fichiers, non impossibilit�s.
+# LCD/stm32f7xx (p�riph�rique d:/Documents/STM_WS/LCD-Visual-Debug/LCD/stm32f7xx, mtime 1645304890): 3 fichiers, non impossibilit�s.
+# C:\Program Files\Microsoft SQL Server\130\Tools\Binn\ (p�riph�rique C:/Program Files/Microsoft SQL Server/130/Tools/Binn/, mtime 1571333259): 4 fichiers, non impossibilit�s.
+# D:\Programs\qemu (p�riph�rique D:/Programs/qemu, mtime 1609105894): 195 fichiers, non impossibilit�s.
+# C:\windows\System32\OpenSSH\ : statut indisponible.
+# C:\Program Files\PuTTY\ (p�riph�rique C:/Program Files/PuTTY/, mtime 1577462277): 12 fichiers, non impossibilit�s.
+# C:\Program Files (x86)\Common Files\Oracle\Java\javapath (p�riph�rique C:/Program Files (x86)/Common Files/Oracle/Java/javapath, mtime 1608413974): 5 fichiers, non impossibilit�s.
+# fatfs (p�riph�rique d:/Documents/STM_WS/LCD-Visual-Debug/fatfs, mtime 1645304890): 16 fichiers, non impossibilit�s.
+# C:\SIMULIA\Commands : statut indisponible.
+# ssd1306 (p�riph�rique d:/Documents/STM_WS/LCD-Visual-Debug/ssd1306, mtime 1651921498): 10 fichiers, non impossibilit�s.
+# C:\Program Files\Intel\Intel(R) Management Engine Components\DAL (p�riph�rique C:/Program Files/Intel/Intel(R) Management Engine Components/DAL, mtime 1564426724): 4 fichiers, non impossibilit�s.
+# C:\windows (p�riph�rique C:/windows, mtime 1626612409): 143 fichiers, non impossibilit�s.
+# C:\Users\rahma\AppData\Local\Microsoft\WindowsApps (p�riph�rique C:/Users/rahma/AppData/Local/Microsoft/WindowsApps, mtime 1641297197): 32 fichiers, non impossibilit�s.
+# C:\Program Files\IVI Foundation\IVI\bin (p�riph�rique C:/Program Files/IVI Foundation/IVI/bin, mtime 1613174117): 50 fichiers, non impossibilit�s.
+# C:\VSARM\stlink (p�riph�rique C:/VSARM/stlink, mtime 1608471242): 9 fichiers, non impossibilit�s.
+# C:\Program Files\Intel\WiFi\bin\ (p�riph�rique C:/Program Files/Intel/WiFi/bin/, mtime 1570117566): 36 fichiers, non impossibilit�s.
+# C:\Program Files\Common Files\Intel\WirelessCommon\ (p�riph�rique C:/Program Files/Common Files/Intel/WirelessCommon/, mtime 1570117502): 7 fichiers, non impossibilit�s.
+# D:\Programs\Microsoft Visual Studio\Shared\Python37_64\Scripts (p�riph�rique D:/Programs/Microsoft Visual Studio/Shared/Python37_64/Scripts, mtime 1612953930): 84 fichiers, non impossibilit�s.
+# D:\Programs\MATLAB\bin (p�riph�rique D:/Programs/MATLAB/bin, mtime 1577052649): 22 fichiers, non impossibilit�s.
+# LCD/lcd/ili9341 (p�riph�rique d:/Documents/STM_WS/LCD-Visual-Debug/LCD/lcd/ili9341, mtime 1645304890): 5 fichiers, non impossibilit�s.
+# C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\bin (p�riph�rique C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v10.1/bin, mtime 1604491578): 44 fichiers, non impossibilit�s.
+# C:\Program Files\NVIDIA Corporation\Nsight Compute 2019.1\ (p�riph�rique C:/Program Files/NVIDIA Corporation/Nsight Compute 2019.1/, mtime 1603307656): 10 fichiers, non impossibilit�s.
+# C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin\ (p�riph�rique C:/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin/, mtime 1613174185): 14 fichiers, non impossibilit�s.
+# C:\VSARM\stlink\ST-LINK Utility (p�riph�rique C:/VSARM/stlink/ST-LINK Utility, mtime 1608435676): 11 fichiers, non impossibilit�s.
+# D:\Programs\VMware\VMware Player\bin\ (p�riph�rique D:/Programs/VMware/VMware Player/bin/, mtime 1623910073): 4 fichiers, non impossibilit�s.
+# C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bi 
+n (p�riph�rique C:/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin, mtime 1613174185): 14 fichiers, non impossibilit�s.
+# C:\Program Files\Git\cmd (p�riph�rique C:/Program Files/Git/cmd, mtime 1610989390): 8 fichiers, non impossibilit�s.
+# C:\windows\system32 (p�riph�rique C:/windows/system32, mtime 1663343346): 3205 fichiers, non impossibilit�s.
+# D:\Programs\Microsoft VS Code\bin (p�riph�rique D:/Programs/Microsoft VS Code/bin, mtime 1660760027): 4 fichiers, non impossibilit�s.
+# OV2640 (p�riph�rique d:/Documents/STM_WS/LCD-Visual-Debug/OV2640, mtime 1652624593): 4 fichiers, non impossibilit�s.
+# LCD (p�riph�rique d:/Documents/STM_WS/LCD-Visual-Debug/LCD, mtime 1645304890): 11 fichiers, non impossibilit�s.
+# C:\Users\rahma\AppData\Roaming\npm (p�riph�rique C:/Users/rahma/AppData/Roaming/npm, mtime 1609157351): 6 fichiers, non impossibilit�s.
+# C:\msys\1.0\bin (p�riph�rique C:/msys/1.0/bin, mtime 1615903687): 73 fichiers, non impossibilit�s jusqu'ici.
+# C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include (p�riph�rique C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v10.1/include, mtime 1604491621): 143 fichiers, non impossibilit�s.
+# C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR (p�riph�rique C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR, mtime 1564426809): 5 fichiers, non impossibilit�s.
+# C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL (p�riph�rique C:/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL, mtime 1564426724): 7 fichiers, non impossibilit�s.
+# C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\extras\CUPTI\lib64 (p�riph�rique C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v10.1/extras/CUPTI/lib64, mtime 1603307666): 8 fichiers, non impossibilit�s.
+
+# 5615 fichiers, non impossibilit�s dans 62 r�pertoires.
+
+# R�gles Implicites
+
+build/%.o: %.cpp Makefile | build
+#  commandes � ex�cuter (de � makefile �, ligne 201):
+	$(CXX) -c $(CXXFLAGS) $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.cpp=.lst)) $< -o $@
+	
+
+build/%.o: %.c Makefile | build
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+build/%.o: %.s Makefile | build
+#  commandes � ex�cuter (de � makefile �, ligne 207):
+	$(AS) -c $(CFLAGS) $< -o $@
+	
+
+build/%.hex: build/%.elf | build
+#  commandes � ex�cuter (de � makefile �, ligne 214):
+	$(HEX) $< $@
+	
+
+build/%.bin: build/%.elf | build
+#  commandes � ex�cuter (de � makefile �, ligne 217):
+	$(BIN) $< $@
+	
+
+# 5 r�gles implicites, 0 (0,0%) terminales.
+
+# Fichiers
+
+build/current.o: Core/Src/current.c makefile Core/Src/current.c Core/Inc/current.h Core/Inc/main.h Core/Inc/printf.h ../libopencm3-master/include/libopencm3/stm32/rcc.h ../libopencm3-master/include/libopencm3/cm3/common.h ../libopencm3-master/include/libopencm3/stm32/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/memorymap.h ../libopencm3-master/include/libopencm3/cm3/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/rcc.h ../libopencm3-master/include/libopencm3/stm32/f7/pwr.h ../libopencm3-master/include/libopencm3/stm32/common/rcc_common_all.h ../libopencm3-master/include/libopencm3/stm32/timer.h ../libopencm3-master/include/libopencm3/stm32/f7/timer.h ../libopencm3-master/include/libopencm3/stm32/common/timer_common_all.h ../libopencm3-master/include/libopencm3/stm32/gpio.h ../libopencm3-master/include/libopencm3/stm32/f7/gpio.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f234.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_all.h ../libopencm3-master/include/libopencm3/stm32/usart.h ../libopencm3-master/include/libopencm3/stm32/f7/usart.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_v2.h ../libopencm3-master/include/libopencm3/stm32/spi.h ../libopencm3-master/include/libopencm3/stm32/f7/spi.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_v2.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_all.h ../libopencm3-master/include/libopencm3/stm32/i2c.h ../libopencm3-master/include/libopencm3/stm32/f7/i2c.h ../libopencm3-master/include/libopencm3/stm32/common/i2c_common_v2.h ../libopencm3-master/include/libopencmsis/core_cm3.h ../libopencm3-master/include/libopencm3/cm3/cortex.h ../libopencm3-master/include/libopencm3/cm3/systick.h ../libopencm3-master/include/libopencm3/cm3/nvic.h ../libopencm3-master/include/libopencm3/dispatch/nvic.h ../libopencm3-master/include/libopencm3/stm32/f7/nvic.h ../libopencm3-master/include/libopencm3/cm3/scb.h ../libopencm3-master/include/libopencmsis/dispatch/irqhandlers.h ../libopencm3-master/include/libopencmsis/stm32/f7/irqhandlers.h ../libopencm3-master/include/libopencm3/stm32/exti.h ../libopencm3-master/include/libopencm3/stm32/f7/exti.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_v1.h ../libopencm3-master/include/libopencm3/stm32/adc.h ../libopencm3-master/include/libopencm3/stm32/f7/adc.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1_multi.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1.h Core/Inc/defines.h ../libopencm3-master/include/libopencm3/stm32/dma.h ../libopencm3-master/include/libopencm3/stm32/f7/dma.h ../libopencm3-master/include/libopencm3/stm32/common/dma_common_f24.h ../libopencm3-master/include/libopencm3/stm32/flash.h ../libopencm3-master/include/libopencm3/stm32/f7/flash.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_idcache.h ../libopencm3-master/include/libopencm3/stm32/flash.h Core/Inc/buttons.h Core/Inc/i2c_oled.h ssd1306/ssd1306.h ssd1306/ssd1306_tests.h ssd1306/ssd1306_conf.h ssd1306/ssd1306_fonts.h ssd1306/ssd 
+1306_conf.h ../libopencm3-master/include/libopencm3/stm32/exti.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � current �
+#  Derni�re modification 2022-08-14 12:15:41
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+# Pas une cible :
+build/font16.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:52
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/font8.o: LCD/Fonts/font8.c makefile LCD/Fonts/font8.c LCD/Fonts/fonts.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � font8 �
+#  Derni�re modification 2022-08-14 12:15:52
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+../libopencm3-master/include/libopencm3/stm32/common/gpio_common_all.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/stm32_adafruit_lcd.o: LCD/stm32_adafruit_lcd.c makefile LCD/stm32_adafruit_lcd.c LCD/lcd.h Core/Inc/main.h Core/Inc/printf.h ../libopencm3-master/include/libopencm3/stm32/rcc.h ../libopencm3-master/include/libopencm3/cm3/common.h ../libopencm3-master/include/libopencm3/stm32/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/memorymap.h ../libopencm3-master/include/libopencm3/cm3/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/rcc.h ../libopencm3-master/include/libopencm3/stm32/f7/pwr.h ../libopencm3-master/include/libopencm3/stm32/common/rcc_common_all.h ../libopencm3-master/include/libopencm3/stm32/timer.h ../libopencm3-master/include/libopencm3/stm32/f7/timer.h ../libopencm3-master/include/libopencm3/stm32/common/timer_common_all.h ../libopencm3-master/include/libopencm3/stm32/gpio.h ../libopencm3-master/include/libopencm3/stm32/f7/gpio.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f234.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_all.h ../libopencm3-master/include/libopencm3/stm32/usart.h ../libopencm3-master/include/libopencm3/stm32/f7/usart.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_v2.h ../libopencm3-master/include/libopencm3/stm32/spi.h ../libopencm3-master/include/libopencm3/stm32/f7/spi.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_v2.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_all.h ../libopencm3-master/include/libopencm3/stm32/i2c.h ../libopencm3-master/include/libopencm3/stm32/f7/i2c.h ../libopencm3-master/include/libopencm3/stm32/common/i2c_common_v2.h ../libopencm3-master/include/libopencmsis/core_cm3.h ../libopencm3-master/include/libopencm3/cm3/cortex.h ../libopencm3-master/include/libopencm3/cm3/systick.h ../libopencm3-master/include/libopencm3/cm3/nvic.h ../libopencm3-master/include/libopencm3/dispatch/nvic.h ../libopencm3-master/include/libopencm3/stm32/f7/nvic.h ../libopencm3-master/include/libopencm3/cm3/scb.h ../libopencm3-master/include/libopencmsis/dispatch/irqhandlers.h ../libopencm3-master/include/libopencmsis/stm32/f7/irqhandlers.h ../libopencm3-master/include/libopencm3/stm32/exti.h ../libopencm3-master/include/libopencm3/stm32/f7/exti.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_v1.h ../libopencm3-master/include/libopencm3/stm32/adc.h ../libopencm3-master/include/libopencm3/stm32/f7/adc.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1_multi.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1.h Core/Inc/defines.h ../libopencm3-master/include/libopencm3/stm32/dma.h ../libopencm3-master/include/libopencm3/stm32/f7/dma.h ../libopencm3-master/include/libopencm3/stm32/common/dma_common_f24.h ../libopencm3-master/include/libopencm3/stm32/flash.h ../libopencm3-master/include/libopencm3/stm32/f7/flash.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_idcache.h ../libopencm3-master/include/libopencm3/stm32/flash.h Core/Inc/buttons.h Core/Inc/i2c_oled.h ssd1306/ssd1306.h ssd1306/ssd1306_tests.h ssd1306/ssd1306_conf.h ssd1306/ssd1306_fonts.h ssd1306/ssd1306_conf.h Core/Inc/current.h ../libopencm3-master/include/libopencm3/stm32/exti.h LCD/lcd/ili9341/ili9341.h LCD/stm32_adafruit_lcd.h LCD/Fonts/fonts.h LCD/stm32_adafruit_lcd.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � stm32_adafruit_lcd �
+#  Derni�re modification 2022-08-14 12:15:51
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+../libopencm3-master/include/libopencm3/stm32/common/usart_common_v2.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-04-26 13:19:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+Core/Src/i2c_oled.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-05-11 22:13:11
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/f7/exti.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+ssd1306/ssd1306_fonts.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-03-10 09:54:17
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+LCD/stm32f7xx/lcd_fsmc8.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-05-11 16:36:37
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/ssd1306.o: ssd1306/ssd1306.c makefile ssd1306/ssd1306.c ssd1306/ssd1306.h ssd1306/ssd1306_tests.h ssd1306/ssd1306_conf.h ssd1306/ssd1306_fonts.h ssd1306/ssd1306_conf.h Core/Inc/i2c_oled.h Core/Inc/main.h Core/Inc/printf.h ../libopencm3-master/include/libopencm3/stm32/rcc.h ../libopencm3-master/include/libopencm3/cm3/common.h ../libopencm3-master/include/libopencm3/stm32/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/memorymap.h ../libopencm3-master/include/libopencm3/cm3/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/rcc.h ../libopencm3-master/include/libopencm3/stm32/f7/pwr.h ../libopencm3-master/include/libopencm3/stm32/common/rcc_common_all.h ../libopencm3-master/include/libopencm3/stm32/timer.h ../libopencm3-master/include/libopencm3/stm32/f7/timer.h ../libopencm3-master/include/libopencm3/stm32/common/timer_common_all.h ../libopencm3-master/include/libopencm3/stm32/gpio.h ../libopencm3-master/include/libopencm3/stm32/f7/gpio.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f234.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_all.h ../libopencm3-master/include/libopencm3/stm32/usart.h ../libopencm3-master/include/libopencm3/stm32/f7/usart.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_v2.h ../libopencm3-master/include/libopencm3/stm32/spi.h ../libopencm3-master/include/libopencm3/stm32/f7/spi.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_v2.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_all.h ../libopencm3-master/include/libopencm3/stm32/i2c.h ../libopencm3-master/include/libopencm3/stm32/f7/i2c.h ../libopencm3-master/include/libopencm3/stm32/common/i2c_common_v2.h ../libopencm3-master/include/libopencmsis/core_cm3.h ../libopencm3-master/include/libopencm3/cm3/cortex.h ../libopencm3-master/include/libopencm3/cm3/systick.h ../libopencm3-master/include/libopencm3/cm3/nvic.h ../libopencm3-master/include/libopencm3/dispatch/nvic.h ../libopencm3-master/include/libopencm3/stm32/f7/nvic.h ../libopencm3-master/include/libopencm3/cm3/scb.h ../libopencm3-master/include/libopencmsis/dispatch/irqhandlers.h ../libopencm3-master/include/libopencmsis/stm32/f7/irqhandlers.h ../libopencm3-master/include/libopencm3/stm32/exti.h ../libopencm3-master/include/libopencm3/stm32/f7/exti.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_v1.h ../libopencm3-master/include/libopencm3/stm32/adc.h ../libopencm3-master/include/libopencm3/stm32/f7/adc.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1_multi.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1.h Core/Inc/defines.h ../libopencm3-master/include/libopencm3/stm32/dma.h ../libopencm3-master/include/libopencm3/stm32/f7/dma.h ../libopencm3-master/include/libopencm3/stm32/common/dma_common_f24.h ../libopencm3-master/include/libopencm3/stm32/flash.h ../libopencm3-master/include/libopencm3/stm32/f7/flash.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_idcache.h ../libopencm3-master/include/libopencm3/stm32/flash.h Core/Inc/buttons.h ssd1306/ssd1306.h Core/Inc/current.h ../libopencm3-master/include/libopencm3/stm32/exti.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � ssd1306 �
+#  Derni�re modification 2022-08-14 12:15:54
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+../libopencm3-master/include/libopencm3/stm32/i2c.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+LCD/Fonts/font8.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-08-10 13:20:56
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0,  
+Collisions=0/0=0%
+
+erase: build/LCD_debug.elf
+#  Recherche de r�gle implicite n'a pas �t� effectu�e.
+#  Heure de modification jamais v�rifi�e.
+#  Fichier n'a pas �t� mis � jour.
+#  commandes � ex�cuter (de � makefile �, ligne 232):
+	openocd -f interface/stlink.cfg -f target/stm32f7x.cfg -c "init; reset halt;  mass_erase 0; exit"
+	
+
+LCD/lcd/ili9341/ili9341.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-08-09 17:59:53
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/main.o: Core/Src/main.c makefile Core/Src/main.c Core/Inc/main.h Core/Inc/printf.h ../libopencm3-master/include/libopencm3/stm32/rcc.h ../libopencm3-master/include/libopencm3/cm3/common.h ../libopencm3-master/include/libopencm3/stm32/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/memorymap.h ../libopencm3-master/include/libopencm3/cm3/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/rcc.h ../libopencm3-master/include/libopencm3/stm32/f7/pwr.h ../libopencm3-master/include/libopencm3/stm32/common/rcc_common_all.h ../libopencm3-master/include/libopencm3/stm32/timer.h ../libopencm3-master/include/libopencm3/stm32/f7/timer.h ../libopencm3-master/include/libopencm3/stm32/common/timer_common_all.h ../libopencm3-master/include/libopencm3/stm32/gpio.h ../libopencm3-master/include/libopencm3/stm32/f7/gpio.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f234.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_all.h ../libopencm3-master/include/libopencm3/stm32/usart.h ../libopencm3-master/include/libopencm3/stm32/f7/usart.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_v2.h ../libopencm3-master/include/libopencm3/stm32/spi.h ../libopencm3-master/include/libopencm3/stm32/f7/spi.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_v2.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_all.h ../libopencm3-master/include/libopencm3/stm32/i2c.h ../libopencm3-master/include/libopencm3/stm32/f7/i2c.h ../libopencm3-master/include/libopencm3/stm32/common/i2c_common_v2.h ../libopencm3-master/include/libopencmsis/core_cm3.h ../libopencm3-master/include/libopencm3/cm3/cortex.h ../libopencm3-master/include/libopencm3/cm3/systick.h ../libopencm3-master/include/libopencm3/cm3/nvic.h ../libopencm3-master/include/libopencm3/dispatch/nvic.h ../libopencm3-master/include/libopencm3/stm32/f7/nvic.h ../libopencm3-master/include/libopencm3/cm3/scb.h ../libopencm3-master/include/libopencmsis/dispatch/irqhandlers.h ../libopencm3-master/include/libopencmsis/stm32/f7/irqhandlers.h ../libopencm3-master/include/libopencm3/stm32/exti.h ../libopencm3-master/include/libopencm3/stm32/f7/exti.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_v1.h ../libopencm3-master/include/libopencm3/stm32/adc.h ../libopencm3-master/include/libopencm3/stm32/f7/adc.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1_multi.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1.h Core/Inc/defines.h ../libopencm3-master/include/libopencm3/stm32/dma.h ../libopencm3-master/include/libopencm3/stm32/f7/dma.h ../libopencm3-master/include/libopencm3/stm32/common/dma_common_f24.h ../libopencm3-master/include/libopencm3/stm32/flash.h ../libopencm3-master/include/libopencm3/stm32/f7/flash.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_idcache.h ../libopencm3-master/include/libopencm3/stm32/flash.h Core/Inc/buttons.h Core/Inc/i2c_oled.h ssd1306/ssd1306.h ssd1306/ssd1306_tests.h ssd1306/ssd1306_conf.h ssd1306/ssd1306_fonts.h ssd1306/ssd1306_conf.h Core/Inc/current.h ../libopencm3-master/include/libopencm3/stm32/exti.h fatfs/drivers/fatfs_sd.h fatfs/diskio.h fatfs/integer.h Core/Inc/attributes.h fatfs/integer.h LCD/lcd.h LCD/lcd/ili9341/ili9341.h LCD/stm32_adafruit_lcd.h LCD/lcd.h LCD/Fonts/fonts.h Core/Inc/fsm.h fatfs/ff.h fatfs/ffconf.h Core/Inc/spi_sd.h OV2640/ov2640.h ../libopencm3-master/include/libopencm3/stm32/dcmi.h ../libopencm3-master/include/libopencm3/stm32/f7/dcmi.h ../libopencm3-master/include/libopencm3/stm32/common/dcmi_common_f47.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � main �
+#  Derni�re modification 2022-08-23 23:46:48
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+build/lcd_fsmc8.o: LCD/stm32f7xx/lcd_fsmc8.c makefile LCD/stm32f7xx/lcd_fsmc8.c Core/Inc/main.h Core/Inc/printf.h ../libopencm3-master/include/libopencm3/stm32/rcc.h ../libopencm3-master/include/libopencm3/cm3/common.h ../libopencm3-master/include/libopencm3/stm32/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/memorymap.h ../libopencm3-master/include/libopencm3/cm3/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/rcc.h ../libopencm3-master/include/libopencm3/stm32/f7/pwr.h ../libopencm3-master/include/libopencm3/stm32/common/rcc_common_all.h ../libopencm3-master/include/libopencm3/stm32/timer.h ../libopencm3-master/include/libopencm3/stm32/f7/timer.h ../libopencm3-master/include/libopencm3/stm32/common/timer_common_all.h ../libopencm3-master/include/libopencm3/stm32/gpio.h ../libopencm3-master/include/libopencm3/stm32/f7/gpio.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f234.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_all.h ../libopencm3-master/include/libopencm3/stm32/usart.h ../libopencm3-master/include/libopencm3/stm32/f7/usart.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_v2.h ../libopencm3-master/include/libopencm3/stm32/spi.h ../libopencm3-master/include/libopencm3/stm32/f7/spi.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_v2.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_all.h ../libopencm3-master/include/libopencm3/stm32/i2c.h ../libopencm3-master/include/libopencm3/stm32/f7/i2c.h ../libopencm3-master/include/libopencm3/stm32/common/i2c_common_v2.h ../libopencm3-master/include/libopencmsis/core_cm3.h ../libopencm3-master/include/libopencm3/cm3/cortex.h ../libopencm3-master/include/libopencm3/cm3/systick.h ../libopencm3-master/include/libopencm3/cm3/nvic.h ../libopencm3-master/include/libopencm3/dispatch/nvic.h ../libopencm3-master/include/libopencm3/stm32/f7/nvic.h ../libopencm3-master/include/libopencm3/cm3/scb.h ../libopencm3-master/include/libopencmsis/dispatch/irqhandlers.h ../libopencm3-master/include/libopencmsis/stm32/f7/irqhandlers.h ../libopencm3-master/include/libopencm3/stm32/exti.h ../libopencm3-master/include/libopencm3/stm32/f7/exti.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_v1.h ../libopencm3-master/include/libopencm3/stm32/adc.h ../libopencm3-master/include/libopencm3/stm32/f7/adc.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1_multi.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1.h Core/Inc/defines.h ../libopencm3-master/include/libopencm3/stm32/dma.h ../libopencm3-master/include/libopencm3/stm32/f7/dma.h ../libopencm3-master/include/libopencm3/stm32/common/dma_common_f24.h ../libopencm3-master/include/libopencm3/stm32/flash.h ../libopencm3-master/include/libopencm3/stm32/f7/flash.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_idcache.h ../libopencm3-master/include/libopencm3/stm32/flash.h Core/Inc/buttons.h Core/Inc/i2c_oled.h ssd1306/ssd1306.h ssd1306/ssd1306_tests.h ssd1306/ssd1306_conf.h ssd1306/ssd1306_fonts.h ssd1306/ssd1306_conf.h Core/Inc/current.h ../libopencm3-master/include/libopencm3/stm32/exti.h LCD/lcd.h LCD/lcd/ili9341/ili9341.h LCD/stm32_adafruit_lcd.h LCD/lcd.h LCD/Fonts/fonts.h ../libopencm3-master/include/libopencm3/stm32/syscfg.h ../libopencm3-master/include/libopencm3/stm32/f7/syscfg.h ../libopencm3-master/include/libopencm3/stm32/common/syscfg_common_l1f234.h ../libopencm3-master/include/libopencm3/stm32/fsmc.h ../libopencm3-master/include/libopencm3/stm32/f7/fmc.h ../libopencm3-master/include/libopencm3/stm32/common/fmc_common_f47.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � lcd_fsmc8 �
+#  Derni�re modification 2022-08-14 12:15:51
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+../libopencm3-master/include/libopencm3/stm32/f7/syscfg.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/fsm.o: Core/Src/fsm.c makefile Core/Src/fsm.c Core/Inc/fsm.h Core/Inc/main.h Core/Inc/printf.h ../libopencm3-master/include/libopencm3/stm32/rcc.h ../libopencm3-master/include/libopencm3/cm3/common.h ../libopencm3-master/include/libopencm3/stm32/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/memorymap.h ../libopencm3-master/include/libopencm3/cm3/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/rcc.h ../libopencm3-master/include/libopencm3/stm32/f7/pwr.h ../libopencm3-master/include/libopencm3/stm32/common/rcc_common_all.h ../libopencm3-master/include/libopencm3/stm32/timer.h ../libopencm3-master/include/libopencm3/stm32/f7/timer.h ../libopencm3-master/include/libopencm3/stm32/common/timer_common_all.h ../libopencm3-master/include/libopencm3/stm32/gpio.h ../libopencm3-master/include/libopencm3/stm32/f7/gpio.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f234.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_all.h ../libopencm3-master/include/libopencm3/stm32/usart.h ../libopencm3-master/include/libopencm3/stm32/f7/usart.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_v2.h ../libopencm3-master/include/libopencm3/stm32/spi.h ../libopencm3-master/include/libopencm3/stm32/f7/spi.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_v2.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_all.h ../libopencm3-master/include/libopencm3/stm32/i2c.h ../libopencm3-master/include/libopencm3/stm32/f7/i2c.h ../libopencm3-master/include/libopencm3/stm32/common/i2c_common_v2.h ../libopencm3-master/include/libopencmsis/core_cm3.h ../libopencm3-master/include/libopencm3/cm3/cortex.h ../libopencm3-master/include/libopencm3/cm3/systick.h ../libopencm3-master/include/libopencm3/cm3/nvic.h ../libopencm3-master/include/libopencm3/dispatch/nvic.h ../libopencm3-master/include/libopencm3/stm32/f7/nvic.h ../libopencm3-master/include/libopencm3/cm3/scb.h ../libopencm3-master/include/libopencmsis/dispatch/irqhandlers.h ../libopencm3-master/include/libopencmsis/stm32/f7/irqhandlers.h ../libopencm3-master/include/libopencm3/stm32/exti.h ../libopencm3-master/include/libopencm3/stm32/f7/exti.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_v1.h ../libopencm3-master/include/libopencm3/stm32/adc.h ../libopencm3-master/include/libopencm3/stm32/f7/adc.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1_multi.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1.h Core/Inc/defines.h ../libopencm3-master/include/libopencm3/stm32/dma.h ../libopencm3-master/include/libopencm3/stm32/f7/dma.h ../libopencm3-master/include/libopencm3/stm32/common/dma_common_f24.h ../libopencm3-master/include/libopencm3/stm32/flash.h ../libopencm3-master/include/libopencm3/stm32/f7/flash.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_idcache.h ../libopencm3-master/include/libopencm3/stm32/flash.h Core/Inc/buttons.h Core/Inc/i2c_oled.h ssd1306/ssd1306.h ssd1306/ssd1306_tests.h ssd1306/ssd1306_conf.h ssd1306/ssd1306_fonts.h ssd1306/ssd1306_conf.h Core/Inc/current.h ../libopencm3-master/include/libopencm3/stm32/exti.h fatfs/ff.h fatfs/ffconf.h LCD/lcd.h LCD/lcd/ili9341/ili9341.h LCD/stm32_adafruit_lcd.h LCD/lcd.h LCD/Fonts/fonts.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � fsm �
+#  Derni�re modification 2022-08-14 12:15:42
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+../libopencm3-master/include/libopencm3/stm32/f7/flash.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/buttons.o: Core/Src/buttons.c makefile Core/Src/buttons.c Core/Inc/buttons.h Core/Inc/main.h Core/Inc/printf.h ../libopencm3-master/include/libopencm3/stm32/rcc.h ../libopencm3-master/include/libopencm3/cm3/common.h ../libopencm3-master/include/libopencm3/stm32/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/memorymap.h ../libopencm3-master/include/libopencm3/cm3/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/rcc.h ../libopencm3-master/include/libopencm3/stm32/f7/pwr.h ../libopencm3-master/include/libopencm3/stm32/common/rcc_common_all.h ../libopencm3-master/include/libopencm3/stm32/timer.h ../libopencm3-master/include/libopencm3/stm32/f7/timer.h ../libopencm3-master/include/libopencm3/stm32/common/timer_common_all.h ../libopencm3-master/include/libopencm3/stm32/gpio.h ../libopencm3-master/include/libopencm3/stm32/f7/gpio.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f234.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_all.h ../libopencm3-master/include/libopencm3/stm32/usart.h ../libopencm3-master/include/libopencm3/stm32/f7/usart.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_v2.h ../libopencm3-master/include/libopencm3/stm32/spi.h ../libopencm3-master/include/libopencm3/stm32/f7/spi.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_v2.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_all.h ../libopencm3-master/include/libopencm3/stm32/i2c.h ../libopencm3-master/include/libopencm3/stm32/f7/i2c.h ../libopencm3-master/include/libopencm3/stm32/common/i2c_common_v2.h ../libopencm3-master/include/libopencmsis/core_cm3.h ../libopencm3-master/include/libopencm3/cm3/cortex.h ../libopencm3-master/include/libopencm3/cm3/systick.h ../libopencm3-master/include/libopencm3/cm3/nvic.h ../libopencm3-master/include/libopencm3/dispatch/nvic.h ../libopencm3-master/include/libopencm3/stm32/f7/nvic.h ../libopencm3-master/include/libopencm3/cm3/scb.h ../libopencm3-master/include/libopencmsis/dispatch/irqhandlers.h ../libopencm3-master/include/libopencmsis/stm32/f7/irqhandlers.h ../libopencm3-master/include/libopencm3/stm32/exti.h ../libopencm3-master/include/libopencm3/stm32/f7/exti.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_v1.h ../libopencm3-master/include/libopencm3/stm32/adc.h ../libopencm3-master/include/libopencm3/stm32/f7/adc.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1_multi.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1.h Core/Inc/defines.h ../libopencm3-master/include/libopencm3/stm32/dma.h ../libopencm3-master/include/libopencm3/stm32/f7/dma.h ../libopencm3-master/include/libopencm3/stm32/common/dma_common_f24.h ../libopencm3-master/include/libopencm3/stm32/flash.h ../libopencm3-master/include/libopencm3/stm32/f7/flash.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_idcache.h ../libopencm3-master/include/libopencm3/stm32/flash.h Core/Inc/i2c_oled.h ssd1306/ssd1306.h ssd1306/ssd1306_tests.h ssd1306/ssd1306_conf.h ssd1306/ssd1306_fonts.h ssd1306/ssd1306_conf.h Core/Inc/current.h ../libopencm3-master/include/libopencm3/stm32/exti.h Core/Inc/fsm.h fatfs/ff.h fatfs/ffconf.h LCD/lcd.h LCD/lcd/ili9341/ili9341.h LCD/stm32_adafruit_lcd.h LCD/lcd.h LCD/Fonts/fonts.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � buttons �
+#  Derni�re modification 2022-08-14 12:15:41
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+all: build/LCD_debug.elf build/LCD_debug.hex build/LCD_debug.bin
+#  Cible provenant de la ligne de commande.
+#  Recherche de r�gle implicite effectu�e.
+# Fichier inexistant.
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+fatfs/drivers/fatfs_sd.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-08-16 14:12:58
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+LCD/Fonts/fonts.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-08-10 13:20:56
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/parameters.o: Core/Src/parameters.c makefile Core/Src/parameters.c Core/Inc/fsm.h Core/Inc/main.h Core/Inc/printf.h ../libopencm3-master/include/libopencm3/stm32/rcc.h ../libopencm3-master/include/libopencm3/cm3/common.h ../libopencm3-master/include/libopencm3/stm32/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/memorymap.h ../libopencm3-master/include/libopencm3/cm3/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/rcc.h ../libopencm3-master/include/libopencm3/stm32/f7/pwr.h ../libopencm3-master/include/libopencm3/stm32/common/rcc_common_all.h ../libopencm3-master/include/libopencm3/stm32/timer.h ../libopencm3-master/include/libopencm3/stm32/f7/timer.h ../libopencm3-master/include/libopencm3/stm32/common/timer_common_all.h ../libopencm3-master/include/libopencm3/stm32/gpio.h ../libopencm3-master/include/libopencm3/stm32/f7/gpio.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f234.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_all.h ../libopencm3-master/include/libopencm3/stm32/usart.h ../libopencm3-master/include/libopencm3/stm32/f7/usart.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_v2.h ../libopencm3-master/include/libopencm3/stm32/spi.h ../libopencm3-master/include/libopencm3/stm32/f7/spi.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_v2.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_all.h ../libopencm3-master/include/libopencm3/stm32/i2c.h ../libopencm3-master/include/libopencm3/stm32/f7/i2c.h ../libopencm3-master/include/libopencm3/stm32/common/i2c_common_v2.h ../libopencm3-master/include/libopencmsis/core_cm3.h ../libopencm3-master/include/libopencm3/cm3/cortex.h ../libopencm3-master/include/libopencm3/cm3/systick.h ../libopencm3-master/include/libopencm3/cm3/nvic.h ../libopencm3-master/include/libopencm3/dispatch/nvic.h ../libopencm3-master/include/libopencm3/stm32/f7/nvic.h ../libopencm3-master/include/libopencm3/cm3/scb.h ../libopencm3-master/include/libopencmsis/dispatch/irqhandlers.h ../libopencm3-master/include/libopencmsis/stm32/f7/irqhandlers.h ../libopencm3-master/include/libopencm3/stm32/exti.h ../libopencm3-master/include/libopencm3/stm32/f7/exti.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_v1.h ../libopencm3-master/include/libopencm3/stm32/adc.h ../libopencm3-master/include/libopencm3/stm32/f7/adc.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1_multi.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1.h Core/Inc/defines.h ../libopencm3-master/include/libopencm3/stm32/dma.h ../libopencm3-master/include/libopencm3/stm32/f7/dma.h ../libopencm3-master/include/libopencm3/stm32/common/dma_common_f24.h ../libopencm3-master/include/libopencm3/stm32/flash.h ../libopencm3-master/include/libopencm3/stm32/f7/flash.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_idcache.h ../libopencm3-master/include/libopencm3/stm32/flash.h Core/Inc/buttons.h Core/Inc/i2c_oled.h ssd1306/ssd1306.h ssd1306/ssd1306_tests.h ssd1306/ssd1306_conf.h ssd1306/ssd1306_fonts.h ssd1306/ssd1306_conf.h Core/Inc/current.h ../libopencm3-master/include/libopencm3/stm32/exti.h fatfs/ff.h fatfs/ffconf.h fatfs/diskio.h fatfs/integer.h Core/Inc/attributes.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � parameters �
+#  Derni�re modification 2022-08-14 12:15:42
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+# Pas une cible :
+build/buttons.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:41
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/cm3/common.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/f7/nvic.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-03-16 15:17:22
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/adc.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+build/font12.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:52
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+ssd1306/ssd1306_fonts.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-03-10 09:54:17
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+build/spi_sd.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:40
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/cm3/systick.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+.DEFAULT:
+#  Recherche de r�gle implicit 
+e n'a pas �t� effectu�e.
+#  Heure de modification jamais v�rifi�e.
+#  Fichier n'a pas �t� mis � jour.
+
+# Pas une cible :
+build/bitmap.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:53
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/f7/usart.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+fatfs/option/../ffconf.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-03-25 10:41:58
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/cm3/cortex.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+ssd1306/ssd1306_tests.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-03-10 09:54:17
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+build/font20.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:52
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/f7/fmc.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/spi.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+ssd1306/ssd1306_conf.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-05-07 16:48:03
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+build/ffunicode.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:50
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/font24.o: LCD/Fonts/font24.c makefile LCD/Fonts/font24.c LCD/Fonts/fonts.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � font24 �
+#  Derni�re modification 2022-08-14 12:15:53
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+fatfs/drivers/fatfs_sd.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-05-27 14:08:52
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/syscall.o: fatfs/option/syscall.c makefile fatfs/option/syscall.c fatfs/option/../ff.h fatfs/option/../ffconf.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � syscall �
+#  Derni�re modification 2022-08-14 12:15:43
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+# Pas une cible :
+fatfs/diskio.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-03-23 16:30:24
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+LCD/bmp.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-08-06 12:16:34
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/f7/rcc.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-06-06 14:27:56
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/dispatch/nvic.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-04-26 13:19:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/font16.o: LCD/Fonts/font16.c makefile LCD/Fonts/font16.c LCD/Fonts/fonts.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � font16 �
+#  Derni�re modification 2022-08-14 12:15:52
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+# Pas une cible :
+OV2640/ov2640.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-23 23:44:17
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+LCD/Fonts/font24.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-08-10 13:20:56
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+fatfs/ffconf.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-03-25 10:41:58
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+build/fatfs_sd.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:42
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/diskio.o: fatfs/diskio.c makefile fatfs/diskio.c fatfs/diskio.h fatfs/integer.h Core/Inc/defines.h Core/Inc/attributes.h fatfs/ff.h fatfs/ffconf.h fatfs/drivers/fatfs_sd.h fatfs/diskio.h fatfs/integer.h Core/Inc/main.h Core/Inc/printf.h ../libopencm3-master/include/libopencm3/stm32/rcc.h ../libopencm3-master/include/libopencm3/cm3/common.h ../libopencm3-master/include/libopencm3/stm32/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/memorymap.h ../libopencm3-master/include/libopencm3/cm3/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/rcc.h ../libopencm3-master/include/libopencm3/stm32/f7/pwr.h ../libopencm3-master/include/libopencm3/stm32/common/rcc_common_all.h ../libopencm3-master/include/libopencm3/stm32/timer.h ../libopencm3-master/include/libopencm3/stm32/f7/timer.h ../libopencm3-master/include/libopencm3/stm32/common/timer_common_all.h ../libopencm3-master/include/libopencm3/stm32/gpio.h ../libopencm3-master/include/libopencm3/stm32/f7/gpio.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f234.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_all.h ../libopencm3-master/include/libopencm3/stm32/usart.h ../libopencm3-master/include/libopencm3/stm32/f7/usart.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_v2.h ../libopencm3-master/include/libopencm3/stm32/spi.h ../libopencm3-master/include/libopencm3/stm32/f7/spi.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_v2.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_all.h ../libopencm3-master/include/libopencm3/stm32/i2c.h ../libopencm3-master/include/libopencm3/stm32/f7/i2c.h ../libopencm3-master/include/libopencm3/stm32/common/i2c_common_v2.h ../libopencm3-master/include/libopencmsis/core_cm3.h ../libopencm3-master/include/libopencm3/cm3/cortex.h ../libopencm3-master/include/libopencm3/cm3/systick.h ../libopencm3-master/include/libopencm3/cm3/nvic.h ../libopencm3-master/include/libopencm3/dispatch/nvic.h ../libopencm3-master/include/libopencm3/stm32/f7/nvic.h ../libopencm3-master/include/libopencm3/cm3/scb.h ../libopencm3-master/include/libopencmsis/dispatch/irqhandlers.h ../libopencm3-master/include/libopencmsis/stm32/f7/irqhandlers.h ../libopencm3-master/include/libopencm3/stm32/exti.h ../libopencm3-master/include/libopencm3/stm32/f7/exti.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_v1.h ../libopencm3-master/include/libopencm3/stm32/adc.h ../libopencm3-master/include/libopencm3/stm32/f7/adc.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1_multi.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1.h ../libopencm3-master/include/libopencm3/stm32/dma.h ../libopencm3-master/include/libopencm3/stm32/f7/dma.h ../libopencm3-master/include/libopencm3/stm32/common/dma_common_f24.h ../libopencm3-master/include/libopencm3/stm32/flash.h ../libopencm3-master/include/libopencm3/stm32/f7/flash.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_idcache.h ../libopencm3-master/include/libopencm3/stm32/flash.h Core/Inc/buttons.h Core/Inc/i2c_oled.h ssd1306/ssd1306.h ssd1306/ssd1306_tests.h ssd1306/ssd1306_conf.h ssd1306/ssd1306_fonts.h ssd1306/ssd1306_conf.h Core/Inc/current.h ../libopencm3-master/include/libopencm3/stm32/exti.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � diskio �
+#  Derni�re modification 2022-08-14 12:15:43
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+# Pas une cible :
+build/ssd1306_fonts.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:54
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+build/i2c_oled.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:41
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+Core/Inc/i2c_oled.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-05-07 22:39:05
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+Core/Src/spi_sd.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-05-10 22:55:11
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/fsmc.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+makefile:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:38
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/exti.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build:
+#  Recherche de r�gle implicite n'a pas �t� effectu�e.
+#  Derni�re modification 2022-08-23 23:46:48
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+#  commandes � ex�cuter (de � makefile �, ligne 220):
+	mkdir $@
+	
+
+../libopencm3-master/include/libopencm3/stm32/f7/dcmi.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+LCD/Fonts/font16.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-08-10 13:20:56
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+Core/Inc/defines.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-05-08 18:57:55
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f234.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/LCD_debug.bin: build/LCD_debug.elf | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � LCD_debug �
+#  Derni�re modification 2022-08-23 23:46:48
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 217):
+	$(BIN) $< $@
+	
+
+../libopencm3-master/include/libopencm3/stm32/common/syscfg_common_l1f234.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/spi_sd.o: Core/Src/spi_sd.c makefile Core/Src/spi_sd.c Core/Inc/spi_sd.h Core/Inc/main.h Core/Inc/printf.h ../libopencm3-master/include/libopencm3/stm32/rcc.h ../libopencm3-master/include/libopencm3/cm3/common.h ../libopencm3-master/include/libopencm3/stm32/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/memorymap.h ../libopencm3-master/include/libopencm3/cm3/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/rcc.h ../libopencm3-master/include/libopencm3/stm32/f7/pwr.h ../libopencm3-master/include/libopencm3/stm32/common/rcc_common_all.h ../libopencm3-master/include/libopencm3/stm32/timer.h ../libopencm3-master/include/libopencm3/stm32/f7/timer.h ../libopencm3-master/include/libopencm3/stm32/common/timer_common_all.h ../libopencm3-master/include/libopencm3/stm32/gpio.h ../libopencm3-master/include/libopencm3/stm32/f7/gpio.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f234.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_all.h ../libopencm3-master/include/libopencm3/stm32/usart.h ../libopencm3-master/include/libopencm3/stm32/f7/usart.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_v2.h ../libopencm3-master/include/libopencm3/stm32/spi.h ../libopencm3-master/include/libopencm3/stm32/f7/spi.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_v2.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_all.h ../libopencm3-master/include/libopencm3/stm32/i2c.h ../libopencm3-master/include/libopencm3/stm32/f7/i2c.h ../libopencm3-master/include/libopencm3/stm32/common/i2c_common_v2.h ../libopencm3-master/include/libopencmsis/core_cm3.h ../libopencm3-master/include/libopencm3/cm3/cortex.h ../libopencm3-master/include/libopencm3/cm3/systick.h ../libopencm3-master/include/libopencm3/cm3/nvic.h ../libopencm3-master/include/libopencm3/dispatch/nvic.h ../libopencm3-master/include/libopencm3/stm32/f7/nvic.h ../libopencm3-master/include/libopencm3/cm3/scb.h ../libopencm3-master/include/libopencmsis/dispatch/irqhandlers.h ../libopencm3-master/include/libopencmsis/stm32/f7/irqhandlers.h ../libopencm3-master/include/libopencm3/stm32/exti.h ../libopencm3-master/include/libopencm3/stm32/f7/exti.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_v1.h ../libopencm3-master/include/libopencm3/stm32/adc.h ../libopencm3-master/include/libopencm3/stm32/f7/adc.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1_multi.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1.h Core/Inc/defines.h ../libopencm3-master/include/libopencm3/stm32/dma.h ../libopencm3-master/include/libopencm3/stm32/f7/dma.h ../libopencm3-master/include/libopencm3/stm32/common/dma_common_f24.h ../libopencm3-master/include/libopencm3/stm32/flash.h ../libopencm3-master/include/libopencm3/stm32/f7/flash.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_idcache.h ../libopencm3-master/include/libopencm3/stm32/flash.h Core/Inc/buttons.h Core/Inc/i2c_oled.h ssd1306/ssd1306.h ssd1306/ssd1306_tests.h ssd1306/ssd1306_conf.h ssd1306/ssd1306_fonts.h ssd1306/ssd1306_conf.h Core/Inc/current.h ../libopencm3-master/include/libopencm3/stm32/exti.h fatfs/ff.h fatfs/ffconf.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � spi_sd �
+#  Derni�re modification 2022-08-14 12:15:41
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+# Pas une cible :
+build/ff.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:44
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+LCD/lcd.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-05-11 23:17:36
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/f7/dma.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/common/flash_common_idcache.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+fatfs/ffunicode.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-05 15:05:44
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/syscfg.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/timer.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+bitmap.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-05-15 09:19:26
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/cm3/scb.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-04-26 13:19:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+Core/Inc/printf.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-04-21 18:59:58
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+build/ili9341.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:51
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/f7/gpio.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+fatfs/diskio.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-03-22 11:45:22
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/font12.o: LCD/Fonts/font12.c makefile LCD/Fonts/font12.c LCD/Fonts/fonts.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � font12 �
+#  Derni�re modification 2022-08-14 12:15:52
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+OV2640/ov2640.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-23 22:33:43
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+fatfs/integer.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-03-22 10:22:36
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/cm3/nvic.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/common/flash_common_f.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+build/lcd_.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:40
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/flash.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+ssd1306/ssd1306.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-05-07 22:42:01
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+LCD/Fonts/font12.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-08-10 13:20:56
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+build/ov2640.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-23 23:44:18
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/bitmap.o: bitmap.c makefile bitmap.c Core/Inc/main.h Core/Inc/printf.h ../libopencm3-master/include/libopencm3/stm32/rcc.h ../libopencm3-master/include/libopencm3/cm3/common.h ../libopencm3-master/include/libopencm3/stm32/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/memorymap.h ../libopencm3-master/include/libopencm3/cm3/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/rcc.h ../libopencm3-master/include/libopencm3/stm32/f7/pwr.h ../libopencm3-master/include/libopencm3/stm32/common/rcc_common_all.h ../libopencm3-master/include/libopencm3/stm32/timer.h ../libopencm3-master/include/libopencm3/stm32/f7/timer.h ../libopencm3-master/include/libopencm3/stm32/common/timer_common_all.h ../libopencm3-master/include/libopencm3/stm32/gpio.h ../libopencm3-master/include/libopencm3/stm32/f7/gpio.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f234.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_all.h ../libopencm3-master/include/libopencm3/stm32/usart.h ../libopencm3-master/include/libopencm3/stm32/f7/usart.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_v2.h ../libopencm3-master/include/libopencm3/stm32/spi.h ../libopencm3-master/include/libopencm3/stm32/f7/spi.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_v2.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_all.h ../libopencm3-master/include/libopencm3/stm32/i2c.h ../libopencm3-master/include/libopencm3/stm32/f7/i2c.h ../libopencm3-master/include/libopencm3/stm32/common/i2c_common_v2.h ../libopencm3-master/include/libopencmsis/core_cm3.h ../libopencm3-master/include/libopencm3/cm3/cortex.h ../libopencm3-master/include/libopencm3/cm3/systick.h ../libopencm3-master/include/libopencm3/cm3/nvic.h ../libopencm3-master/include/libopencm3/dispatch/nvic.h ../libopencm3-master/include/libopencm3/stm32/f7/nvic.h ../libopencm3-master/include/libopencm3/cm3/scb.h ../libopencm3-master/include/libopencmsis/dispatch/irqhandlers.h ../libopencm3-master/include/libopencmsis/stm32/f7/irqhandlers.h ../libopencm3-master/include/libopencm3/stm32/exti.h ../libopencm3-master/include/libopencm3/stm32/f7/exti.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_v1.h ../libopencm3-master/include/libopencm3/stm32/adc.h ../libopencm3-master/include/libopencm3/stm32/f7/adc.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1_multi.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1.h Core/Inc/defines.h ../libopencm3-master/include/libopencm3/stm32/dma.h ../libopencm3-master/include/libopencm3/stm32/f7/dma.h ../libopencm3-master/include/libopencm3/stm32/common/dma_common_f24.h ../libopencm3-master/include/libopencm3/stm32/flash.h ../libopencm3-master/include/libopencm3/stm32/f7/flash.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_idcache.h ../libopencm3-master/include/libopencm3/stm32/flash.h Core/Inc/buttons.h Core/Inc/i2c_oled.h ssd1306/ssd1306.h ssd1306/ssd1306_tests.h ssd1306/ssd1306_conf.h ssd1306/ssd1306_fonts.h ssd1306/ssd1306_conf.h Core/Inc/current.h ../libopencm3-master/include/libopencm3/stm32/exti.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � bitmap �
+#  Derni�re modification 2022-08-14 12:15:54
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1_multi.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+LCD/stm32_adafruit_lcd.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-08-10 15:21:14
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/font20.o: LCD/Fonts/font20.c makefile LCD/Fonts/font20.c LCD/Fonts/fonts.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � font20 �
+#  Derni�re modification 2022-08-14 12:15:52
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+../libopencm3-master/include/libopencm3/stm32/usart.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+build/printf.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-1 
+4 12:15:40
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+build/ssd1306_tests.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:55
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/common/spi_common_all.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+fatfs/ff.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-05 15:05:44
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+fatfs/option/../ff.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-04-13 10:29:22
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/ffunicode.o: fatfs/ffunicode.c makefile fatfs/ffunicode.c fatfs/ff.h fatfs/ffconf.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � ffunicode �
+#  Derni�re modification 2022-08-14 12:15:50
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+# Pas une cible :
+.SUFFIXES:
+#  Recherche de r�gle implicite n'a pas �t� effectu�e.
+#  Heure de modification jamais v�rifi�e.
+#  Fichier n'a pas �t� mis � jour.
+
+Core/Inc/attributes.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-04-01 09:35:22
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+Core/Src/lcd_.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-05-11 23:06:45
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/common/i2c_common_v2.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-04-26 13:19:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+LCD/Fonts/font20.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-08-10 13:20:56
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/common/timer_common_all.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/f7/memorymap.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-04-26 13:19:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/fatfs_sd.o: fatfs/drivers/fatfs_sd.c makefile fatfs/drivers/fatfs_sd.c fatfs/drivers/fatfs_sd.h fatfs/diskio.h fatfs/integer.h Core/Inc/defines.h Core/Inc/attributes.h fatfs/integer.h Core/Inc/main.h Core/Inc/printf.h ../libopencm3-master/include/libopencm3/stm32/rcc.h ../libopencm3-master/include/libopencm3/cm3/common.h ../libopencm3-master/include/libopencm3/stm32/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/memorymap.h ../libopencm3-master/include/libopencm3/cm3/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/rcc.h ../libopencm3-master/include/libopencm3/stm32/f7/pwr.h ../libopencm3-master/include/libopencm3/stm32/common/rcc_common_all.h ../libopencm3-master/include/libopencm3/stm32/timer.h ../libopencm3-master/include/libopencm3/stm32/f7/timer.h ../libopencm3-master/include/libopencm3/stm32/common/timer_common_all.h ../libopencm3-master/include/libopencm3/stm32/gpio.h ../libopencm3-master/include/libopencm3/stm32/f7/gpio.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f234.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_all.h ../libopencm3-master/include/libopencm3/stm32/usart.h ../libopencm3-master/include/libopencm3/stm32/f7/usart.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_v2.h ../libopencm3-master/include/libopencm3/stm32/spi.h ../libopencm3-master/include/libopencm3/stm32/f7/spi.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_v2.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_all.h ../libopencm3-master/include/libopencm3/stm32/i2c.h ../libopencm3-master/include/libopencm3/stm32/f7/i2c.h ../libopencm3-master/include/libopencm3/stm32/common/i2c_common_v2.h ../libopencm3-master/include/libopencmsis/core_cm3.h ../libopencm3-master/include/libopencm3/cm3/cortex.h ../libopencm3-master/include/libopencm3/cm3/systick.h ../libopencm3-master/include/libopencm3/cm3/nvic.h ../libopencm3-master/include/libopencm3/dispatch/nvic.h ../libopencm3-master/include/libopencm3/stm32/f7/nvic.h ../libopencm3-master/include/libopencm3/cm3/scb.h ../libopencm3-master/include/libopencmsis/dispatch/irqhandlers.h ../libopencm3-master/include/libopencmsis/stm32/f7/irqhandlers.h ../libopencm3-master/include/libopencm3/stm32/exti.h ../libopencm3-master/include/libopencm3/stm32/f7/exti.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_v1.h ../libopencm3-master/include/libopencm3/stm32/adc.h ../libopencm3-master/include/libopencm3/stm32/f7/adc.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1_multi.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1.h ../libopencm3-master/include/libopencm3/stm32/dma.h ../libopencm3-master/include/libopencm3/stm32/f7/dma.h ../libopencm3-master/include/libopencm3/stm32/common/dma_common_f24.h ../libopencm3-master/include/libopencm3/stm32/flash.h ../libopencm3-master/include/libopencm3/stm32/f7/flash.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_idcache.h ../libopencm3-master/include/libopencm3/stm32/flash.h Core/Inc/buttons.h Core/Inc/i2c_oled.h ssd1306/ssd1306.h ssd1306/ssd1306_tests.h ssd1306/ssd1306_conf.h ssd1306/ssd1306_fonts.h ssd1306/ssd1306_conf.h Core/Inc/current.h ../libopencm3-master/include/libopencm3/stm32/exti.h Core/Inc/spi_sd.h fatfs/ff.h fatfs/ffconf.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � fatfs_sd �
+#  Derni�re modification 2022-08-14 12:15:42
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+../libopencm3-master/include/libopencm3/stm32/rcc.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+Core/Inc/current.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-05-09 21:20:53
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/ssd1306_fonts.o: ssd1306/ssd1306_fonts.c makefile ssd1306/ssd1306_fonts.c ssd1306/ssd1306_fonts.h ssd1306/ssd1306_conf.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � ssd1306_fonts �
+#  Derni�re modification 2022-08-14 12:15:54
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+build/i2c_oled.o: Core/Src/i2c_oled.c makefile Core/Src/i2c_oled.c Core/Inc/i2c_oled.h Core/Inc/main.h Core/Inc/printf.h ../libopencm3-master/include/libopencm3/stm32/rcc.h ../libopencm3-master/include/libopencm3/cm3/common.h ../libopencm3-master/include/libopencm3/stm32/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/memorymap.h ../libopencm3-master/include/libopencm3/cm3/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/rcc.h ../libopencm3-master/include/libopencm3/stm32/f7/pwr.h ../libopencm3-master/include/libopencm3/stm32/common/rcc_common_all.h ../libopencm3-master/include/libopencm3/stm32/timer.h ../libopencm3-master/include/libopencm3/stm32/f7/timer.h ../libopencm3-master/include/libopencm3/stm32/common/timer_common_all.h ../libopencm3-master/include/libopencm3/stm32/gpio.h ../libopencm3-master/include/libopencm3/stm32/f7/gpio.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f234.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_all.h ../libopencm3-master/include/libopencm3/stm32/usart.h ../libopencm3-master/include/libopencm3/stm32/f7/usart.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_v2.h ../libopencm3-master/include/libopencm3/stm32/spi.h ../libopencm3-master/include/libopencm3/stm32/f7/spi.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_v2.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_all.h ../libopencm3-master/include/libopencm3/stm32/i2c.h ../libopencm3-master/include/libopencm3/stm32/f7/i2c.h ../libopencm3-master/include/libopencm3/stm32/common/i2c_common_v2.h ../libopencm3-master/include/libopencmsis/core_cm3.h ../libopencm3-master/include/libopencm3/cm3/cortex.h ../libopencm3-master/include/libopencm3/cm3/systick.h ../libopencm3-master/include/libopencm3/cm3/nvic.h ../libopencm3-master/include/libopencm3/dispatch/nvic.h ../libopencm3-master/include/libopencm3/stm32/f7/nvic.h ../libopencm3-master/include/libopencm3/cm3/scb.h ../libopencm3-master/include/libopencmsis/dispatch/irqhandlers.h ../libopencm3-master/include/libopencmsis/stm32/f7/irqhandlers.h ../libopencm3-master/include/libopencm3/stm32/exti.h ../libopencm3-master/include/libopencm3/stm32/f7/exti.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_v1.h ../libopencm3-master/include/libopencm3/stm32/adc.h ../libopencm3-master/include/libopencm3/stm32/f7/adc.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1_multi.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1.h Core/Inc/defines.h ../libopencm3-master/include/libopencm3/stm32/dma.h ../libopencm3-master/include/libopencm3/stm32/f7/dma.h ../libopencm3-master/include/libopencm3/stm32/common/dma_common_f24.h ../libopencm3-master/include/libopencm3/stm32/flash.h ../libopencm3-master/include/libopencm3/stm32/f7/flash.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_idcache.h ../libopencm3-master/include/libopencm3/stm32/flash.h Core/Inc/buttons.h ssd1306/ssd1306.h ssd1306/ssd1306_tests.h ssd1306/ssd1306_conf.h ssd1306/ssd1306_fonts.h ssd1306/ssd1306_conf.h Core/Inc/current.h ../libopencm3-master/include/libopencm3/stm32/exti.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � i2c_oled �
+#  Derni�re modification 2022-08-14 12:15:41
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+ssd1306/ssd1306.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-05-07 19:54:48
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+build/font8.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:52
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/LCD_debug.elf: build/main.o build/printf.o build/lcd_.o build/spi_sd.o build/i2c_oled.o build/current.o build/buttons.o build/parameters.o build/fsm.o build/fatfs_sd.o build/syscall.o build/diskio.o build/ff.o build/ffunicode.o build/lcd_fsmc8.o build/stm32_adafruit_lcd.o build/ili9341.o build/font8.o build/font12.o build/font16.o build/font20.o build/font24.o build/bitmap.o build/ssd1306_fonts.o build/ssd1306.o build/ssd1306_tests.o build/ov2640.o makefile
+#  Recherche de r�gle implicite n'a pas �t� effectu�e.
+#  Derni�re modification 2022-08-23 23:46:48
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 210):
+	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
+	$(SZ) $@
+	
+
+../libopencm3-master/include/libopencm3/stm32/common/exti_common_v1.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/common/flash_common_f24.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/common/exti_common_all.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/ssd1306_tests.o: ssd1306/ssd1306_tests.c makefile ssd1306/ssd1306_tests.c ssd1306/ssd1306.h ssd1306/ssd1306_tests.h ssd1306/ssd1306_conf.h ssd1306/ssd1306_fonts.h ssd1306/ssd1306_conf.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � ssd1306_tests �
+#  Derni�re modification 2022-08-14 12:15:55
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+LCD/stm32_adafruit_lcd.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-08-11 12:43:15
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+Core/Inc/main.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-07-03 15:20:59
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/ff.o: fatfs/ff.c makefile fatfs/ff.c fatfs/ff.h fatfs/ffconf.h fatfs/diskio.h fatfs/integer.h Core/Inc/defines.h Core/Inc/attributes.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � ff �
+#  Derni�re modification 2022-08-14 12:15:50
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+fatfs/ff.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-04-13 10:29:22
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+clean:
+#  Recherche de r�gle implicite n'a pas �t� effectu�e.
+#  Heure de modification jamais v�rifi�e.
+#  Fichier n'a pas �t� mis � jour.
+#  commandes � ex�cuter (de � makefile �, ligne 238):
+	cmd /c rd /s /q $(BUILD_DIR)
+	
+
+../libopencm3-master/include/libopencm3/stm32/common/fmc_common_f47.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-04-26 13:20:44
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+Core/Inc/fsm.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-05-11 22:53:50
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/dma.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/common/flash_common_all.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/ili9341.o: LCD/lcd/ili9341/ili9341.c makefile LCD/lcd/ili9341/ili9341.c Core/Inc/main.h Core/Inc/printf.h ../libopencm3-master/include/libopencm3/stm32/rcc.h ../libopencm3-master/include/libopencm3/cm3/common.h ../libopencm3-master/include/libopencm3/stm32/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/memorymap.h ../libopencm3-master/include/libopencm3/cm3/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/rcc.h ../libopencm3-master/include/libopencm3/stm32/f7/pwr.h ../libopencm3-master/include/libopencm3/stm32/common/rcc_common_all.h ../libopencm3-master/include/libopencm3/stm32/timer.h ../libopencm3-master/include/libopencm3/stm32/f7/timer.h ../libopencm3-master/include/libopencm3/stm32/common/timer_common_all.h ../libopencm3-master/include/libopencm3/stm32/gpio.h ../libopencm3-master/include/libopencm3/stm32/f7/gpio.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f234.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_all.h ../libopencm3-master/include/libopencm3/stm32/usart.h ../libopencm3-master/include/libopencm3/stm32/f7/usart.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_v2.h ../libopencm3-master/include/libopencm3/stm32/spi.h ../libopencm3-master/include/libopencm3/stm32/f7/spi.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_v2.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_all.h ../libopencm3-master/include/libopencm3/stm32/i2c.h ../libopencm3-master/include/libopencm3/stm32/f7/i2c.h ../libopencm3-master/include/libopencm3/stm32/common/i2c_common_v2.h ../libopencm3-master/include/libopencmsis/core_cm3.h ../libopencm3-master/include/libopencm3/cm3/cortex.h ../libopencm3-master/include/libopencm3/cm3/systick.h ../libopencm3-master/include/libopencm3/cm3/nvic.h ../libopencm3-master/include/libopencm3/dispatch/nvic.h ../libopencm3-master/include/libopencm3/stm32/f7/nvic.h ../libopencm3-master/include/libopencm3/cm3/scb.h ../libopencm3-master/include/libopencmsis/dispatch/irqhandlers.h ../libopencm3-master/include/libopencmsis/stm32/f7/irqhandlers.h ../libopencm3-master/include/libopencm3/stm32/exti.h ../libopencm3-master/include/libopencm3/stm32/f7/exti.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_v1.h ../libopencm3-master/include/libopencm3/stm32/adc.h ../libopencm3-master/include/libopencm3/stm32/f7/adc.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1_multi.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1.h Core/Inc/defines.h ../libopencm3-master/include/libopencm3/stm32/dma.h ../libopencm3-master/include/libopencm3/stm32/f7/dma.h ../libopencm3-master/include/libopencm3/stm32/common/dma_common_f24.h ../libopencm3-master/include/libopencm3/stm32/flash.h ../libopencm3-master/include/libopencm3/stm32/f7/flash.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_idcache.h ../libopencm3-master/include/libopencm3/stm32/flash.h Core/Inc/buttons.h Core/Inc/i2c_oled.h ssd1306/ssd1306.h ssd1306/ssd1306_tests.h ssd1306/ssd1306_conf.h ssd1306/ssd1306_fonts.h ssd1306/ssd1306_conf.h Core/Inc/current.h ../libopencm3-master/include/libopencm3/stm32/exti.h LCD/lcd.h LCD/lcd/ili9341/ili9341.h LCD/stm32_adafruit_lcd.h LCD/lcd.h LCD/Fonts/fonts.h LCD/bmp.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � ili9341 �
+#  Derni�re modification 2022-08-14 12:15:52
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+Core/Inc/buttons.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-05-11 14:40:28
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+build/current.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:41
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencmsis/stm32/f7/irqhandlers.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-03-16 15:17:22
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/gpio.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+build/stm32_adafruit_lcd.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:51
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/common/spi_common_v2.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/f7/i2c.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/lcd_.o: Core/Src/lcd_.c makefile Core/Src/lcd_.c LCD/lcd.h Core/Inc/main.h Core/Inc/printf.h ../libopencm3-master/include/libopencm3/stm32/rcc.h ../libopencm3-master/include/libopencm3/cm3/common.h ../libopencm3-master/include/libopencm3/stm32/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/memorymap.h ../libopencm3-master/include/libopencm3/cm3/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/rcc.h ../libopencm3-master/include/libopencm3/stm32/f7/pwr.h ../libopencm3-master/include/libopencm3/stm32/common/rcc_common_all.h ../libopencm3-master/include/libopencm3/stm32/timer.h ../libopencm3-master/include/libopencm3/stm32/f7/timer.h ../libopencm3-master/include/libopencm3/stm32/common/timer_common_all.h ../libopencm3-master/include/libopencm3/stm32/gpio.h ../libopencm3-master/include/libopencm3/stm32/f7/gpio.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f234.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_all.h ../libopencm3-master/include/libopencm3/stm32/usart.h ../libopencm3-master/include/libopencm3/stm32/f7/usart.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_v2.h ../libopencm3-master/include/libopencm3/stm32/spi.h ../libopencm3-master/include/libopencm3/stm32/f7/spi.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_v2.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_all.h ../libopencm3-master/include/libopencm3/stm32/i2c.h ../libopencm3-master/include/libopencm3/stm32/f7/i2c.h ../libopencm3-master/include/libopencm3/stm32/common/i2c_common_v2.h ../libopencm3-master/include/libopencmsis/core_cm3.h ../libopencm3-master/include/libopencm3/cm3/cortex.h ../libopencm3-master/include/libopencm3/cm3/systick.h ../libopencm3-master/include/libopencm3/cm3/nvic.h ../libopencm3-master/include/libopencm3/dispatch/nvic.h ../libopencm3-master/include/libopencm3/stm32/f7/nvic.h ../libopencm3-master/include/libopencm3/cm3/scb.h ../libopencm3-master/include/libopencmsis/dispatch/irqhandlers.h ../libopencm3-master/include/libopencmsis/stm32/f7/irqhandlers.h ../libopencm3-master/include/libopencm3/stm32/exti.h ../libopencm3-master/include/libopencm3/stm32/f7/exti.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_v1.h ../libopencm3-master/include/libopencm3/stm32/adc.h ../libopencm3-master/include/libopencm3/stm32/f7/adc.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1_multi.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1.h Core/Inc/defines.h ../libopencm3-master/include/libopencm3/stm32/dma.h ../libopencm3-master/include/libopencm3/stm32/f7/dma.h ../libopencm3-master/include/libopencm3/stm32/common/dma_common_f24.h ../libopencm3-master/include/libopencm3/stm32/flash.h ../libopencm3-master/include/libopencm3/stm32/f7/flash.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_idcache.h ../libopencm3-master/include/libopencm3/stm32/flash.h Core/Inc/buttons.h Core/Inc/i2c_oled.h ssd1306/ssd1306.h ssd1306/ssd1306_tests.h ssd1306/ssd1306_conf.h ssd1306/ssd1306_fonts.h ssd1306/ssd1306_conf.h Core/Inc/current.h ../libopencm3-master/include/libopencm3/stm32/exti.h LCD/lcd/ili9341/ili9341.h LCD/stm32_adafruit_lcd.h LCD/lcd.h LCD/Fonts/fonts.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � lcd_ �
+#  Derni�re modification 2022-08-14 12:15:40
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+# Pas une cible :
+build/ssd1306.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:54
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+Core/Src/printf.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-04-21 19:15:30
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/dcmi.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/ov2640.o: OV2640/ov2640.c makefile OV2640/ov2640.c OV2640/ov2640.h Core/Inc/main.h Core/Inc/printf.h ../libopencm3-master/include/libopencm3/stm32/rcc.h ../libopencm3-master/include/libopencm3/cm3/common.h ../libopencm3-master/include/libopencm3/stm32/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/memorymap.h ../libopencm3-master/include/libopencm3/cm3/memorymap.h ../libopencm3-master/include/libopencm3/stm32/f7/rcc.h ../libopencm3-master/include/libopencm3/stm32/f7/pwr.h ../libopencm3-master/include/libopencm3/stm32/common/rcc_common_all.h ../libopencm3-master/include/libopencm3/stm32/timer.h ../libopencm3-master/include/libopencm3/stm32/f7/timer.h ../libopencm3-master/include/libopencm3/stm32/common/timer_common_all.h ../libopencm3-master/include/libopencm3/stm32/gpio.h ../libopencm3-master/include/libopencm3/stm32/f7/gpio.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f234.h ../libopencm3-master/include/libopencm3/stm32/common/gpio_common_all.h ../libopencm3-master/include/libopencm3/stm32/usart.h ../libopencm3-master/include/libopencm3/stm32/f7/usart.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/usart_common_v2.h ../libopencm3-master/include/libopencm3/stm32/spi.h ../libopencm3-master/include/libopencm3/stm32/f7/spi.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_v2.h ../libopencm3-master/include/libopencm3/stm32/common/spi_common_all.h ../libopencm3-master/include/libopencm3/stm32/i2c.h ../libopencm3-master/include/libopencm3/stm32/f7/i2c.h ../libopencm3-master/include/libopencm3/stm32/common/i2c_common_v2.h ../libopencm3-master/include/libopencmsis/core_cm3.h ../libopencm3-master/include/libopencm3/cm3/cortex.h ../libopencm3-master/include/libopencm3/cm3/systick.h ../libopencm3-master/include/libopencm3/cm3/nvic.h ../libopencm3-master/include/libopencm3/dispatch/nvic.h ../libopencm3-master/include/libopencm3/stm32/f7/nvic.h ../libopencm3-master/include/libopencm3/cm3/scb.h ../libopencm3-master/include/libopencmsis/dispatch/irqhandlers.h ../libopencm3-master/include/libopencmsis/stm32/f7/irqhandlers.h ../libopencm3-master/include/libopencm3/stm32/exti.h ../libopencm3-master/include/libopenc 
+m3/stm32/f7/exti.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/exti_common_v1.h ../libopencm3-master/include/libopencm3/stm32/adc.h ../libopencm3-master/include/libopencm3/stm32/f7/adc.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1_multi.h ../libopencm3-master/include/libopencm3/stm32/common/adc_common_v1.h Core/Inc/defines.h ../libopencm3-master/include/libopencm3/stm32/dma.h ../libopencm3-master/include/libopencm3/stm32/f7/dma.h ../libopencm3-master/include/libopencm3/stm32/common/dma_common_f24.h ../libopencm3-master/include/libopencm3/stm32/flash.h ../libopencm3-master/include/libopencm3/stm32/f7/flash.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_all.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_f24.h ../libopencm3-master/include/libopencm3/stm32/common/flash_common_idcache.h ../libopencm3-master/include/libopencm3/stm32/flash.h Core/Inc/buttons.h Core/Inc/i2c_oled.h ssd1306/ssd1306.h ssd1306/ssd1306_tests.h ssd1306/ssd1306_conf.h ssd1306/ssd1306_fonts.h ssd1306/ssd1306_conf.h Core/Inc/current.h ../libopencm3-master/include/libopencm3/stm32/exti.h ../libopencm3-master/include/libopencm3/stm32/dcmi.h ../libopencm3-master/include/libopencm3/stm32/f7/dcmi.h ../libopencm3-master/include/libopencm3/stm32/common/dcmi_common_f47.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � ov2640 �
+#  Derni�re modification 2022-08-23 23:44:18
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+# Pas une cible :
+build/main.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-23 23:46:48
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+build/lcd_fsmc8.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:51
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+build/fsm.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:42
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+Core/Src/current.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-05-09 21:11:35
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/printf.o: Core/Src/printf.c makefile Core/Src/printf.c Core/Inc/printf.h | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � printf �
+#  Derni�re modification 2022-08-14 12:15:40
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 204):
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	
+
+../libopencm3-master/include/libopencm3/stm32/common/usart_common_all.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-04-26 13:19:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+flash: build/LCD_debug.elf
+#  Recherche de r�gle implicite n'a pas �t� effectu�e.
+#  Heure de modification jamais v�rifi�e.
+#  Fichier n'a pas �t� mis � jour.
+#  commandes � ex�cuter (de � makefile �, ligne 226):
+	openocd -f interface/stlink.cfg  -f target/stm32f7x.cfg -c "program $(BUILD_DIR)/$(TARGET).elf verify reset exit"
+	
+
+../libopencm3-master/include/libopencm3/stm32/f7/adc.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+build/parameters.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:42
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+ssd1306/ssd1306_tests.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-05-07 19:54:12
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+build/LCD_debug.hex: build/LCD_debug.elf | build
+#  Recherche de r�gle implicite effectu�e.
+#  Pr�fixe de sch�ma implicite/statique : � LCD_debug �
+#  Derni�re modification 2022-08-23 23:46:48
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+#  commandes � ex�cuter (de � makefile �, ligne 214):
+	$(HEX) $< $@
+	
+
+# Pas une cible :
+Core/Src/main.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-23 23:46:46
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencmsis/dispatch/irqhandlers.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-04-26 13:19:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/common/rcc_common_all.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+Core/Src/fsm.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-05-12 12:56:37
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/memorymap.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/cm3/memorymap.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+Core/Src/buttons.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-05-11 23:28:00
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/common/dcmi_common_f47.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/f7/spi.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+Core/Src/parameters.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-05-11 22:58:27
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/common/dma_common_f24.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+LCD/lcd/ili9341/ili9341.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2021-08-10 14:34:50
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/f7/pwr.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/common/gpio_common_f24.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencmsis/core_cm3.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+build/font24.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:53
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+build/syscall.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:43
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+../libopencm3-master/include/libopencm3/stm32/f7/timer.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2020-12-11 13:15:02
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+Core/Inc/spi_sd.h:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-05-10 22:55:00
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+build/diskio.d:
+#  Une valeur par d�faut MAKEFILES ou -include/sinclude makefile.
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2022-08-14 12:15:43
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+fatfs/option/syscall.c:
+#  Recherche de r�gle implicite effectu�e.
+#  Derni�re modification 2015-05-06 16:29:56
+#  Fichier a �t� mis � jour.
+#  Mise � jour r�ussie
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# statistiques des fichiers de la table de hachage:
+# Charge=180/1024=18%, Refait le hachage=0, Collisions=338/3104=11%
+# Chemins de Recherche VPATH
+
+vpath %.c Core/Src;LCD;LCD/Fonts;LCD/lcd/ili9341;LCD/stm32f7xx;OV2640;fatfs;fatfs/drivers;fatfs/option;ssd1306
+
+# 1 chemins de recherche � vpath �.
+
+# Pas de chemin de recherche g�n�ral (variable � VPATH �).
+
+# # of strings in strcache: 28
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strca 
+che free: total = 3649 / max = 3649 / min = 3649 / avg = 3649
+
+# Fin de la base de donn�es de Make le Sat Sep 17 16:23:36 2022
+
+ 

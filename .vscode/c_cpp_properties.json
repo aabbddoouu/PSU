@@ -1,0 +1,30 @@
+{
+    "configurations": [
+        {
+            "name": "STM32",
+            "includePath": [
+                "../libopencm3-master/include",
+                "../libopencm3-master/include/libopencmsis",
+                "../libopencm3-master/lib/stm32/f4",
+                "../libopencm3-master/lib/stm32",
+                "../libopencm3-master/lib/stm32/common",
+                "../libopencm3-master/include/libopencm3/stm32/common",
+                "../libopencm3-master/include/libopencm3/stm32/f4",
+                "../libopencm3-master/include/libopencm3/stm32",
+                "../libopencm3-master/lib/cm3",
+                "../STMems_Standard_C_drivers",
+                "D:/VSARM/armcc/arm-none-eabi/include",
+                "D:/VSARM/armcc/bin",
+                "Core/Inc"
+            ],
+            "defines": [
+                "STM32F4",
+                "STM32F411xx"
+            ],
+            "compilerPath": null,   
+            "cStandard": "c99",
+            "configurationProvider": "ms-vscode.makefile-tools"
+        }
+    ],
+    "version": 4
+}

@@ -1,0 +1,35 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "taget": "LCD_debug",
+    "configurations": [
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "stutil",
+            "cwd": "${workspaceRoot}",
+            "executable": "./build/LCD_debug.elf",
+            "name": "Debug (ST-Util)",
+            "device": "STM32F411RE",
+            "v1": false,
+            "svdFile": "STM32F411.svd"
+        },
+        {
+            "showDevDebugOutput": "True",
+            "cwd": "${workspaceRoot}",
+            "executable": "./build/LCD_debug.elf",
+            "name": "Debug STM32",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "preLaunchTask": "Build STM",
+            "device": "STM32F411RE",
+            "svdFile": "${workspaceRoot}/STM32F411.svd",
+            "configFiles": [
+                "${cwd}/openocd.cfg",
+            ]
+        }
+    ]
+}

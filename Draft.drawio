@@ -1,0 +1,58 @@
+<mxfile host="Electron" modified="2023-08-06T17:00:25.920Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.5 Chrome/114.0.5735.243 Electron/25.3.1 Safari/537.36" etag="nCyD3hWkxfrbWBOO4tEu" version="21.6.5" type="device">
+  <diagram name="Page-1" id="X-BltdAM5uuAqKiagcb_">
+    <mxGraphModel dx="988" dy="573" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zWmW_79gUHlfcR5s84Ic-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="zWmW_79gUHlfcR5s84Ic-1" target="zWmW_79gUHlfcR5s84Ic-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zWmW_79gUHlfcR5s84Ic-12" value="UART" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="zWmW_79gUHlfcR5s84Ic-8">
+          <mxGeometry x="-0.0359" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zWmW_79gUHlfcR5s84Ic-1" value="" style="image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/computer_and_terminals/Personal_Computer.svg;flipV=0;flipH=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="210" width="45.6" height="61.800000000000004" as="geometry" />
+        </mxCell>
+        <mxCell id="zWmW_79gUHlfcR5s84Ic-6" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="330" y="215.9" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="zWmW_79gUHlfcR5s84Ic-4" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#005F4B;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam2.cpu;" vertex="1" parent="zWmW_79gUHlfcR5s84Ic-6">
+          <mxGeometry x="11" y="11" width="28.000000000000004" height="28.000000000000004" as="geometry" />
+        </mxCell>
+        <mxCell id="zWmW_79gUHlfcR5s84Ic-5" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#434445;aspect=fixed;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.vvd.cpu;" vertex="1" parent="zWmW_79gUHlfcR5s84Ic-6">
+          <mxGeometry width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="zWmW_79gUHlfcR5s84Ic-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;" edge="1" parent="1" source="zWmW_79gUHlfcR5s84Ic-7" target="zWmW_79gUHlfcR5s84Ic-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="380" y="260" />
+              <mxPoint x="380" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zWmW_79gUHlfcR5s84Ic-15" value="Analog" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="zWmW_79gUHlfcR5s84Ic-14">
+          <mxGeometry x="0.0073" relative="1" as="geometry">
+            <mxPoint x="6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zWmW_79gUHlfcR5s84Ic-7" value="Power Board" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fa6800;fontColor=#000000;strokeColor=#C73500;" vertex="1" parent="1">
+          <mxGeometry x="550" y="215.9" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zWmW_79gUHlfcR5s84Ic-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.021;entryY=0.428;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="zWmW_79gUHlfcR5s84Ic-5" target="zWmW_79gUHlfcR5s84Ic-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="470" y="241" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zWmW_79gUHlfcR5s84Ic-13" value="I²C" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="zWmW_79gUHlfcR5s84Ic-9">
+          <mxGeometry x="0.1199" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
