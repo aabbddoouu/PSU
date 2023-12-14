@@ -15,13 +15,14 @@
                 "../STMems_Standard_C_drivers",
                 "D:/VSARM/armcc/arm-none-eabi/include",
                 "D:/VSARM/armcc/bin",
-                "Core/Inc"
+                "Core/Inc",
+                "${workspaceFolder}/Core/Inc"
             ],
             "defines": [
                 "STM32F4",
                 "STM32F411xx"
             ],
-            "compilerPath": null,   
+            "compilerPath": null,
             "cStandard": "c99",
             "configurationProvider": "ms-vscode.makefile-tools"
         }

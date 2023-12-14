@@ -143,7 +143,8 @@
         "limits.h": "c",
         "dcmi_common_f47.h": "c",
         "core_cm3.h": "c",
-        "SCCB.C": "cpp"
+        "SCCB.C": "cpp",
+        "dac.h": "c"
     },
     "C_Cpp.dimInactiveRegions": true,
     "stm32-for-vscode.openOCDPath": "D:\\VSARM\\OPENOCD\\BIN\\OPENOCD.EXE",

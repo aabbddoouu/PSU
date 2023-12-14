@@ -31,6 +31,11 @@
 #define GREEN_LED   GPIO0
 #define BLUE_LED    GPIO7
 
+typedef struct
+{
+    uint32_t    flag;
+    uint32_t    doTask
+}ISR_Handler;
 
 typedef struct
 {

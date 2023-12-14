@@ -5,6 +5,7 @@ volatile uint64_t ticks=0;
 volatile uint64_t button_ticks=0;	
 volatile uint64_t led_ticks=0;
 
+volatile ISR_Handler Calib_ISR ={0, 0};
 
 gpiopin EN_OUT1 = {GPIOB, GPIO10};
 gpiopin EN_OUT2 = {GPIOB, GPIO4};
@@ -126,7 +127,7 @@ static void gpio_setup(void)
 void exti0_isr(){ //Calib Button EXTI
 	//TODO
 	if(ticks-button_ticks>=BUTTON_DELAY){
-		gpio_toggle(LED_CALIB.port, LED_CALIB.pin);
+		Calib_ISR.flag++;
 	}
 	button_ticks=ticks;
 	exti_reset_request(BUTTON_CALIB.pin);
@@ -166,7 +167,9 @@ void tim5_isr(){	//happens every time timer7 overflows
 
 	//1Hz
 	if(ticks%1000==0){
-		
+		if(Calib_ISR.flag){
+			Calib_ISR.doTask=1;
+		}
 
 	}
 		
@@ -195,6 +198,7 @@ int main(void)
 	clock_setup();
 	gpio_setup();
 	usart_setup();
+	dac_setup();
 
 	gpio_set(GPIOA, GPIO5);
 
@@ -211,15 +215,22 @@ int main(void)
 	timer_enable_irq(TIM5,TIM_DIER_UIE);
 	timer_enable_counter(TIM5);
 
+	dac_set_voltage(1, 15000);
+
 	while (1) {
 
-		
-		
 		
 		if(ticks-led_ticks>1000){	//used to visually check if the code is not frozen somewhere (trap loop, exception, periph failure ...)
 			gpio_toggle(GPIOA, GPIO5);
 			led_ticks=ticks;
-			uart_printf("Blinking with delay \n");
+			//uart_printf("Blinking with delay \n");
+
+			if(Calib_ISR.doTask){
+				if(gpio_get(BUTTON_CALIB.port, BUTTON_CALIB.pin)){
+					gpio_toggle(LED_CALIB.port, LED_CALIB.pin);
+					Calib_ISR.doTask=0;Calib_ISR.flag=0;
+				}
+			}
 		}
 
 	}

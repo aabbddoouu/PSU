@@ -43,8 +43,8 @@ BUILD_DIR = build
 C_SOURCES =  \
 Core/Src/$(MAIN).c \
 Core/Src/miniprintf.c \
-Core/Src/printf.c 
-
+Core/Src/printf.c \
+Core/Src/dac_i2c.c
 
 CPP_SOURCES = \
 
