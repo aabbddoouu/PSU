@@ -144,11 +144,13 @@
         "dcmi_common_f47.h": "c",
         "core_cm3.h": "c",
         "SCCB.C": "cpp",
-        "dac.h": "c"
+        "dac.h": "c",
+        "dac_i2c.h": "c"
     },
     "C_Cpp.dimInactiveRegions": true,
     "stm32-for-vscode.openOCDPath": "D:\\VSARM\\OPENOCD\\BIN\\OPENOCD.EXE",
     "stm32-for-vscode.makePath": "D:\\VSARM\\GNUWIN32\\BIN\\MAKE.EXE",
     "stm32-for-vscode.armToolchainPath": "D:\\VSARM\\ARMCC\\BIN",
+    "cortex-debug.variableUseNaturalFormat": true,
 
 }

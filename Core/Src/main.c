@@ -46,13 +46,17 @@ int uart_printf(const char *format,...) {
 
 static void clock_setup(void)
 {
+	//USE HSI
 	rcc_clock_setup_pll(&rcc_hsi_configs[RCC_CLOCK_3V3_96MHZ]);
+
+	//USE HSE
+	//rcc_clock_setup_pll(&rcc_hse_16mhz_3v3[RCC_CLOCK_3V3_96MHZ]);
 
 	/* Enable GPIOD clock for LED & USARTs. */
 	rcc_periph_clock_enable(RCC_GPIOA);
 	rcc_periph_clock_enable(RCC_GPIOB);
 	rcc_periph_clock_enable(RCC_GPIOC);
-
+	rcc_periph_clock_enable(RCC_I2C1);
 	rcc_periph_clock_enable(RCC_SYSCFG);
 
 	/* Enable clocks for USART2. */
@@ -63,6 +67,13 @@ static void clock_setup(void)
 
 static void usart_setup(void)
 {
+		// UART Section
+	/* Setup GPIO pins for USART2 transmit and receive. */
+	gpio_mode_setup(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO2 | GPIO3);
+	gpio_set_output_options(GPIOA, GPIO_OTYPE_PP, GPIO_OSPEED_25MHZ, GPIO2);
+	/* Setup USART2 TX pin as alternate function. */
+	gpio_set_af(GPIOA, GPIO_AF7, GPIO2 | GPIO3);
+
 	/* Setup USART2 parameters. */
 	usart_set_baudrate(USART2, 115200);
 	usart_set_databits(USART2, 8);
@@ -80,25 +91,33 @@ static void gpio_setup(void)
 	/* Setup GPIO pin GPIO5 on GPIO port A for LED. */
 	gpio_mode_setup(GPIOA, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO5);
 
-	// UART Section
-	/* Setup GPIO pins for USART2 transmit and receive. */
-	gpio_mode_setup(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO2 | GPIO3);
-	gpio_set_output_options(GPIOA, GPIO_OTYPE_PP, GPIO_OSPEED_25MHZ, GPIO2);
-	/* Setup USART2 TX pin as alternate function. */
-	gpio_set_af(GPIOA, GPIO_AF7, GPIO2 | GPIO3);
+	//DCDC-INTEGRATED Controll
+	gpio_mode_setup(EN_DCDC.port, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, EN_DCDC.pin);
+	gpio_set_output_options(EN_DCDC.port, GPIO_OTYPE_PP, GPIO_OSPEED_25MHZ, EN_DCDC.pin);
+	gpio_set(EN_DCDC.port, EN_DCDC.pin);
+	delay_ms(1000);
+
 
 	//Output Relays Controll
-	gpio_mode_setup(EN_OUT1.port, GPIO_MODE_OUTPUT, GPIO_PUPD_PULLUP, EN_OUT1.pin|EN_OUT2.pin);
+	gpio_mode_setup(EN_OUT1.port, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, EN_OUT1.pin|EN_OUT2.pin);
+	gpio_set_output_options(EN_OUT1.port, GPIO_OTYPE_PP, GPIO_OSPEED_25MHZ, EN_OUT1.pin|EN_OUT2.pin);
 	gpio_clear(EN_OUT1.port, EN_OUT1.pin|EN_OUT2.pin);
+	delay_ms(1000);
 
-	//DCDC-INTEGRATED Controll
-	gpio_mode_setup(EN_DCDC.port, GPIO_MODE_OUTPUT, GPIO_PUPD_PULLUP, EN_DCDC.pin);
-	gpio_set(EN_DCDC.port, EN_DCDC.pin);
 
+/*
 	//CALIB
 	//OUT
-	gpio_mode_setup(EN_CALIB1.port, GPIO_MODE_OUTPUT, GPIO_PUPD_PULLUP, EN_CALIB1.pin|EN_CALIB2.pin);
-	gpio_clear(EN_CALIB1.port, EN_CALIB1.pin|EN_CALIB2.pin);
+	gpio_mode_setup(EN_CALIB1.port, GPIO_MODE_OUTPUT, GPIO_PUPD_PULLDOWN, EN_CALIB1.pin|EN_CALIB2.pin);
+	gpio_set_output_options(EN_CALIB1.port, GPIO_OTYPE_PP, GPIO_OSPEED_25MHZ, EN_CALIB1.pin|EN_CALIB2.pin);
+	
+	gpio_clear(EN_CALIB1.port, EN_CALIB1.pin);
+	delay_ms(1000);
+	gpio_clear(EN_CALIB1.port, EN_CALIB2.pin);
+	delay_ms(1000);
+*/
+	
+
 	//LED
 	gpio_mode_setup(LED_CALIB.port, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, LED_CALIB.pin);
 	gpio_clear(LED_CALIB.port, LED_CALIB.pin);
@@ -107,7 +126,7 @@ static void gpio_setup(void)
 	exti_select_source(BUTTON_CALIB.pin, BUTTON_CALIB.port);
 	exti_set_trigger(BUTTON_CALIB.pin, EXTI_TRIGGER_RISING);
 	nvic_enable_irq(NVIC_EXTI0_IRQ); //no need to assert the priority
-	exti_enable_request(BUTTON_CALIB.pin);
+	//exti_enable_request(BUTTON_CALIB.pin);
 	//Analog Read
 	gpio_mode_setup(ADC_CALIB.port, GPIO_MODE_ANALOG, GPIO_PUPD_NONE, ADC_CALIB.pin);
 
@@ -189,21 +208,43 @@ void delay_ms(uint16_t ms)
 	while (TIM_CR1(TIM2) & TIM_CR1_CEN);
 }
 
+/**
+ * @brief 
+ * Blocking delay using Timer 2 in oneshot mode.
+ * Dont use delay after the main setup, unless you're debuging
+ * @param ms no more than 1<<16
+ */
+void delay_100us(uint16_t us)	
+{
+	TIM_ARR(TIM2) = us;
+	TIM_EGR(TIM2) = TIM_EGR_UG;
+	timer_enable_counter(TIM2);
+	while (TIM_CR1(TIM2) & TIM_CR1_CEN);
+}
 
 int main(void)
 {
 	int i, j;
 	
-	delay_setup();
+	
 	clock_setup();
-	gpio_setup();
+
+	delay_setup();
+	
 	usart_setup();
+	uart_printf("\n******************\n");
+	uart_printf("\t Booting Up...\n");
+	uart_printf("\n******************\n");
+
 	dac_setup();
 
-	gpio_set(GPIOA, GPIO5);
+	gpio_setup();
+	
+	
+	gpio_clear(GPIOA, GPIO5);
 
-	uart_printf("\nStandard I/O Example.\n");
 	uint32_t delay = 1e7;
+	
 	
 	
 	adc_start_conversion_regular(ADC1);
@@ -211,17 +252,60 @@ int main(void)
 	uint16_t adc_out = adc_read_regular(ADC1);
 	
 
+
+	//dac_setup();
+
+	asm("NOP");
+	
+	dac_set_voltage(DAC_CH0, 100000);
+	delay_100us(1);
+	//dac_read_reg(0xF8);	
+	delay_100us(1);
+	dac_set_voltage(DAC_CH1, 100000);
+	delay_100us(1);
+
+	while(1);
+
+	delay_ms(2000);
+
+	dac_set_voltage(DAC_CH0, 8000);
+	delay_100us(1);
+	dac_set_voltage(DAC_CH1, 15000);
+	delay_100us(1);
+
+	delay_ms(2000);
+
+	dac_set_voltage(DAC_CH0, 6000);
+	delay_100us(1);
+	//dac_read_reg(0xF8);	
+	delay_100us(1);
+	dac_set_voltage(DAC_CH1, 12000);
+	delay_100us(1);
+
+	delay_ms(2000);
+
+	dac_set_voltage(DAC_CH0, 4000);
+	delay_100us(1);
+	dac_set_voltage(DAC_CH1, 9000);
+	delay_100us(1);
+
+
+	//gpio_clear(EN_DCDC.port, EN_DCDC.pin);
+
 	//enable timer5 after setup is done (for safety)
 	timer_enable_irq(TIM5,TIM_DIER_UIE);
 	timer_enable_counter(TIM5);
-
-	dac_set_voltage(1, 15000);
+	
+	gpio_toggle(GPIOA, GPIO5);
+	delay_ms(1000);
+	gpio_toggle(GPIOA, GPIO5);
 
 	while (1) {
 
 		
 		if(ticks-led_ticks>1000){	//used to visually check if the code is not frozen somewhere (trap loop, exception, periph failure ...)
 			gpio_toggle(GPIOA, GPIO5);
+			gpio_toggle(LED_CALIB.port, LED_CALIB.pin);
 			led_ticks=ticks;
 			//uart_printf("Blinking with delay \n");
 
@@ -231,6 +315,10 @@ int main(void)
 					Calib_ISR.doTask=0;Calib_ISR.flag=0;
 				}
 			}
+
+			if(usart_recv(USART2)){
+				uart_printf("Ok\n");
+			}
 		}
 
 	}
@@ -239,3 +327,7 @@ int main(void)
 	return 0;
 }
 
+void hard_fault_handler(){
+	//Request SW reset
+	SCB_AIRCR = SCB_AIRCR_VECTKEY | SCB_AIRCR_SYSRESETREQ;
+}

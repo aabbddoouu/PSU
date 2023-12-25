@@ -25,6 +25,7 @@
 #include <i2c_oled.h>
 #include <exti.h>
 #include <adc.h>
+#include <dac_i2c.h>
 
 #define LED_GPIO    GPIOB
 #define RED_LED     GPIO14
@@ -57,9 +58,9 @@ typedef struct
 #define FLOAT_ERROR 1e-6f   //can be used for float comparison ? if it's not used by the FPU
 
 
-void delay_ms(uint16_t ms);
-void delay_us(uint16_t us);
+void delay_ms(uint16_t ms);;
+void delay_100us(uint16_t us);	
 void stop_us_count(uint32_t *c);
 void start_us_count(uint32_t *c);
-
+void hard_fault_handler();
 #endif

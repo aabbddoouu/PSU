@@ -3,7 +3,7 @@
 gpiopin DAC_SCL = {GPIOB, GPIO8};
 gpiopin DAC_SDA = {GPIOB, GPIO9};
 
-static uint8_t* Voltage_regs[2] = {0, 0};
+uint8_t* Voltage_regs[3] = {(uint8_t)0, (uint8_t)0, (uint8_t)0xFF};
 
 /**
  * @brief Setup DAC comm peripheral
@@ -11,11 +11,20 @@ static uint8_t* Voltage_regs[2] = {0, 0};
  */
 void dac_setup(){
 	//RCC_DCKCFGR2|= (RCC_DCKCFGR2_UARTxSEL_HSI<<RCC_DCKCFGR2_I2C4SEL_SHIFT); //set i2c1 clock to HSI = 16MHz
+	
 
+
+SWRST:
 	rcc_periph_clock_enable(RCC_I2C1);
-	i2c_set_clock_frequency(DAC_I2C, 16);
-	rcc_periph_reset_pulse(RST_I2C1);
+	i2c_set_clock_frequency(DAC_I2C, 48);
+	
 
+	rcc_periph_reset_pulse(RST_I2C1);
+	I2C_CR1(DAC_I2C) |= I2C_CR1_SWRST; //SW reset the I2C bus
+	delay_ms(1);
+	I2C_CR1(DAC_I2C) &= (~I2C_CR1_SWRST); //SW reset the I2C bus
+
+	delay_ms(2000);
 
 	gpio_mode_setup(
 		DAC_SCL.port,
@@ -23,19 +32,69 @@ void dac_setup(){
       	GPIO_PUPD_NONE,
       	DAC_SCL.pin|DAC_SDA.pin		//  SCL|SDA
 	);
+
 	gpio_set_output_options(
 		DAC_SCL.port,
 		GPIO_OTYPE_OD,
 		GPIO_OSPEED_25MHZ,
 		DAC_SCL.pin|DAC_SDA.pin
 	);
-	gpio_set_af(DAC_SCL.port,GPIO_AF4,DAC_SCL.pin|DAC_SDA.pin); //set to AF4 => i2c
-	i2c_peripheral_disable(DAC_I2C);
 
-	i2c_set_speed(DAC_I2C,i2c_speed_sm_100k,rcc_get_i2c_clk_freq(DAC_I2C));
+	delay_ms(2000);
+
+
+	
+
+
+
+
+
+	gpio_set_af(DAC_SCL.port,GPIO_AF4,DAC_SCL.pin|DAC_SDA.pin); //set to AF4 => i2c
+	
+	i2c_peripheral_disable(DAC_I2C);
+	i2c_set_speed(DAC_I2C,i2c_speed_sm_100k,42);
+	
 	delay_ms(1000);
+	
 	i2c_peripheral_enable(DAC_I2C);
 
+	
+
+	if((I2C1_SR2 & I2C_SR2_BUSY)){
+		//RESET MCU
+		uart_printf("\nBusy Bug on I2C bus. Restarting...\n");
+		gpio_toggle(GPIOA, GPIO5);
+		delay_ms(100); 
+		gpio_toggle(GPIOA, GPIO5);
+		delay_ms(100);
+		gpio_toggle(GPIOA, GPIO5);
+		delay_ms(100);
+		gpio_toggle(GPIOA, GPIO5);
+		delay_ms(100);
+		gpio_toggle(GPIOA, GPIO5);
+		delay_ms(100);
+		gpio_toggle(GPIOA, GPIO5);
+		delay_ms(100);
+		gpio_toggle(GPIOA, GPIO5);
+		delay_ms(100);
+		gpio_toggle(GPIOA, GPIO5);
+		delay_ms(100);
+		//hard_fault_handler();
+		goto SWRST;
+	}
+
+/*
+	i2c_send_stop(DAC_I2C);
+	delay_ms(10);
+	i2c_send_start(DAC_I2C);
+	delay_ms(10);
+	i2c_send_7bit_address(DAC_I2C, 0x00, I2C_WRITE);
+	delay_ms(10);
+*/
+
+	i2c_peripheral_enable(DAC_I2C);
+
+	uart_printf("\nBusy Bug didn't occur PagMan !\n");
 }
 
 /**
@@ -47,7 +106,7 @@ void dac_setup(){
 uint8_t dac_set_voltage(uint32_t channel, uint32_t Voltage_mV){
 	
 	uint32_t 	I_uA=0;
-	uint32_t 	buff32=0x7F;
+	uint32_t 	buff32=0;
 	uint8_t 	I_7bits=0;
 
 	//Convert Voltage to µA
@@ -61,7 +120,9 @@ uint8_t dac_set_voltage(uint32_t channel, uint32_t Voltage_mV){
 			return 1;
 		}
 		I_uA=(Voltage_mV-V_MIN_0)*10;
-		buff32*=I_uA/IFS0;
+		buff32=I_uA*0x7F;
+		buff32/=IFS0;
+
 
 		Voltage_regs[0]=0xF8;
 
@@ -74,7 +135,8 @@ uint8_t dac_set_voltage(uint32_t channel, uint32_t Voltage_mV){
 			return 1;
 		}
 		I_uA=(Voltage_mV-V_MIN_1)*10;
-		buff32*=I_uA/IFS1;
+		buff32=I_uA*0x7F;
+		buff32/=IFS1;
 
 		Voltage_regs[0]=0xF9;
 
@@ -94,9 +156,111 @@ uint8_t dac_set_voltage(uint32_t channel, uint32_t Voltage_mV){
 
 	Voltage_regs[1]=I_7bits;
 
-	//i2c_transfer7(DAC_I2C, DAC_ADDR, Voltage_regs, 2, (void*)0x0, 0);
 
-	uart_printf("Current is %d uA \n", I_uA/1000);
+	i2c_transfer2(DAC_I2C, DAC_ADDR, Voltage_regs, 2, NULL, 0);
+	i2c_send_stop(DAC_I2C);
+
+
+	uart_printf("Current is %d uA - Sending %x to Reg: %x\n", I_uA/1000, Voltage_regs[1], Voltage_regs[0]);
 
 	return 0;
+}
+
+static void i2c_read7_v2(uint32_t i2c, int addr, uint8_t *res, size_t n)
+{
+	i2c_send_start(i2c);
+	i2c_enable_ack(i2c);
+
+	/* Wait for the end of the start condition, master mode selected, and BUSY bit set */
+	while ( !( (I2C_SR1(i2c) & I2C_SR1_SB)
+		&& (I2C_SR2(i2c) & I2C_SR2_MSL)
+		&& (I2C_SR2(i2c) & I2C_SR2_BUSY) ));
+
+	i2c_send_7bit_address(i2c, addr, I2C_READ);
+
+	/* Waiting for address is transferred. */
+	while (!(I2C_SR1(i2c) & I2C_SR1_ADDR));
+	/* Clearing ADDR condition sequence. */
+	(void)I2C_SR2(i2c);
+
+	for (size_t i = 0; i < n; ++i) {
+		if (i == n - 1) {
+			i2c_disable_ack(i2c);
+			//i2c_nack_next(i2c);
+			//i2c_nack_current(i2c);
+		}
+		while (!(I2C_SR1(i2c) & I2C_SR1_RxNE));
+		res[i] = i2c_get_data(i2c);
+	}
+	//i2c_nack_current(i2c);
+	
+
+	return;
+}
+
+
+uint8_t dac_read_reg(uint8_t reg){
+	uint8_t* reg_data[2]; 	
+	uint8_t* reg_t[1];
+
+	reg_data[0]=0xFF;
+	reg_t[0]=reg;
+
+	i2c_transfer2(DAC_I2C, DAC_ADDR, reg_t, 1, reg_data, 1);
+	//i2c_transfer2(DAC_I2C, DAC_ADDR, reg_t, 1, NULL, 0);
+	//delay_ms(1);
+	//i2c_read7_v2(DAC_I2C, DAC_ADDR, reg_data, 1);
+	
+	i2c_send_stop(DAC_I2C);
+
+	//i2c_send_start(DAC_I2C);
+
+	//i2c_send_7bit_address(DAC_I2C, 0x00, I2C_WRITE);
+
+	uart_printf("Reg %x => %x\n", reg, reg_data[0]);
+
+	return reg_data[0];
+
+}
+
+void i2c_transfer2(uint32_t i2c, uint8_t addr, const uint8_t *w, size_t wn, uint8_t *r, size_t rn) {
+	if (wn) {
+		i2c_write7_v2(i2c, addr, w, wn);
+	}
+	if (rn) {
+		i2c_read7_v2(i2c, addr, r, rn);
+	} else {
+		i2c_send_stop(i2c);
+	}
+}
+
+void i2c_write7_v2(uint32_t i2c, int addr, const uint8_t *data, size_t n)
+{
+	while ((I2C_SR2(i2c) & I2C_SR2_BUSY)) {
+	}
+
+	i2c_send_start(i2c);
+
+	/* Wait for the end of the start condition, master mode selected, and BUSY bit set */
+	while ( !( (I2C_SR1(i2c) & I2C_SR1_SB)
+		&& (I2C_SR2(i2c) & I2C_SR2_MSL)
+		&& (I2C_SR2(i2c) & I2C_SR2_BUSY) ));
+
+	i2c_send_7bit_address(i2c, addr, I2C_WRITE);
+
+	/* Waiting for address is transferred. */
+	while (!(I2C_SR1(i2c) & I2C_SR1_ADDR));
+
+	/* Clearing ADDR condition sequence. */
+	(void)I2C_SR2(i2c);
+
+	for (size_t i = 0; i < 100; i++){asm("NOP");}
+	
+
+	for (size_t i = 0; i < n; i++) {
+		i2c_send_data(i2c, data[4*i]);
+		while (!(I2C_SR1(i2c) & (I2C_SR1_BTF)));
+		for (size_t i = 0; i < 100; i++){asm("NOP");}
+
+	}
 }
