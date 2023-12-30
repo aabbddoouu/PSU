@@ -29,7 +29,7 @@ SWRST:
 	gpio_mode_setup(
 		DAC_SCL.port,
       	GPIO_MODE_AF,
-      	GPIO_PUPD_NONE,
+      	GPIO_PUPD_PULLUP,
       	DAC_SCL.pin|DAC_SDA.pin		//  SCL|SDA
 	);
 
@@ -119,8 +119,8 @@ uint8_t dac_set_voltage(uint32_t channel, uint32_t Voltage_mV){
 		{
 			return 1;
 		}
-		I_uA=(Voltage_mV-V_MIN_0)*10;
-		buff32=I_uA*0x7F;
+		I_uA=(Voltage_mV-V_MIN_0)*10*96/100;
+		buff32=I_uA*0x7F; // scaling error
 		buff32/=IFS0;
 
 

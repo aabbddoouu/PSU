@@ -84,97 +84,6 @@ volatile static uint32_t interface_status;
 volatile static uint32_t payload_L;
 volatile static	uint32_t l_ret[2];
 
-volatile static bool spectro_free=false;
-
-int spectro_status[3]={SPECTRO_BUSY, SPECTRO_BUSY, SPECTRO_BUSY};
-
-void reset_Qneo(){
-    gpio_clear(SPECTRO_RESET_GPIO, SPECTRO_RESET_PIN);
-    delay_ms(100);
-    gpio_set(SPECTRO_RESET_GPIO, SPECTRO_RESET_PIN);
-    delay_ms(500);
-}
-
-void init_Qneo(){
-    
-
-    spectro_status[0]=SPECTRO_BUSY;
-    Qneo.MPeriod_ms=1000;
-    Qneo.CPeriod_ms=CALIB_PERIOD;
-    Qneo.Calib_TGradient=5;
-    Qneo.Calib_T=0;
-    Qneo.Aster=false;
-    Qneo.Ti=6000;
-    Qneo.Ti_max=16000;
-    Qneo.Ti_min=1000;
-    Qneo.Ti_ms=6;
-    Qneo.AVG=1;
-    Qneo.TSensor=0.;
-    Qneo.KTrans=0.8;
-    Qneo.Processing_Steps=STEP_SCALE_16BITS|STEP_CORR_NLIN;
-    Qneo.Default=false;
-
-    gpio_mode_setup(SPECTRO_RESET_GPIO, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, SPECTRO_RESET_PIN);
-    gpio_set_output_options(SPECTRO_RESET_GPIO, GPIO_OTYPE_PP, GPIO_OSPEED_2MHZ, SPECTRO_RESET_PIN);
-
-    reset_Qneo();
-
-    Qneo.Em=AD420_params.Em_min;
-    Qneo.Oxy=AD420_params.Oxy_min;
-    Qneo.Temperature=AD420_params.Temp_min;
-    
-}
-
-
-
-
-/* Initialize DAC interface */
-void init_DAC_spi() {
-	/* Init SPI */
-    spi_disable(SPI_DAC);
-	rcc_periph_clock_enable(RCC_SPI_DAC);
-	gpio_mode_setup(
-	SPI_DAC_GPIO,
-      GPIO_MODE_AF,
-      GPIO_PUPD_NONE,
-      SPI_DAC_SCLK|SPI_DAC_MOSI|SPI_DAC_MISO	
-	);
-
-	gpio_set_output_options(
-		SPI_DAC_GPIO,
-		GPIO_OTYPE_PP,
-		GPIO_OSPEED_2MHZ,
-		SPI_DAC_SCLK|SPI_DAC_MOSI
-	);
-	gpio_set_af(SPI_DAC_GPIO,SPI_DAC_AF,SPI_DAC_SCLK|SPI_DAC_MOSI|SPI_DAC_MISO);
-
-	gpio_mode_setup(DAC_CS_PORT,GPIO_MODE_OUTPUT,
-	GPIO_PUPD_NONE,DAC_CS);
-	gpio_set_output_options(DAC_CS_PORT,GPIO_OTYPE_PP,
-	GPIO_OSPEED_2MHZ,DAC_CS);
-	/* Set CS high */
-	close_spi(DAC_CS_PORT,DAC_CS);
-
-	spi_reset(SPI_DAC); 
-	spi_init_master(
-		SPI_DAC,							
-        SPI_CR1_BAUDRATE_FPCLK_DIV_64,
-        SPI_CR1_CPOL_CLK_TO_0_WHEN_IDLE,
-		SPI_CR1_CPHA_CLK_TRANSITION_1,
-        SPI_CR1_MSBFIRST
-	);
-	//data size = 16 bits
-	spi_set_data_size(SPI_DAC, 0b1111);
-    spi_disable_crc(SPI_DAC);
-	spi_enable_software_slave_management(SPI_DAC);
-	//spi_disable_ss_output(SPI_DAC); not needed : included in the previous line
-	spi_set_nss_high(SPI_DAC);
-	//spi_enable_ss_output(SPI_DAC);
-	
-	spi_enable(SPI_DAC);
-    delay_ms(10);
-}
-
 
 
 /**
@@ -313,11 +222,6 @@ void init_uart_dma() {
 }
 
 
-uint16_t usart_recv_blocking_timeout (uint32_t usart){
-
-}
-
-
 /**
  * @brief 
  * 
@@ -428,52 +332,6 @@ void  dma1_stream0_isr(){
 }
 
 /////////////////////////////////////////////////////////////
-
-
-void GET_INTERFACE_PROTOCOL_VERSION(){
-    usart_send_blocking(UART_SPECTRO, 0x04);
-    usart_send_blocking(UART_SPECTRO, 0xF0);
-    usart_send_blocking(UART_SPECTRO, 0x00);
-    usart_send_blocking(UART_SPECTRO, 0x00);
-
-    usart_send_blocking(UART_SPECTRO, 0x00);
-    usart_send_blocking(UART_SPECTRO, 0x00);
-    usart_send_blocking(UART_SPECTRO, 0x00);
-    usart_send_blocking(UART_SPECTRO, 0x00);
-}
-
-void uart_SendCommand (uint16_t command, uint16_t nargs, ...)
-{   
-
-    va_list args;
-    va_start(args, nargs);
-    uint32_t* temp_arg;
-
-    usart_send_blocking(UART_SPECTRO, 0x02);
-    usart_send_blocking(UART_SPECTRO, 0xF1);
-    usart_send_blocking(UART_SPECTRO, 0x00);
-    usart_send_blocking(UART_SPECTRO, 0x00);
-
-    nargs++; nargs*=4;    
-    usart_send_blocking(UART_SPECTRO, nargs);
-    usart_send_blocking(UART_SPECTRO, 0x00);
-    usart_send_blocking(UART_SPECTRO, 0x00);
-    usart_send_blocking(UART_SPECTRO, 0x00);
-
-    usart_send_blocking(UART_SPECTRO, (command));
-    usart_send_blocking(UART_SPECTRO, (command>>8));
-    usart_send_blocking(UART_SPECTRO, 0x00);
-    usart_send_blocking(UART_SPECTRO, 0x00);
-    nargs/=4;
-    for(size_t x=1; x<nargs; x++)
-    {
-        temp_arg = va_arg(args, uint32_t*);
-        usart_send_blocking(UART_SPECTRO, *temp_arg);
-        usart_send_blocking(UART_SPECTRO, *temp_arg>>8);
-        usart_send_blocking(UART_SPECTRO, *temp_arg>>16);
-        usart_send_blocking(UART_SPECTRO, *temp_arg>>24);
-    }
-}
 
 void uart_SendCommand_dma (uint16_t command, uint16_t nargs, bool Tx_preloaded, ...)
 {   

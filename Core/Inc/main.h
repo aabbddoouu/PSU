@@ -26,11 +26,27 @@
 #include <exti.h>
 #include <adc.h>
 #include <dac_i2c.h>
+#include <usart_pc.h>
 
 #define LED_GPIO    GPIOB
 #define RED_LED     GPIO14
 #define GREEN_LED   GPIO0
 #define BLUE_LED    GPIO7
+
+#define BUFF_LEN        10
+// State Machine Section
+#pragma region 
+
+#define DEFAULT_STATE   0
+#define RX_RCV_STATE    1
+#define SEND_DAC_STATE  2
+#define TX_SEND_STATE   3
+
+#define ERR_I2C_STATE   -1
+#define ERR_RX_STATE    -2
+
+
+#pragma endregion
 
 typedef struct
 {
@@ -53,6 +69,14 @@ typedef struct
     uint8_t     Minutes;
     uint8_t     Seconds
 }RTC;
+
+
+typedef struct
+{
+    uint32_t    Channel;
+    uint32_t    Voltage_mV
+
+}PSU;
 
 
 #define FLOAT_ERROR 1e-6f   //can be used for float comparison ? if it's not used by the FPU

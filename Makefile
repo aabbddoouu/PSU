@@ -43,7 +43,8 @@ C_SOURCES =  \
 Core/Src/$(MAIN).c \
 Core/Src/miniprintf.c \
 Core/Src/printf.c \
-Core/Src/dac_i2c.c
+Core/Src/dac_i2c.c \
+Core/Src/usart_pc.c
 
 CPP_SOURCES = \
 

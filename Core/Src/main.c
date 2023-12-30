@@ -4,6 +4,8 @@
 volatile uint64_t ticks=0;
 volatile uint64_t button_ticks=0;	
 volatile uint64_t led_ticks=0;
+volatile uint64_t comm_ticks=0;
+volatile uint32_t index_comm=1;
 
 volatile ISR_Handler Calib_ISR ={0, 0};
 
@@ -17,6 +19,17 @@ gpiopin EN_CALIB2 = {GPIOB, GPIO3};
 gpiopin BUTTON_CALIB = {GPIOB, GPIO0};
 gpiopin ADC_CALIB = {GPIOA, GPIO0};
 gpiopin LED_CALIB = {GPIOC, GPIO7};
+
+PSU PSU1 = {DAC_CH0, V_MIN_0};
+PSU PSU2 = {DAC_CH1, V_MIN_1};
+PSU PSU_I2C = {3, 0};
+
+volatile uint8_t Tx_buffer[BUFF_LEN];
+volatile uint8_t Rx_buffer[BUFF_LEN];
+
+volatile int32_t Main_State = DEFAULT_STATE;
+
+volatile uint32_t UART_RCV_count = 0;
 
 /////////////////////////////////////////////////////
 //// UART printf SECTION
@@ -59,32 +72,12 @@ static void clock_setup(void)
 	rcc_periph_clock_enable(RCC_I2C1);
 	rcc_periph_clock_enable(RCC_SYSCFG);
 
-	/* Enable clocks for USART2. */
-	rcc_periph_clock_enable(RCC_USART2);
+	/* Enable clocks for PC_USART USART2. */
+	rcc_periph_clock_enable(UART_PC_RCC);
 
 	rcc_periph_clock_enable(RCC_ADC1);
 }
 
-static void usart_setup(void)
-{
-		// UART Section
-	/* Setup GPIO pins for USART2 transmit and receive. */
-	gpio_mode_setup(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO2 | GPIO3);
-	gpio_set_output_options(GPIOA, GPIO_OTYPE_PP, GPIO_OSPEED_25MHZ, GPIO2);
-	/* Setup USART2 TX pin as alternate function. */
-	gpio_set_af(GPIOA, GPIO_AF7, GPIO2 | GPIO3);
-
-	/* Setup USART2 parameters. */
-	usart_set_baudrate(USART2, 115200);
-	usart_set_databits(USART2, 8);
-	usart_set_stopbits(USART2, USART_STOPBITS_1);
-	usart_set_mode(USART2, USART_MODE_TX);
-	usart_set_parity(USART2, USART_PARITY_NONE);
-	usart_set_flow_control(USART2, USART_FLOWCONTROL_NONE);
-
-	/* Finally enable the USART. */
-	usart_enable(USART2);
-}
 
 static void gpio_setup(void)
 {
@@ -179,6 +172,8 @@ void delay_setup(void)
 
 }
 
+
+
 void tim5_isr(){	//happens every time timer7 overflows
 	timer_clear_flag(TIM5,TIM_SR_UIF);
  	//if(timer_get_flag(TIM5,TIM_SR_UIF)){ //Dont need it since it's the only src of the interrupt
@@ -222,6 +217,12 @@ void delay_100us(uint16_t us)
 	while (TIM_CR1(TIM2) & TIM_CR1_CEN);
 }
 
+
+static inline void Await_RX_RCV_Async(){
+	
+	start_uart_rx_reception(4);
+}
+
 int main(void)
 {
 	int i, j;
@@ -231,9 +232,9 @@ int main(void)
 
 	delay_setup();
 	
-	usart_setup();
+	setup_PC_usart();
 	uart_printf("\n******************\n");
-	uart_printf("\t Booting Up...\n");
+	uart_printf("Booting Up...\n");
 	uart_printf("\n******************\n");
 
 	dac_setup();
@@ -257,6 +258,7 @@ int main(void)
 
 	asm("NOP");
 	
+	/*
 	dac_set_voltage(DAC_CH0, 100000);
 	delay_100us(1);
 	//dac_read_reg(0xF8);	
@@ -288,38 +290,95 @@ int main(void)
 	delay_100us(1);
 	dac_set_voltage(DAC_CH1, 9000);
 	delay_100us(1);
-
+	*/
 
 	//gpio_clear(EN_DCDC.port, EN_DCDC.pin);
 
 	//enable timer5 after setup is done (for safety)
 	timer_enable_irq(TIM5,TIM_DIER_UIE);
 	timer_enable_counter(TIM5);
+
 	
-	gpio_toggle(GPIOA, GPIO5);
-	delay_ms(1000);
-	gpio_toggle(GPIOA, GPIO5);
+	Await_RX_RCV_Async();
+
+	uint32_t Conv_mV=0;
 
 	while (1) {
 
+		switch (Main_State)
+		{
+		case DEFAULT_STATE:
+
+			if(ticks-led_ticks>1000){	//used to visually check if the code is not frozen somewhere (trap loop, exception, periph failure ...)
+				gpio_toggle(GPIOA, GPIO5);
+				gpio_toggle(LED_CALIB.port, LED_CALIB.pin);
+				led_ticks=ticks;
+				//uart_printf("Count : %d\n", UART_RCV_count);
+			
+			}
+			break;
+
+		case RX_RCV_STATE:
+			// Enter when RX DMA has finished the read transaction
+			// Process the data and go to SEND_DAC_STATE
+			
+			// Structure of the MSG :             
+			//		1st byte : PSU 1 or 2 
+            //      2nd byte : 2nd digit of voltage
+            //      3rd byte : 1st digit of voltage
+            //      4th byte : 1st devimal digit
+			
+			// HINT : '0' in ASCII is 0x30 in unit8_t/char (instead of using atoi)
+
+			//gpio_toggle(GPIOA, GPIO5);
+
+			PSU_I2C.Voltage_mV = (Rx_buffer[3]-0x30)*100 + (Rx_buffer[1]-0x30)*10000 + (Rx_buffer[2]-0x30)*1000;
+
+			switch (Rx_buffer[0])
+			{
+			case '2':
+				PSU_I2C.Channel=PSU1.Channel;
+				Main_State = SEND_DAC_STATE;
+				break;
+
+			case '1':
+				PSU_I2C.Channel=PSU2.Channel;
+				Main_State = SEND_DAC_STATE;
+				break;
+			
+			default:
+				Main_State=TX_SEND_STATE;
+				break;
+			}
+
+			
+			break;
+
+		case SEND_DAC_STATE:
+			// Sends the wanted Voltage to the µA DAC
+			uart_printf("RCVD : %d mV\n",PSU_I2C.Voltage_mV);
+			dac_set_voltage(PSU_I2C.Channel, PSU_I2C.Voltage_mV);
+			Main_State = TX_SEND_STATE;
+			break;
+
+		case TX_SEND_STATE:
+			// Sends an OK (ACK) to the PC after I2C comm is OK
+			Await_RX_RCV_Async();
+			Main_State = DEFAULT_STATE;
+			break;
+
 		
-		if(ticks-led_ticks>1000){	//used to visually check if the code is not frozen somewhere (trap loop, exception, periph failure ...)
-			gpio_toggle(GPIOA, GPIO5);
-			gpio_toggle(LED_CALIB.port, LED_CALIB.pin);
-			led_ticks=ticks;
-			//uart_printf("Blinking with delay \n");
+		case ERR_I2C_STATE:
+			// Check if NACK Err or Busy Err
+			// Not yet implemented 
+			break;
 
-			if(Calib_ISR.doTask){
-				if(gpio_get(BUTTON_CALIB.port, BUTTON_CALIB.pin)){
-					gpio_toggle(LED_CALIB.port, LED_CALIB.pin);
-					Calib_ISR.doTask=0;Calib_ISR.flag=0;
-				}
-			}
-
-			if(usart_recv(USART2)){
-				uart_printf("Ok\n");
-			}
+		default:
+			break;
 		}
+
+
+
 
 	}
 	
