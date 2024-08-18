@@ -18,11 +18,12 @@ SWRST:
 	rcc_periph_clock_enable(RCC_I2C1);
 	i2c_set_clock_frequency(DAC_I2C, 48);
 	
-
+	//SW reset the I2C bus
 	rcc_periph_reset_pulse(RST_I2C1);
-	I2C_CR1(DAC_I2C) |= I2C_CR1_SWRST; //SW reset the I2C bus
+	I2C_CR1(DAC_I2C) |= I2C_CR1_SWRST; 
 	delay_ms(1);
-	I2C_CR1(DAC_I2C) &= (~I2C_CR1_SWRST); //SW reset the I2C bus
+	I2C_CR1(DAC_I2C) &= (~I2C_CR1_SWRST); 
+	//
 
 	delay_ms(2000);
 
@@ -43,12 +44,6 @@ SWRST:
 	delay_ms(2000);
 
 
-	
-
-
-
-
-
 	gpio_set_af(DAC_SCL.port,GPIO_AF4,DAC_SCL.pin|DAC_SDA.pin); //set to AF4 => i2c
 	
 	i2c_peripheral_disable(DAC_I2C);
@@ -65,18 +60,6 @@ SWRST:
 		uart_printf("\nBusy Bug on I2C bus. Restarting...\n");
 		gpio_toggle(GPIOA, GPIO5);
 		delay_ms(100); 
-		gpio_toggle(GPIOA, GPIO5);
-		delay_ms(100);
-		gpio_toggle(GPIOA, GPIO5);
-		delay_ms(100);
-		gpio_toggle(GPIOA, GPIO5);
-		delay_ms(100);
-		gpio_toggle(GPIOA, GPIO5);
-		delay_ms(100);
-		gpio_toggle(GPIOA, GPIO5);
-		delay_ms(100);
-		gpio_toggle(GPIOA, GPIO5);
-		delay_ms(100);
 		gpio_toggle(GPIOA, GPIO5);
 		delay_ms(100);
 		//hard_fault_handler();

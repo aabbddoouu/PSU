@@ -27,13 +27,13 @@
 #include <adc.h>
 #include <dac_i2c.h>
 #include <usart_pc.h>
+#include <dma.h>
 
-#define LED_GPIO    GPIOB
-#define RED_LED     GPIO14
-#define GREEN_LED   GPIO0
-#define BLUE_LED    GPIO7
+#define LED_GPIO    GPIOC
+#define BLUE_LED    GPIO13
 
 #define BUFF_LEN        10
+
 // State Machine Section
 #pragma region 
 
@@ -41,12 +41,20 @@
 #define RX_RCV_STATE    1
 #define SEND_DAC_STATE  2
 #define TX_SEND_STATE   3
+#define SEND_CURRENT    4
 
 #define ERR_I2C_STATE   -1
 #define ERR_RX_STATE    -2
 
-
 #pragma endregion
+
+#define ADC_DMA 		DMA2
+#define ADC_DMA_RCC     RCC_DMA2
+#define ADC_DMA_ST		DMA_STREAM0
+#define ADC_DMA_CH	    DMA_SxCR_CHSEL_0
+#define NVIC_DMA_ADC    NVIC_DMA2_STREAM0_IRQ
+
+
 
 typedef struct
 {
@@ -60,7 +68,7 @@ typedef struct
     uint32_t    pin
 }gpiopin;
 
-int uart_printf(const char *format,...) __attribute((format(printf,1,2)));
+
 
 typedef struct
 {
@@ -79,8 +87,10 @@ typedef struct
 }PSU;
 
 
+
 #define FLOAT_ERROR 1e-6f   //can be used for float comparison ? if it's not used by the FPU
 
+int uart_printf(const char *format,...) __attribute((format(printf,1,2)));
 
 void delay_ms(uint16_t ms);;
 void delay_100us(uint16_t us);	

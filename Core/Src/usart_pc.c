@@ -62,7 +62,7 @@ void setup_PC_usart(void) {
  * 
  */
 void init_uart_dma() {
-    rcc_periph_clock_enable(RCC_DMA1);
+    rcc_periph_clock_enable(DMA_RCC);
 	/////////////////////////////////////////////////////////
     //UART7_TX : DMA 1 Stream 6 Ch 4
     dma_stream_reset(UART_DMA, TX_DMA_ST);
@@ -84,8 +84,8 @@ void init_uart_dma() {
 	dma_channel_select(UART_DMA, TX_DMA_ST, DMA_SxCR_CHSEL_4);	
     dma_enable_transfer_complete_interrupt(UART_DMA, TX_DMA_ST);
 
-    nvic_set_priority(NVIC_DMA1_STREAM6_IRQ, 0b01000001);
-    nvic_enable_irq(NVIC_DMA1_STREAM6_IRQ);
+    nvic_set_priority(NVIC_DMA_TX, 0b01000001);
+    nvic_enable_irq(NVIC_DMA_TX);
     
 
 	/////////////////////////////////////////////////////////
@@ -109,8 +109,8 @@ void init_uart_dma() {
 	dma_channel_select(UART_DMA, RX_DMA_ST, DMA_SxCR_CHSEL_4);	
     dma_enable_transfer_complete_interrupt(UART_DMA, RX_DMA_ST);
     
-    nvic_set_priority(NVIC_DMA1_STREAM5_IRQ, 0b01000001);
-    nvic_enable_irq(NVIC_DMA1_STREAM5_IRQ);
+    nvic_set_priority(NVIC_DMA_RX, 0b01000001);
+    nvic_enable_irq(NVIC_DMA_RX);
     
 	
 }
@@ -146,7 +146,7 @@ void start_uart_rx_reception(uint32_t n_bytes){
  * @brief Called when Tx transfer is done
  * 
  */
-void  dma1_stream6_isr(){
+void  dma2_stream6_isr(){
 	if(dma_get_interrupt_flag(UART_DMA, TX_DMA_ST, DMA_TCIF)){
 		dma_clear_interrupt_flags(UART_DMA, TX_DMA_ST, DMA_TCIF);
         
@@ -157,7 +157,7 @@ void  dma1_stream6_isr(){
  * @brief Called when Rx transfer is done
  * 
  */
-void  dma1_stream5_isr(){
+void  dma2_stream1_isr(){
 	if(dma_get_interrupt_flag(UART_DMA, RX_DMA_ST, DMA_TCIF)){
 		dma_clear_interrupt_flags(UART_DMA, RX_DMA_ST, DMA_TCIF);
 
