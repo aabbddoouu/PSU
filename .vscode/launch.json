@@ -11,7 +11,7 @@
             "request": "launch",
             "servertype": "stutil",
             "cwd": "${workspaceRoot}",
-            "executable": "./build/PSU.elf",
+            "executable": "./build/PSU_V2.elf",
             "name": "Debug (ST-Util)",
             "device": "STM32F411RE",
             "v1": false,
@@ -20,7 +20,7 @@
         {
             "showDevDebugOutput": "vscode",
             "cwd": "${workspaceRoot}",
-            "executable": "./build/PSU.elf",
+            "executable": "./build/PSU_V2.elf",
             "name": "Debug STM32",
             "request": "launch",
             "type": "cortex-debug",

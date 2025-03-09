@@ -15,5 +15,5 @@
 #define DAC_CH1     1
 
 void dac_setup();
-uint8_t dac_set_voltage(uint32_t , uint32_t );
+int dac_set_voltage(uint32_t , uint32_t );
 uint8_t dac_read_reg(uint8_t);

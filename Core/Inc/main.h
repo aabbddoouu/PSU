@@ -4,6 +4,7 @@
 
 #define STM32F4
 
+#define TIMEOUT_I2C 10000
 
 
 #include "printf.h"
@@ -27,6 +28,7 @@
 #include <adc.h>
 #include <dac_i2c.h>
 #include <usart_pc.h>
+#include <usart_STM2.h>
 #include <dma.h>
 
 #define LED_GPIO    GPIOC

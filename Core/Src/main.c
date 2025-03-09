@@ -25,6 +25,9 @@ gpiopin IN_Iin 		= {GPIOA, GPIO4};
 gpiopin IN_Iout1 	= {GPIOA, GPIO5};
 gpiopin IN_Iout2 	= {GPIOA, GPIO6};
 
+gpiopin ENC1A 		= {GPIOC, GPIO6};
+gpiopin ENC1B 		= {GPIOA, GPIO7};
+
 gpiopin LED 		= {LED_GPIO, BLUE_LED};
 
 PSU PSU1 			= {DAC_CH0, V_MIN_0};
@@ -48,7 +51,7 @@ volatile uint32_t UART_RCV_count = 0;
 void _putchar(char character)
 {
 	// send char to UART
-	usart_send_blocking(UART_PC,character);  //USART3 is connected to ST-link serial com
+	usart_send_blocking(UART_STM,character);  //USART3 is connected to ST-link serial com
 }
 int uart_printf(const char *format,...) {
 
@@ -80,6 +83,7 @@ static void clock_setup(void)
 	rcc_periph_clock_enable(RCC_SYSCFG);
 
 	rcc_periph_clock_enable(UART_PC_RCC);
+	rcc_periph_clock_enable(UART_STM_RCC);
 	rcc_periph_clock_enable(RCC_ADC1);
 }
 
@@ -210,6 +214,29 @@ void delay_setup(void)
 
 }
 
+void inc_enc_setup(void)
+{
+
+	// Config INPUTS
+	gpio_mode_setup(ENC1A.port, GPIO_MODE_AF, GPIO_PUPD_NONE, ENC1A.pin);
+	gpio_set_af(ENC1A.port, GPIO_AF2, ENC1A.pin);
+	gpio_mode_setup(ENC1B.port, GPIO_MODE_AF, GPIO_PUPD_NONE, ENC1B.pin);
+	gpio_set_af(ENC1B.port, GPIO_AF2, ENC1B.pin);
+
+
+	// Config TIMER3
+	rcc_periph_clock_enable(RCC_TIM3);
+
+	timer_slave_set_mode(TIM3, TIM_SMCR_SMS_EM1);
+	TIM_CCMR1(TIM3) &= ~TIM_CCMR1_CC1S_MASK;
+	TIM_CCMR1(TIM3) |= TIM_CCMR1_CC1S_IN_TI1;
+	
+	TIM_CCMR1(TIM3) &= ~TIM_CCMR1_CC2S_MASK;
+	TIM_CCMR1(TIM3) |= TIM_CCMR1_CC1S_IN_TI2 << 8;
+		
+	timer_enable_counter(TIM3);
+}
+
 
 
 void tim5_isr(){	//happens every time timer7 overflows
@@ -271,6 +298,9 @@ int main(void)
 	delay_setup();
 	
 	setup_PC_usart();
+
+	setup_STM_usart();
+
 	uart_printf("\n******************\n");
 	uart_printf("Booting Up...\n");
 	uart_printf("\n******************\n");
@@ -286,11 +316,11 @@ int main(void)
 	
 	
 
-	start_dma_adc_convertion();
+	//start_dma_adc_convertion();
 
 	asm("NOP");
 	
-	/*
+	
 	dac_set_voltage(DAC_CH0, 100000);
 	delay_100us(1);
 	//dac_read_reg(0xF8);	
@@ -322,7 +352,7 @@ int main(void)
 	delay_100us(1);
 	dac_set_voltage(DAC_CH1, 9000);
 	delay_100us(1);
-	*/
+	
 
 	//gpio_clear(EN_DCDC.port, EN_DCDC.pin);
 
@@ -330,13 +360,14 @@ int main(void)
 	timer_enable_irq(TIM5,TIM_DIER_UIE);
 	timer_enable_counter(TIM5);
 
-	
-	Await_RX_RCV_Async();
+	inc_enc_setup();
+
+	//Await_RX_RCV_Async();
 
 	uint32_t Conv_mV=0;
 
 	while (1) {
-
+		
 		switch (Main_State)
 		{
 		case DEFAULT_STATE:
@@ -415,12 +446,19 @@ int main(void)
 			break;
 		}
 
-
-
-
-	}
 	
 
+	if(ticks-led_ticks>1000){	//used to visually check if the code is not frozen somewhere (trap loop, exception, periph failure ...)
+				gpio_toggle(LED_GPIO, BLUE_LED);
+				led_ticks=ticks;
+				//uart_printf("Count : %d\n", UART_RCV_count);
+				uart_printf("CNT : %u\n", TIM3_CNT);
+			}
+		
+		
+	}
+	
+	
 	return 0;
 }
 

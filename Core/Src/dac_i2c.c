@@ -5,6 +5,115 @@ gpiopin DAC_SDA = {GPIOB, GPIO9};
 
 uint8_t* Voltage_regs[3] = {(uint8_t)0, (uint8_t)0, (uint8_t)0xFF};
 
+
+int i2c_read7_v2(uint32_t i2c, int addr, uint8_t *res, size_t n)
+{
+
+	int status;
+
+	i2c_send_start(i2c);
+	i2c_enable_ack(i2c);
+
+	/* Wait for the end of the start condition, master mode selected, and BUSY bit set */
+	while ( !( (I2C_SR1(i2c) & I2C_SR1_SB)
+		&& (I2C_SR2(i2c) & I2C_SR2_MSL)
+		&& (I2C_SR2(i2c) & I2C_SR2_BUSY) )){
+			if(TIM_CR1(TIM2) & TIM_CR1_CEN==0)	{return -1;}
+		}
+
+	i2c_send_7bit_address(i2c, addr, I2C_READ);
+
+	/* Waiting for address is transferred. */
+	while (!(I2C_SR1(i2c) & I2C_SR1_ADDR)){
+		if(TIM_CR1(TIM2) & TIM_CR1_CEN==0)	{return -1;}
+	}
+	/* Clearing ADDR condition sequence. */
+	(void)I2C_SR2(i2c);
+
+	for (size_t i = 0; i < n; ++i) {
+		if (i == n - 1) {
+			i2c_disable_ack(i2c);
+			//i2c_nack_next(i2c);
+			//i2c_nack_current(i2c);
+		}
+		while (!(I2C_SR1(i2c) & I2C_SR1_RxNE)){
+			if(TIM_CR1(TIM2) & TIM_CR1_CEN==0)	{return -1;}
+		}
+		res[i] = i2c_get_data(i2c);
+	}
+	//i2c_nack_current(i2c);
+	
+
+	return;
+}
+
+
+
+
+int i2c_transfer2(uint32_t i2c, uint8_t addr, const uint8_t *w, size_t wn, uint8_t *r, size_t rn) {
+
+	int status;
+
+	TIM_ARR(TIM2) = TIMEOUT_I2C;
+	TIM_EGR(TIM2) = TIM_EGR_UG;
+	TIM_CR1(TIM2) |= TIM_CR1_CEN;
+
+
+	if (wn) {
+		status=i2c_write7_v2(i2c, addr, w, wn);
+		if(status==-1)	{TIM_CR1(TIM2) &= ~TIM_CR1_CEN;return -1;}
+	}
+	if (rn) {
+		status=i2c_read7_v2(i2c, addr, r, rn);
+		if(status==-1)	{TIM_CR1(TIM2) &= ~TIM_CR1_CEN;return -1;}
+	} else {
+		i2c_send_stop(i2c);
+	}
+
+	TIM_ARR(TIM2) = 0;
+	TIM_CR1(TIM2) &= ~TIM_CR1_CEN;
+
+}
+
+int i2c_write7_v2(uint32_t i2c, int addr, const uint8_t *data, size_t n)
+{
+
+	while ((I2C_SR2(i2c) & I2C_SR2_BUSY)) {
+		if(TIM_CR1(TIM2) & TIM_CR1_CEN==0)	{return -1;}
+	}
+
+	i2c_send_start(i2c);
+
+	/* Wait for the end of the start condition, master mode selected, and BUSY bit set */
+	while ( !( (I2C_SR1(i2c) & I2C_SR1_SB)
+		&& (I2C_SR2(i2c) & I2C_SR2_MSL)
+		&& (I2C_SR2(i2c) & I2C_SR2_BUSY) )){
+			if(TIM_CR1(TIM2) & TIM_CR1_CEN==0)	{return -1;}
+		}
+
+	i2c_send_7bit_address(i2c, addr, I2C_WRITE);
+
+	/* Waiting for address is transferred. */
+	while (!(I2C_SR1(i2c) & I2C_SR1_ADDR)){
+		if(TIM_CR1(TIM2) & TIM_CR1_CEN==0)	{return -1;}
+	}
+
+	/* Clearing ADDR condition sequence. */
+	(void)I2C_SR2(i2c);
+
+	for (size_t i = 0; i < 100; i++){asm("NOP");}
+	
+
+	for (size_t i = 0; i < n; i++) {
+		i2c_send_data(i2c, data[4*i]);
+		while (!(I2C_SR1(i2c) & (I2C_SR1_BTF))){
+			if(TIM_CR1(TIM2) & TIM_CR1_CEN==0)	{return -1;}
+		}
+		for (size_t i = 0; i < 100; i++){asm("NOP");}
+
+	}
+}
+
 /**
  * @brief Setup DAC comm peripheral
  * 
@@ -86,8 +195,10 @@ SWRST:
  * @param channel 		OUT 0 or 1
  * @param Voltage_mV 	Voltage in mV
  */
-uint8_t dac_set_voltage(uint32_t channel, uint32_t Voltage_mV){
+int dac_set_voltage(uint32_t channel, uint32_t Voltage_mV){
 	
+	int status;
+
 	uint32_t 	I_uA=0;
 	uint32_t 	buff32=0;
 	uint8_t 	I_7bits=0;
@@ -140,45 +251,18 @@ uint8_t dac_set_voltage(uint32_t channel, uint32_t Voltage_mV){
 	Voltage_regs[1]=I_7bits;
 
 
-	i2c_transfer2(DAC_I2C, DAC_ADDR, Voltage_regs, 2, NULL, 0);
-	i2c_send_stop(DAC_I2C);
+	status=i2c_transfer2(DAC_I2C, DAC_ADDR, Voltage_regs, 2, NULL, 0);
+	i2c_send_stop(DAC_I2C); //not sure if needed
+
+	if(status==-1)	{
+		uart_printf("ERROR : I2C Timeout !\n");
+		return -1;
+	}
 
 
 	uart_printf("Current is %d uA - Sending %x to Reg: %x\n", I_uA/1000, Voltage_regs[1], Voltage_regs[0]);
 
 	return 0;
-}
-
-static void i2c_read7_v2(uint32_t i2c, int addr, uint8_t *res, size_t n)
-{
-	i2c_send_start(i2c);
-	i2c_enable_ack(i2c);
-
-	/* Wait for the end of the start condition, master mode selected, and BUSY bit set */
-	while ( !( (I2C_SR1(i2c) & I2C_SR1_SB)
-		&& (I2C_SR2(i2c) & I2C_SR2_MSL)
-		&& (I2C_SR2(i2c) & I2C_SR2_BUSY) ));
-
-	i2c_send_7bit_address(i2c, addr, I2C_READ);
-
-	/* Waiting for address is transferred. */
-	while (!(I2C_SR1(i2c) & I2C_SR1_ADDR));
-	/* Clearing ADDR condition sequence. */
-	(void)I2C_SR2(i2c);
-
-	for (size_t i = 0; i < n; ++i) {
-		if (i == n - 1) {
-			i2c_disable_ack(i2c);
-			//i2c_nack_next(i2c);
-			//i2c_nack_current(i2c);
-		}
-		while (!(I2C_SR1(i2c) & I2C_SR1_RxNE));
-		res[i] = i2c_get_data(i2c);
-	}
-	//i2c_nack_current(i2c);
-	
-
-	return;
 }
 
 
@@ -204,46 +288,4 @@ uint8_t dac_read_reg(uint8_t reg){
 
 	return reg_data[0];
 
-}
-
-void i2c_transfer2(uint32_t i2c, uint8_t addr, const uint8_t *w, size_t wn, uint8_t *r, size_t rn) {
-	if (wn) {
-		i2c_write7_v2(i2c, addr, w, wn);
-	}
-	if (rn) {
-		i2c_read7_v2(i2c, addr, r, rn);
-	} else {
-		i2c_send_stop(i2c);
-	}
-}
-
-void i2c_write7_v2(uint32_t i2c, int addr, const uint8_t *data, size_t n)
-{
-	while ((I2C_SR2(i2c) & I2C_SR2_BUSY)) {
-	}
-
-	i2c_send_start(i2c);
-
-	/* Wait for the end of the start condition, master mode selected, and BUSY bit set */
-	while ( !( (I2C_SR1(i2c) & I2C_SR1_SB)
-		&& (I2C_SR2(i2c) & I2C_SR2_MSL)
-		&& (I2C_SR2(i2c) & I2C_SR2_BUSY) ));
-
-	i2c_send_7bit_address(i2c, addr, I2C_WRITE);
-
-	/* Waiting for address is transferred. */
-	while (!(I2C_SR1(i2c) & I2C_SR1_ADDR));
-
-	/* Clearing ADDR condition sequence. */
-	(void)I2C_SR2(i2c);
-
-	for (size_t i = 0; i < 100; i++){asm("NOP");}
-	
-
-	for (size_t i = 0; i < n; i++) {
-		i2c_send_data(i2c, data[4*i]);
-		while (!(I2C_SR1(i2c) & (I2C_SR1_BTF)));
-		for (size_t i = 0; i < 100; i++){asm("NOP");}
-
-	}
 }
