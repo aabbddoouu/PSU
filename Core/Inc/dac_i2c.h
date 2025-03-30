@@ -1,7 +1,7 @@
 #include <main.h>
 
 #define DAC_I2C     I2C1
-#define DAC_ADDR    0x20>>1
+#define DAC_ADDR    0x90>>1
 
 #define IFS0        127000 //in nA
 #define IFS1        127000

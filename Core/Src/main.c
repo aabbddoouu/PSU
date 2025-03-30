@@ -18,10 +18,10 @@ gpiopin EN_OUT2 	= {GPIOB, GPIO4};
 gpiopin EN_CALIB1 	= {GPIOB, GPIO5};
 gpiopin EN_CALIB2 	= {GPIOB, GPIO3};
 
-gpiopin IN_CALIB2 	= {GPIOA, GPIO0};
-gpiopin IN_CALIB1 	= {GPIOA, GPIO1};
+gpiopin IN_FB2 		= {GPIOA, GPIO0};
+gpiopin IN_FB1 		= {GPIOA, GPIO1};
 
-gpiopin IN_Iin 		= {GPIOA, GPIO4};
+gpiopin IN_Iin 		= {GPIOA, GPIO4}; //HW : Not implemented yet
 gpiopin IN_Iout1 	= {GPIOA, GPIO5};
 gpiopin IN_Iout2 	= {GPIOA, GPIO6};
 
@@ -30,9 +30,9 @@ gpiopin ENC1B 		= {GPIOA, GPIO7};
 
 gpiopin LED 		= {LED_GPIO, BLUE_LED};
 
-PSU PSU1 			= {DAC_CH0, V_MIN_0};
-PSU PSU2 			= {DAC_CH1, V_MIN_1};
-PSU PSU_I2C = {0, 0};
+PSU PSU1 			= {DAC_CH0, V_MIN_0, 0, 0};
+PSU PSU2 			= {DAC_CH1, V_MIN_1, 0, 0};
+PSU PSU_I2C 		= {0, 0, 0, 0};
 
 volatile uint8_t Tx_buffer[BUFF_LEN];
 volatile uint8_t Rx_buffer[BUFF_LEN];
@@ -40,6 +40,8 @@ volatile uint8_t Rx_buffer[BUFF_LEN];
 volatile int32_t Main_State = DEFAULT_STATE;
 
 volatile uint32_t UART_RCV_count = 0;
+
+volatile uint32_t I2C_XFER = 0;
 
 /////////////////////////////////////////////////////
 //// UART printf SECTION
@@ -51,7 +53,7 @@ volatile uint32_t UART_RCV_count = 0;
 void _putchar(char character)
 {
 	// send char to UART
-	usart_send_blocking(UART_STM,character);  //USART3 is connected to ST-link serial com
+	usart_send_blocking(UART_BT,character);  //USART3 is connected to ST-link serial com
 }
 int uart_printf(const char *format,...) {
 
@@ -84,6 +86,7 @@ static void clock_setup(void)
 
 	rcc_periph_clock_enable(UART_PC_RCC);
 	rcc_periph_clock_enable(UART_STM_RCC);
+	rcc_periph_clock_enable(UART_BT_RCC);
 	rcc_periph_clock_enable(RCC_ADC1);
 }
 
@@ -116,7 +119,7 @@ static void gpio_setup(void)
 	gpio_clear(LED.port, LED.pin);
 
 	//Analog Read
-	gpio_mode_setup(IN_CALIB1.port, GPIO_MODE_ANALOG, GPIO_PUPD_NONE, IN_CALIB1.pin|IN_CALIB2.pin|
+	gpio_mode_setup(IN_FB1.port, GPIO_MODE_ANALOG, GPIO_PUPD_NONE, IN_FB1.pin|IN_FB2.pin|
 	IN_Iin.pin|IN_Iout1.pin|IN_Iout2.pin);
 
 
@@ -214,6 +217,7 @@ void delay_setup(void)
 
 }
 
+/*
 void inc_enc_setup(void)
 {
 
@@ -224,7 +228,7 @@ void inc_enc_setup(void)
 	gpio_set_af(ENC1B.port, GPIO_AF2, ENC1B.pin);
 
 
-	// Config TIMER3
+	// Config TIMER3 as a CW encoder
 	rcc_periph_clock_enable(RCC_TIM3);
 
 	timer_slave_set_mode(TIM3, TIM_SMCR_SMS_EM1);
@@ -236,7 +240,7 @@ void inc_enc_setup(void)
 		
 	timer_enable_counter(TIM3);
 }
-
+*/
 
 
 void tim5_isr(){	//happens every time timer7 overflows
@@ -251,6 +255,12 @@ void tim5_isr(){	//happens every time timer7 overflows
 		}
 
 	}
+
+	if (I2C_XFER && TIM_CNT(TIM2)>TIMEOUT_I2C)
+	{
+		TIM_CR1(TIM2) &= ~TIM_CR1_CEN;
+	}
+	
 		
 }
 
@@ -285,7 +295,31 @@ void delay_100us(uint16_t us)
 
 static inline void Await_RX_RCV_Async(){
 	
-	start_uart_rx_reception(4);
+	start_uart_rx_reception(5);
+}
+
+
+static inline enable_channel(PSU* psu){
+	switch (psu->Channel)
+	{
+		case DAC_CH0:
+			if (psu->ON)
+				gpio_set(EN_OUT1.port, EN_OUT1.pin);
+			else
+				gpio_clear(EN_OUT1.port, EN_OUT1.pin);
+			
+			return 0;
+
+		case DAC_CH1:
+			if (psu->ON)
+				gpio_set(EN_OUT2.port, EN_OUT2.pin);
+			else
+				gpio_clear(EN_OUT2.port, EN_OUT2.pin);
+			return 0;
+			
+		default:
+			return -1;
+	}
 }
 
 int main(void)
@@ -297,6 +331,8 @@ int main(void)
 
 	delay_setup();
 	
+	setup_BT_usart();
+
 	setup_PC_usart();
 
 	setup_STM_usart();
@@ -319,52 +355,28 @@ int main(void)
 	//start_dma_adc_convertion();
 
 	asm("NOP");
-	
-	
-	dac_set_voltage(DAC_CH0, 100000);
-	delay_100us(1);
-	//dac_read_reg(0xF8);	
-	delay_100us(1);
-	dac_set_voltage(DAC_CH1, 100000);
-	delay_100us(1);
-
-	while(1);
-
-	delay_ms(2000);
-
-	dac_set_voltage(DAC_CH0, 8000);
-	delay_100us(1);
-	dac_set_voltage(DAC_CH1, 15000);
-	delay_100us(1);
-
-	delay_ms(2000);
-
-	dac_set_voltage(DAC_CH0, 6000);
-	delay_100us(1);
-	//dac_read_reg(0xF8);	
-	delay_100us(1);
-	dac_set_voltage(DAC_CH1, 12000);
-	delay_100us(1);
-
-	delay_ms(2000);
-
-	dac_set_voltage(DAC_CH0, 4000);
-	delay_100us(1);
-	dac_set_voltage(DAC_CH1, 9000);
-	delay_100us(1);
-	
-
-	//gpio_clear(EN_DCDC.port, EN_DCDC.pin);
 
 	//enable timer5 after setup is done (for safety)
 	timer_enable_irq(TIM5,TIM_DIER_UIE);
 	timer_enable_counter(TIM5);
 
-	inc_enc_setup();
 
-	//Await_RX_RCV_Async();
+	dac_set_voltage(DAC_CH0, 12000);
+	dac_set_voltage(DAC_CH1, 12000);
+
+
+	//gpio_clear(EN_DCDC.port, EN_DCDC.pin);
+
+	
+
+	//inc_enc_setup();
+
+	Await_RX_RCV_Async(); //Without this, the MCU will never check the 1st PC RX reception
 
 	uint32_t Conv_mV=0;
+
+
+	Main_State=RX_RCV_STATE;
 
 	while (1) {
 		
@@ -391,7 +403,9 @@ int main(void)
 			//		1st byte : PSU 1 or 2 
             //      2nd byte : 2nd digit of voltage
             //      3rd byte : 1st digit of voltage
-            //      4th byte : 1st devimal digit
+            //      4th byte : 1st decimal digit
+			//      5th byte : 1 -> ON | 0 -> OFF
+
 			
 			// HINT : '0' in ASCII is 0x30 in unit8_t/char (instead of using atoi)
 
@@ -401,13 +415,30 @@ int main(void)
 
 			switch (Rx_buffer[0])
 			{
-			case '2':
+			case '1':
 				PSU_I2C.Channel=PSU1.Channel;
 				Main_State = SEND_DAC_STATE;
 				break;
 
-			case '1':
+			case '2':
 				PSU_I2C.Channel=PSU2.Channel;
+				Main_State = SEND_DAC_STATE;
+				break;
+			
+			default:
+				Main_State=TX_SEND_STATE;
+				break;
+			}
+
+			switch (Rx_buffer[4])
+			{
+			case '0':
+				PSU_I2C.ON=0;
+				Main_State = SEND_DAC_STATE;
+				break;
+
+			case '1':
+				PSU_I2C.ON=1;
 				Main_State = SEND_DAC_STATE;
 				break;
 			
@@ -423,8 +454,12 @@ int main(void)
 			// Sends the wanted Voltage to the µA DAC
 			uart_printf("RCVD : %d mV\n",PSU_I2C.Voltage_mV);
 			dac_set_voltage(PSU_I2C.Channel, PSU_I2C.Voltage_mV);
+			enable_channel(&PSU_I2C);
+
 			Main_State = TX_SEND_STATE;
 			break;
+
+
 
 		case TX_SEND_STATE:
 			// Sends an OK (ACK) to the PC after I2C comm is OK
@@ -440,6 +475,7 @@ int main(void)
 		case ERR_I2C_STATE:
 			// Check if NACK Err or Busy Err
 			// Not yet implemented 
+			// is it still needed with the implemented timeout ??
 			break;
 
 		default:
@@ -452,7 +488,7 @@ int main(void)
 				gpio_toggle(LED_GPIO, BLUE_LED);
 				led_ticks=ticks;
 				//uart_printf("Count : %d\n", UART_RCV_count);
-				uart_printf("CNT : %u\n", TIM3_CNT);
+				//uart_printf("CNT : %u\n", TIM3_CNT);
 			}
 		
 		
@@ -462,6 +498,10 @@ int main(void)
 	return 0;
 }
 
+/**
+ * @brief Avoid Hard Fault Blockage w/ reseting the MCU
+ * 
+ */
 void hard_fault_handler(){
 	//Request SW reset
 	SCB_AIRCR = SCB_AIRCR_VECTKEY | SCB_AIRCR_SYSRESETREQ;

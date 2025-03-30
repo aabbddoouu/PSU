@@ -1,5 +1,7 @@
 #include <dac_i2c.h>
 
+extern volatile uint32_t I2C_XFER;
+
 gpiopin DAC_SCL = {GPIOB, GPIO8};
 gpiopin DAC_SDA = {GPIOB, GPIO9};
 
@@ -9,7 +11,7 @@ uint8_t* Voltage_regs[3] = {(uint8_t)0, (uint8_t)0, (uint8_t)0xFF};
 int i2c_read7_v2(uint32_t i2c, int addr, uint8_t *res, size_t n)
 {
 
-	int status;
+	int status=0;
 
 	i2c_send_start(i2c);
 	i2c_enable_ack(i2c);
@@ -18,14 +20,14 @@ int i2c_read7_v2(uint32_t i2c, int addr, uint8_t *res, size_t n)
 	while ( !( (I2C_SR1(i2c) & I2C_SR1_SB)
 		&& (I2C_SR2(i2c) & I2C_SR2_MSL)
 		&& (I2C_SR2(i2c) & I2C_SR2_BUSY) )){
-			if(TIM_CR1(TIM2) & TIM_CR1_CEN==0)	{return -1;}
+			if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
 		}
 
 	i2c_send_7bit_address(i2c, addr, I2C_READ);
 
 	/* Waiting for address is transferred. */
 	while (!(I2C_SR1(i2c) & I2C_SR1_ADDR)){
-		if(TIM_CR1(TIM2) & TIM_CR1_CEN==0)	{return -1;}
+		if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
 	}
 	/* Clearing ADDR condition sequence. */
 	(void)I2C_SR2(i2c);
@@ -37,7 +39,7 @@ int i2c_read7_v2(uint32_t i2c, int addr, uint8_t *res, size_t n)
 			//i2c_nack_current(i2c);
 		}
 		while (!(I2C_SR1(i2c) & I2C_SR1_RxNE)){
-			if(TIM_CR1(TIM2) & TIM_CR1_CEN==0)	{return -1;}
+			if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
 		}
 		res[i] = i2c_get_data(i2c);
 	}
@@ -52,8 +54,9 @@ int i2c_read7_v2(uint32_t i2c, int addr, uint8_t *res, size_t n)
 
 int i2c_transfer2(uint32_t i2c, uint8_t addr, const uint8_t *w, size_t wn, uint8_t *r, size_t rn) {
 
-	int status;
-
+	int status=0;
+	I2C_XFER=1;
+	timer_one_shot_mode(TIM2);
 	TIM_ARR(TIM2) = TIMEOUT_I2C;
 	TIM_EGR(TIM2) = TIM_EGR_UG;
 	TIM_CR1(TIM2) |= TIM_CR1_CEN;
@@ -61,15 +64,16 @@ int i2c_transfer2(uint32_t i2c, uint8_t addr, const uint8_t *w, size_t wn, uint8
 
 	if (wn) {
 		status=i2c_write7_v2(i2c, addr, w, wn);
-		if(status==-1)	{TIM_CR1(TIM2) &= ~TIM_CR1_CEN;return -1;}
+		if(status==-1)	{TIM_CR1(TIM2) &= ~TIM_CR1_CEN; I2C_XFER=0; return -1;}
 	}
 	if (rn) {
 		status=i2c_read7_v2(i2c, addr, r, rn);
-		if(status==-1)	{TIM_CR1(TIM2) &= ~TIM_CR1_CEN;return -1;}
+		if(status==-1)	{TIM_CR1(TIM2) &= ~TIM_CR1_CEN; I2C_XFER=0; return -1;}
 	} else {
 		i2c_send_stop(i2c);
 	}
 
+	I2C_XFER=0;
 	TIM_ARR(TIM2) = 0;
 	TIM_CR1(TIM2) &= ~TIM_CR1_CEN;
 
@@ -79,7 +83,7 @@ int i2c_write7_v2(uint32_t i2c, int addr, const uint8_t *data, size_t n)
 {
 
 	while ((I2C_SR2(i2c) & I2C_SR2_BUSY)) {
-		if(TIM_CR1(TIM2) & TIM_CR1_CEN==0)	{return -1;}
+		if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
 	}
 
 	i2c_send_start(i2c);
@@ -88,14 +92,14 @@ int i2c_write7_v2(uint32_t i2c, int addr, const uint8_t *data, size_t n)
 	while ( !( (I2C_SR1(i2c) & I2C_SR1_SB)
 		&& (I2C_SR2(i2c) & I2C_SR2_MSL)
 		&& (I2C_SR2(i2c) & I2C_SR2_BUSY) )){
-			if(TIM_CR1(TIM2) & TIM_CR1_CEN==0)	{return -1;}
+			if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
 		}
 
 	i2c_send_7bit_address(i2c, addr, I2C_WRITE);
 
 	/* Waiting for address is transferred. */
 	while (!(I2C_SR1(i2c) & I2C_SR1_ADDR)){
-		if(TIM_CR1(TIM2) & TIM_CR1_CEN==0)	{return -1;}
+		if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
 	}
 
 	/* Clearing ADDR condition sequence. */
@@ -107,7 +111,7 @@ int i2c_write7_v2(uint32_t i2c, int addr, const uint8_t *data, size_t n)
 	for (size_t i = 0; i < n; i++) {
 		i2c_send_data(i2c, data[4*i]);
 		while (!(I2C_SR1(i2c) & (I2C_SR1_BTF))){
-			if(TIM_CR1(TIM2) & TIM_CR1_CEN==0)	{return -1;}
+			if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
 		}
 		for (size_t i = 0; i < 100; i++){asm("NOP");}
 
@@ -197,7 +201,7 @@ SWRST:
  */
 int dac_set_voltage(uint32_t channel, uint32_t Voltage_mV){
 	
-	int status;
+	int status=0;
 
 	uint32_t 	I_uA=0;
 	uint32_t 	buff32=0;
@@ -207,13 +211,14 @@ int dac_set_voltage(uint32_t channel, uint32_t Voltage_mV){
 
 	switch (channel)
 	{
-	//Channel 0 : Vout = 4V + 0.1*Is0
+	//Channel 0 : Vout = 12V + 0.1*Is0
 	case 0:
 		if (Voltage_mV<V_MIN_0)
 		{
+			uart_printf("Voltage Out of Bound\n");
 			return 1;
 		}
-		I_uA=(Voltage_mV-V_MIN_0)*10*96/100;
+		I_uA=(Voltage_mV-V_MIN_0)*10;
 		buff32=I_uA*0x7F; // scaling error
 		buff32/=IFS0;
 
@@ -222,10 +227,11 @@ int dac_set_voltage(uint32_t channel, uint32_t Voltage_mV){
 
 		break;
 
-	//Channel 1 : Vout = 9V + 0.1*Is1
+	//Channel 1 : Vout = 12V + 0.1*Is1
 	case 1:
 		if (Voltage_mV<V_MIN_1)
 		{
+			uart_printf("Voltage Out of Bound\n");
 			return 1;
 		}
 		I_uA=(Voltage_mV-V_MIN_1)*10;
@@ -236,6 +242,7 @@ int dac_set_voltage(uint32_t channel, uint32_t Voltage_mV){
 
 		break;
 	default:
+		uart_printf("Channel ID KO\n");
 		return 2;
 
 	}
@@ -260,10 +267,12 @@ int dac_set_voltage(uint32_t channel, uint32_t Voltage_mV){
 	}
 
 
+
 	uart_printf("Current is %d uA - Sending %x to Reg: %x\n", I_uA/1000, Voltage_regs[1], Voltage_regs[0]);
 
 	return 0;
 }
+
 
 
 uint8_t dac_read_reg(uint8_t reg){

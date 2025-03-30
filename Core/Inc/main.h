@@ -84,7 +84,9 @@ typedef struct
 typedef struct
 {
     uint32_t    Channel;
-    uint32_t    Voltage_mV
+    uint32_t    Voltage_mV;
+    uint32_t    Current_mA;
+    uint32_t    ON;
 
 }PSU;
 
