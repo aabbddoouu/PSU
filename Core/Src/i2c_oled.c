@@ -1,40 +1,7 @@
 #include <i2c_oled.h>
 
-gpiopin OLED_SCL = {GPIOD, GPIO12};
-gpiopin OLED_SDA = {GPIOD, GPIO13};
+extern volatile uint32_t I2C_XFER;
 
-#define I2C_AF	GPIO_AF4
-
-/**
- * @brief Setup oled comm peripheral
- * 
- */
-void oled_setup(){
-	RCC_DCKCFGR2|= (RCC_DCKCFGR2_UARTxSEL_HSI<<RCC_DCKCFGR2_I2C4SEL_SHIFT); //set i2c1 clock to HSI = 16MHz
-	rcc_periph_clock_enable(RCC_I2C4);
-	
-	i2c_reset(I2C_OLED);
-	gpio_mode_setup(
-		OLED_SCL.port,
-      	GPIO_MODE_AF,
-      	GPIO_PUPD_NONE,
-      	OLED_SCL.pin|OLED_SDA.pin		//  SCL|SDA
-	);
-	gpio_set_output_options(
-		OLED_SCL.port,
-		GPIO_OTYPE_OD,
-		GPIO_OSPEED_25MHZ,
-		OLED_SCL.pin|OLED_SDA.pin
-	);
-	gpio_set_af(OLED_SCL.port,I2C_AF,OLED_SCL.pin|OLED_SDA.pin); //set to AF4 => i2c
-	i2c_peripheral_disable(I2C_OLED);
-	i2c_set_7bit_addr_mode(I2C_OLED);
-	i2c_enable_analog_filter(I2C_OLED);
-	i2c_set_digital_filter(I2C_OLED, 0);
-	i2c_set_speed(I2C_OLED,i2c_speed_fmp_1m,rcc_get_i2c_clk_freq(I2C_OLED));
-	delay_ms(1000);
-	i2c_peripheral_enable(I2C_OLED);
-}
 
 
 /**
@@ -49,38 +16,138 @@ void oled_setup(){
  */
 void i2c_xfer7(uint32_t i2c, uint8_t addr, uint8_t command, uint8_t *w, size_t wn, bool autoend)
 {	
-	I2C_ICR(i2c)|=I2C_ICR_NACKCF; //clear NACKF
-	i2c_set_7bit_address(i2c, addr);
-	i2c_set_write_transfer_dir(i2c);
-	i2c_set_bytes_to_transfer(i2c, wn+1);
-	if (autoend)
-		i2c_enable_autoend(i2c);
-	else
-		i2c_disable_autoend(i2c);
-	
+
+	int status=0;
+	I2C_XFER=1;
+	timer_one_shot_mode(TIM2);
+	TIM_ARR(TIM2) = TIMEOUT_I2C;
+	TIM_EGR(TIM2) = TIM_EGR_UG;
+	TIM_CR1(TIM2) |= TIM_CR1_CEN;
+
+
+	i2c_peripheral_disable(i2c);
+	i2c_peripheral_enable(i2c);
+
+	while ((I2C_SR2(i2c) & I2C_SR2_BUSY)) {
+		if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
+	}
+
 	i2c_send_start(i2c);
 
-	bool wait = true;
-		while (wait) {
-			if (i2c_transmit_int_status(i2c)) {
-				wait = false;
-			}
-			while (i2c_nack(i2c)); /* Some error */
+		/* Wait for the end of the start condition, master mode selected, and BUSY bit set */
+		while ( !( (I2C_SR1(i2c) & I2C_SR1_SB)
+		&& (I2C_SR2(i2c) & I2C_SR2_MSL)
+		&& (I2C_SR2(i2c) & I2C_SR2_BUSY) )){
+			if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
 		}
-		i2c_send_data(i2c, command);
+
+	i2c_send_7bit_address(i2c, addr, I2C_WRITE);
+
+		/* Waiting for address is transferred. */
+		while (!(I2C_SR1(i2c) & I2C_SR1_ADDR)){
+			if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
+		}
+	
+		/* Clearing ADDR condition sequence. */
+		(void)I2C_SR2(i2c);
+	
+	i2c_send_data(i2c, command);
+
+	while (!(I2C_SR1(i2c) & (I2C_SR1_BTF))){
+		if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
+	}
 	
 	while (wn--) {
-		wait = true;
-		while (wait) {
-			if (i2c_transmit_int_status(i2c)) {
-				wait = false;
-			}
-			while (i2c_nack(i2c)); /* Some error */
-		}
+
 		i2c_send_data(i2c, *w++);
+		while (!(I2C_SR1(i2c) & (I2C_SR1_BTF))){
+			if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
+		}
 	}
+
+	i2c_send_stop(i2c);
+
+	I2C_XFER=0;
+	TIM_ARR(TIM2) = 0;
+	TIM_CR1(TIM2) &= ~TIM_CR1_CEN;
 }
 
+int i2c_read7_oled(uint32_t i2c, int addr, uint8_t *res, size_t n)
+{
+
+
+	return;
+}
+
+
+
+
+int i2c_transfer_oled(uint32_t i2c, uint8_t addr, uint8_t command, uint8_t *w, size_t wn, uint8_t *r, size_t rn) {
+
+	int status=0;
+	I2C_XFER=1;
+	timer_one_shot_mode(TIM2);
+	TIM_ARR(TIM2) = TIMEOUT_I2C;
+	TIM_EGR(TIM2) = TIM_EGR_UG;
+	TIM_CR1(TIM2) |= TIM_CR1_CEN;
+
+	status=i2c_write7_oled(i2c, addr, w, wn);
+
+	if (wn) {
+		status=i2c_write7_oled(i2c, addr, w, wn);
+		if(status==-1)	{TIM_CR1(TIM2) &= ~TIM_CR1_CEN; I2C_XFER=0; return -1;}
+	}
+	if (rn) {
+		status=i2c_read7_v2(i2c, addr, r, rn);
+		if(status==-1)	{TIM_CR1(TIM2) &= ~TIM_CR1_CEN; I2C_XFER=0; return -1;}
+	} else {
+		i2c_send_stop(i2c);
+	}
+
+	I2C_XFER=0;
+	TIM_ARR(TIM2) = 0;
+	TIM_CR1(TIM2) &= ~TIM_CR1_CEN;
+
+}
+
+int i2c_write7_oled(uint32_t i2c, int addr, const uint8_t *data, size_t n)
+{
+
+	while ((I2C_SR2(i2c) & I2C_SR2_BUSY)) {
+		if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
+	}
+
+	i2c_send_start(i2c);
+
+	/* Wait for the end of the start condition, master mode selected, and BUSY bit set */
+	while ( !( (I2C_SR1(i2c) & I2C_SR1_SB)
+		&& (I2C_SR2(i2c) & I2C_SR2_MSL)
+		&& (I2C_SR2(i2c) & I2C_SR2_BUSY) )){
+			if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
+		}
+
+	i2c_send_7bit_address(i2c, addr, I2C_WRITE);
+
+	/* Waiting for address is transferred. */
+	while (!(I2C_SR1(i2c) & I2C_SR1_ADDR)){
+		if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
+	}
+
+	/* Clearing ADDR condition sequence. */
+	(void)I2C_SR2(i2c);
+
+	for (size_t i = 0; i < 100; i++){asm("NOP");}
+	
+
+	for (size_t i = 0; i < n; i++) {
+		i2c_send_data(i2c, data[4*i]);
+		while (!(I2C_SR1(i2c) & (I2C_SR1_BTF))){
+			if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
+		}
+		for (size_t i = 0; i < 100; i++){asm("NOP");}
+
+	}
+}
 
 //Write line to oled (primitive)
 void update_time_oled(char * str){

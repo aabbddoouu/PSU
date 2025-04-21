@@ -160,7 +160,7 @@ SWRST:
 	gpio_set_af(DAC_SCL.port,GPIO_AF4,DAC_SCL.pin|DAC_SDA.pin); //set to AF4 => i2c
 	
 	i2c_peripheral_disable(DAC_I2C);
-	i2c_set_speed(DAC_I2C,i2c_speed_sm_100k,42);
+	i2c_set_speed(DAC_I2C,i2c_speed_fm_400k,42);
 	
 	delay_ms(1000);
 	

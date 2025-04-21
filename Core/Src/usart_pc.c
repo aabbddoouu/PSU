@@ -15,7 +15,7 @@ void setup_PC_usart(void) {
 	gpio_set_af(UART_PC_PORT, GPIO_AF7, RX_PIN|TX_PIN); 
 
 	/* Setup USART2 parameters. */
-	usart_set_baudrate(UART_PC, 115200);
+	usart_set_baudrate(UART_PC, 56000);
 	usart_set_databits(UART_PC, 8);
 	usart_set_stopbits(UART_PC, USART_STOPBITS_1);
 	usart_set_mode(UART_PC, USART_MODE_TX_RX);

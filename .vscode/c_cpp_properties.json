@@ -16,6 +16,7 @@
                 "D:/VSARM/armcc/arm-none-eabi/include",
                 "D:/VSARM/armcc/bin",
                 "Core/Inc",
+                "SSD1306/ssd1306",
                 "${workspaceFolder}/Core/Inc"
             ],
             "defines": [

@@ -45,7 +45,11 @@ Core/Src/miniprintf.c \
 Core/Src/printf.c \
 Core/Src/dac_i2c.c \
 Core/Src/usart_pc.c \
-Core/Src/usart_STM2.c
+Core/Src/usart_STM2.c \
+Core/Src/i2c_oled.c \
+SSD1306/ssd1306/ssd1306.c \
+SSD1306/ssd1306/ssd1306_fonts.c \
+SSD1306/ssd1306/ssd1306_tests.c
 
 CPP_SOURCES = \
 
@@ -115,8 +119,8 @@ C_INCLUDES =  \
 -I../libopencm3-master/include/libopencm3/stm32/f4 \
 -I../STMems_Standard_C_drivers \
 -ICore/Inc \
--IDrivers/CMSIS/Include
-
+-IDrivers/CMSIS/Include \
+-ISSD1306/ssd1306
 
 
 # compile gcc flags

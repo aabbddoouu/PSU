@@ -148,7 +148,8 @@
         "dac_i2c.h": "c",
         "usart_pc.h": "c",
         "usart_common_f24.h": "c",
-        "usart_stm2.h": "c"
+        "usart_stm2.h": "c",
+        "i2c_common_v1.h": "c"
     },
     "C_Cpp.dimInactiveRegions": true,
     "stm32-for-vscode.openOCDPath": "D:\\VSARM\\OPENOCD\\BIN\\OPENOCD.EXE",

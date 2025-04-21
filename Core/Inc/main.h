@@ -30,6 +30,8 @@
 #include <usart_pc.h>
 #include <usart_STM2.h>
 #include <dma.h>
+#include <i2c_oled.h>
+
 
 #define LED_GPIO    GPIOC
 #define BLUE_LED    GPIO13
@@ -44,6 +46,7 @@
 #define SEND_DAC_STATE  2
 #define TX_SEND_STATE   3
 #define SEND_CURRENT    4
+#define UPDATE_OLED     10
 
 #define ERR_I2C_STATE   -1
 #define ERR_RX_STATE    -2
@@ -55,6 +58,11 @@
 #define ADC_DMA_ST		DMA_STREAM0
 #define ADC_DMA_CH	    DMA_SxCR_CHSEL_0
 #define NVIC_DMA_ADC    NVIC_DMA2_STREAM0_IRQ
+
+#define CURR_GAIN       2
+#define ADC_RES         1<<12
+#define RES_SENSE       1 //milli-Ohms
+#define VREF            33132 //mili-Volts/10
 
 
 
@@ -101,4 +109,5 @@ void delay_100us(uint16_t us);
 void stop_us_count(uint32_t *c);
 void start_us_count(uint32_t *c);
 void hard_fault_handler();
+int32_t median_list(int32_t* list, uint32_t size);
 #endif
