@@ -26,7 +26,7 @@ TARGET = PSU_V2
 # debug build?
 DEBUG = 1
 # optimization	: O0 - O1 - Og - Os - O2 - O3
-OPT = -Og #-freorder-blocks-algorithm=stc -falign-loops -falign-labels -falign-jumps -falign-functions
+OPT = -Og -freorder-blocks-algorithm=stc -falign-loops -falign-labels -falign-jumps -falign-functions
 #-fprefetch-loop-arrays is the one fucking up the program when using O2 or higher (O3 & Ofast) 
 
 #######################################
@@ -74,7 +74,7 @@ CP = $(GCC_PATH)/$(PREFIX)objcopy
 SZ = $(GCC_PATH)/$(PREFIX)size
 else
 CXX = $(PREFIX)g++
-CC = $(PREFIX)gcc
+CC = $(PREFIX)gcc -Wno-error=format-truncation
 AS = $(PREFIX)gcc -x assembler-with-cpp
 CP = $(PREFIX)objcopy
 SZ = $(PREFIX)size
@@ -124,9 +124,9 @@ C_INCLUDES =  \
 
 
 # compile gcc flags
-ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
+ASFLAGS = --verbose $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wno-incompatible-pointer-types -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-mismatch -Wno-int-conversion -fdata-sections -ffunction-sections
 
-CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
+CFLAGS = --verbose $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wno-incompatible-pointer-types -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-mismatch -Wno-int-conversion -fdata-sections -ffunction-sections
 
 ifeq ($(DEBUG), 1)
 CFLAGS += -g -gdwarf-2
@@ -134,7 +134,7 @@ endif
 
 
 # Generate dependency information (Removed warning)
-CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)" -w
+CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)" 
 
 CXXFLAGS?=
 CXXFLAGS += -feliminate-unused-debug-types
@@ -146,10 +146,10 @@ CXXFLAGS += -feliminate-unused-debug-types
 LDSCRIPT = stm32f411.ld
 
 # libraries
-LIBS = -lc -lm -lnosys -l:libopencm3_stm32f4.a
+LIBS = -lc -lm -l:libopencm3_stm32f4.a
 LIBDIR = -L../libopencm3-master/lib
 
-LDFLAGS = $(MCU) -specs=nosys.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
+LDFLAGS = $(MCU) -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
 
 # default action: build all
 all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
@@ -206,7 +206,7 @@ erase: $(BUILD_DIR)/$(TARGET).elf
 # clean up
 #######################################
 clean:
-	cmd /c rd /s /q $(BUILD_DIR)
+	rm -r $(BUILD_DIR)/*
 	
 #######################################
 # dependencies

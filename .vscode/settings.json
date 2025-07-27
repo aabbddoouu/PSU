@@ -1,6 +1,6 @@
 {
-    "cortex-debug.armToolchainPath": "D:\\VSARM\\ARMCC\\BIN",
-    "C_Cpp.errorSquiggles": "Enabled",
+    "cortex-debug.armToolchainPath": "~/VSARM/armcc/bin",
+    "C_Cpp.errorSquiggles": "enabled",
     "files.associations": {
         "i2c.h": "c",
         "rcc.h": "c",
@@ -154,7 +154,7 @@
     "C_Cpp.dimInactiveRegions": true,
     "stm32-for-vscode.openOCDPath": "D:\\VSARM\\OPENOCD\\BIN\\OPENOCD.EXE",
     "stm32-for-vscode.makePath": "D:\\VSARM\\GNUWIN32\\BIN\\MAKE.EXE",
-    "stm32-for-vscode.armToolchainPath": "D:\\VSARM\\ARMCC\\BIN",
+    "stm32-for-vscode.armToolchainPath": "~/VSARM/armcc/bin",
     "cortex-debug.variableUseNaturalFormat": true,
 
 }

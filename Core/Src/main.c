@@ -24,6 +24,10 @@ volatile uint8_t ADC_SEQ_idx = 0;
 
 volatile char *oled_number[20];
 
+gpiopin EN_DCDC1 = {GPIOB, GPIO15};
+gpiopin EN_DCDC2 = {GPIOA, GPIO8};
+
+
 gpiopin EN_OUT1 = {GPIOB, GPIO12};
 gpiopin EN_OUT2 = {GPIOB, GPIO4};
 
@@ -33,7 +37,7 @@ gpiopin EN_CALIB2 = {GPIOB, GPIO5};
 gpiopin IN_FB2 = {GPIOA, GPIO0};
 gpiopin IN_FB1 = {GPIOA, GPIO1};
 
-gpiopin IN_Iin = {GPIOA, GPIO4}; // HW : Not implemented yet
+gpiopin IN_Iin = {GPIOA, GPIO4};
 gpiopin IN_Iout1 = {GPIOA, GPIO5};
 gpiopin IN_Iout2 = {GPIOA, GPIO6};
 
@@ -105,6 +109,16 @@ static void clock_setup(void)
 
 static void gpio_setup(void)
 {
+	// Enable DCDC
+	gpio_mode_setup(EN_DCDC1.port, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, EN_DCDC1.pin);
+	gpio_set_output_options(EN_DCDC1.port, GPIO_OTYPE_PP, GPIO_OSPEED_25MHZ, EN_DCDC1.pin);
+	
+	gpio_mode_setup(EN_DCDC2.port, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, EN_DCDC2.pin);
+	gpio_set_output_options(EN_DCDC2.port, GPIO_OTYPE_PP, GPIO_OSPEED_25MHZ, EN_DCDC2.pin);
+	
+	//DCDCs ON
+	gpio_set(EN_DCDC1.port, EN_DCDC1.pin);
+	gpio_set(EN_DCDC2.port, EN_DCDC2.pin);
 
 	// Output Relays Controll
 	gpio_mode_setup(EN_OUT1.port, GPIO_MODE_OUTPUT, GPIO_PUPD_PULLDOWN, EN_OUT1.pin | EN_OUT2.pin);
@@ -114,7 +128,6 @@ static void gpio_setup(void)
 	delay_ms(10);
 
 	// CALIB
-	// OUT
 	gpio_mode_setup(EN_CALIB1.port, GPIO_MODE_OUTPUT, GPIO_PUPD_PULLDOWN, EN_CALIB1.pin | EN_CALIB2.pin);
 	gpio_set_output_options(EN_CALIB1.port, GPIO_OTYPE_PP, GPIO_OSPEED_25MHZ, EN_CALIB1.pin | EN_CALIB2.pin);
 
@@ -185,6 +198,9 @@ void dma2_stream0_isr()
 
 static inline void start_dma_adc_convertion()
 {
+	systick_clear();
+	comm_ticks=systick_get_value();
+
 	ADC_Running = 1;
 
 	ADC_SQR3(ADC1) = ADC_CHANNEL5;
@@ -220,6 +236,14 @@ static inline void start_dma_adc_convertion()
 	ADC_Running = 0;
 
 	Main_State = UPDATE_OLED;
+
+	comm_ticks_f=systick_get_value();
+	durr=0;
+	if(comm_ticks_f<=comm_ticks){
+		durr=comm_ticks-comm_ticks_f;
+	}
+
+	durr/=12; //ms value : HCLK/8
 }
 
 void adc_isr()
@@ -561,8 +585,7 @@ int main(void)
 			break;
 
 		case UPDATE_OLED:
-			// systick_clear();
-			// comm_ticks=systick_get_value();
+			
 			// Print Current values
 			Current_Table[1] = (uint32_t)median_list(ADC_Table[0], 9);
 			Current_Table[1] *= VREF;
@@ -632,15 +655,9 @@ int main(void)
 
 			ssd1306_UpdateScreen();
 
-			// comm_ticks_f=systick_get_value();
-			// durr=0;
-			// if(comm_ticks_f<=comm_ticks){
-			// 	durr=comm_ticks-comm_ticks_f;
-			// }
 
-			// durr/=12; //ms value : HCLK/8
 
-			// uart_printf("Duration : %u us\n",durr);
+			//uart_printf("ADC Duration : %u us\n",durr);
 
 			Main_State = DEFAULT_STATE;
 

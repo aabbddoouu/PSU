@@ -33,7 +33,7 @@
 //#define SSD1306_Reset_Pin       OLED_Res_Pin
 
 // Mirror the screen if needed
-//#define SSD1306_MIRROR_VERT
+#define SSD1306_MIRROR_VERT
 #define SSD1306_MIRROR_HORIZ
 
 // Set inverse color if needed

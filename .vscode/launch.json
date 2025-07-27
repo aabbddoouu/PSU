@@ -3,8 +3,9 @@
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "taget": "PSU",
+    "taget": "PSU_V2",
     "configurations": [
+        
 
         {
             "type": "cortex-debug",
@@ -15,7 +16,8 @@
             "name": "Debug (ST-Util)",
             "device": "STM32F411RE",
             "v1": false,
-            "svdFile": "STM32F411.svd"
+            "svdFile": "STM32F411.svd",
+            "armToolchainPath": "~/VSARM/armcc/bin",
         },
         {
             "showDevDebugOutput": "vscode",
