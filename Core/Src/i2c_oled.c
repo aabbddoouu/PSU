@@ -19,17 +19,17 @@ void i2c_xfer7(uint32_t i2c, uint8_t addr, uint8_t command, uint8_t *w, size_t w
 
 	int status=0;
 	I2C_XFER=1;
-	timer_one_shot_mode(TIM2);
-	TIM_ARR(TIM2) = TIMEOUT_I2C;
-	TIM_EGR(TIM2) = TIM_EGR_UG;
-	TIM_CR1(TIM2) |= TIM_CR1_CEN;
+	timer_one_shot_mode(TIM4);
+	TIM_ARR(TIM4) = TIMEOUT_I2C;
+	TIM_EGR(TIM4) = TIM_EGR_UG;
+	TIM_CR1(TIM4) |= TIM_CR1_CEN;
 
 
 	i2c_peripheral_disable(i2c);
 	i2c_peripheral_enable(i2c);
 
 	while ((I2C_SR2(i2c) & I2C_SR2_BUSY)) {
-		if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
+		if((TIM_CR1(TIM4) & TIM_CR1_CEN) ==0)	{return -1;}
 	}
 
 	i2c_send_start(i2c);
@@ -38,14 +38,14 @@ void i2c_xfer7(uint32_t i2c, uint8_t addr, uint8_t command, uint8_t *w, size_t w
 		while ( !( (I2C_SR1(i2c) & I2C_SR1_SB)
 		&& (I2C_SR2(i2c) & I2C_SR2_MSL)
 		&& (I2C_SR2(i2c) & I2C_SR2_BUSY) )){
-			if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
+			if((TIM_CR1(TIM4) & TIM_CR1_CEN) ==0)	{return -1;}
 		}
 
 	i2c_send_7bit_address(i2c, addr, I2C_WRITE);
 
 		/* Waiting for address is transferred. */
 		while (!(I2C_SR1(i2c) & I2C_SR1_ADDR)){
-			if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
+			if((TIM_CR1(TIM4) & TIM_CR1_CEN) ==0)	{return -1;}
 		}
 	
 		/* Clearing ADDR condition sequence. */
@@ -54,22 +54,22 @@ void i2c_xfer7(uint32_t i2c, uint8_t addr, uint8_t command, uint8_t *w, size_t w
 	i2c_send_data(i2c, command);
 
 	while (!(I2C_SR1(i2c) & (I2C_SR1_BTF))){
-		if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
+		if((TIM_CR1(TIM4) & TIM_CR1_CEN) ==0)	{return -1;}
 	}
 	
 	while (wn--) {
 
 		i2c_send_data(i2c, *w++);
 		while (!(I2C_SR1(i2c) & (I2C_SR1_BTF))){
-			if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
+			if((TIM_CR1(TIM4) & TIM_CR1_CEN) ==0)	{return -1;}
 		}
 	}
 
 	i2c_send_stop(i2c);
 
 	I2C_XFER=0;
-	TIM_ARR(TIM2) = 0;
-	TIM_CR1(TIM2) &= ~TIM_CR1_CEN;
+	TIM_ARR(TIM4) = 0;
+	TIM_CR1(TIM4) &= ~TIM_CR1_CEN;
 }
 
 int i2c_read7_oled(uint32_t i2c, int addr, uint8_t *res, size_t n)
@@ -86,27 +86,27 @@ int i2c_transfer_oled(uint32_t i2c, uint8_t addr, uint8_t command, uint8_t *w, s
 
 	int status=0;
 	I2C_XFER=1;
-	timer_one_shot_mode(TIM2);
-	TIM_ARR(TIM2) = TIMEOUT_I2C;
-	TIM_EGR(TIM2) = TIM_EGR_UG;
-	TIM_CR1(TIM2) |= TIM_CR1_CEN;
+	timer_one_shot_mode(TIM4);
+	TIM_ARR(TIM4) = TIMEOUT_I2C;
+	TIM_EGR(TIM4) = TIM_EGR_UG;
+	TIM_CR1(TIM4) |= TIM_CR1_CEN;
 
 	status=i2c_write7_oled(i2c, addr, w, wn);
 
 	if (wn) {
 		status=i2c_write7_oled(i2c, addr, w, wn);
-		if(status==-1)	{TIM_CR1(TIM2) &= ~TIM_CR1_CEN; I2C_XFER=0; return -1;}
+		if(status==-1)	{TIM_CR1(TIM4) &= ~TIM_CR1_CEN; I2C_XFER=0; return -1;}
 	}
 	if (rn) {
 		status=i2c_read7_v2(i2c, addr, r, rn);
-		if(status==-1)	{TIM_CR1(TIM2) &= ~TIM_CR1_CEN; I2C_XFER=0; return -1;}
+		if(status==-1)	{TIM_CR1(TIM4) &= ~TIM_CR1_CEN; I2C_XFER=0; return -1;}
 	} else {
 		i2c_send_stop(i2c);
 	}
 
 	I2C_XFER=0;
-	TIM_ARR(TIM2) = 0;
-	TIM_CR1(TIM2) &= ~TIM_CR1_CEN;
+	TIM_ARR(TIM4) = 0;
+	TIM_CR1(TIM4) &= ~TIM_CR1_CEN;
 
 }
 
@@ -114,7 +114,7 @@ int i2c_write7_oled(uint32_t i2c, int addr, const uint8_t *data, size_t n)
 {
 
 	while ((I2C_SR2(i2c) & I2C_SR2_BUSY)) {
-		if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
+		if((TIM_CR1(TIM4) & TIM_CR1_CEN) ==0)	{return -1;}
 	}
 
 	i2c_send_start(i2c);
@@ -123,14 +123,14 @@ int i2c_write7_oled(uint32_t i2c, int addr, const uint8_t *data, size_t n)
 	while ( !( (I2C_SR1(i2c) & I2C_SR1_SB)
 		&& (I2C_SR2(i2c) & I2C_SR2_MSL)
 		&& (I2C_SR2(i2c) & I2C_SR2_BUSY) )){
-			if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
+			if((TIM_CR1(TIM4) & TIM_CR1_CEN) ==0)	{return -1;}
 		}
 
 	i2c_send_7bit_address(i2c, addr, I2C_WRITE);
 
 	/* Waiting for address is transferred. */
 	while (!(I2C_SR1(i2c) & I2C_SR1_ADDR)){
-		if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
+		if((TIM_CR1(TIM4) & TIM_CR1_CEN) ==0)	{return -1;}
 	}
 
 	/* Clearing ADDR condition sequence. */
@@ -142,7 +142,7 @@ int i2c_write7_oled(uint32_t i2c, int addr, const uint8_t *data, size_t n)
 	for (size_t i = 0; i < n; i++) {
 		i2c_send_data(i2c, data[4*i]);
 		while (!(I2C_SR1(i2c) & (I2C_SR1_BTF))){
-			if((TIM_CR1(TIM2) & TIM_CR1_CEN) ==0)	{return -1;}
+			if((TIM_CR1(TIM4) & TIM_CR1_CEN) ==0)	{return -1;}
 		}
 		for (size_t i = 0; i < 100; i++){asm("NOP");}
 

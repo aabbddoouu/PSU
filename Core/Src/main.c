@@ -41,8 +41,11 @@ gpiopin IN_Iin = {GPIOA, GPIO4};
 gpiopin IN_Iout1 = {GPIOA, GPIO5};
 gpiopin IN_Iout2 = {GPIOA, GPIO6};
 
-gpiopin ENC1A = {GPIOC, GPIO6};
-gpiopin ENC1B = {GPIOA, GPIO7};
+gpiopin ENC1A = {GPIOB, GPIO0}; //TIM3_CH3
+gpiopin ENC1B = {GPIOB, GPIO1}; //TIM3_CH4
+
+gpiopin ENC2A = {GPIOB, GPIO10}; //TIM2_CH3
+gpiopin ENC2B = {GPIOA, GPIO15}; //TIM2_CH1
 
 gpiopin LED = {LED_GPIO, BLUE_LED};
 
@@ -268,11 +271,11 @@ void adc_isr()
 void delay_setup(void)
 {
 	/* set up a millisecond free running timer for delay operations used during the main setup */
-	rcc_periph_clock_enable(RCC_TIM2);
+	rcc_periph_clock_enable(RCC_TIM4);
 	/* millisecond counter */
-	timer_set_prescaler(TIM2, 10800); // TIMx are clocked by apbx ; increment each 500us
-	timer_set_period(TIM2, 0xFFFF);	  // load with highest value
-	timer_one_shot_mode(TIM2);
+	timer_set_prescaler(TIM4, 10800); // TIMx are clocked by apbx ; increment each 500us
+	timer_set_period(TIM4, 0xFFFF);	  // load with highest value
+	timer_one_shot_mode(TIM4);
 
 	/* set up a microsecond free running timer for ... things... */
 	rcc_periph_clock_enable(RCC_TIM5);
@@ -292,18 +295,25 @@ void delay_setup(void)
 	systick_counter_enable();
 }
 
-/*
+
 void inc_enc_setup(void)
 {
+	// Each encoder should be connected to 2 different Timers : TIM2 & TIM3
 
-	// Config INPUTS
+	// Encoder 1
 	gpio_mode_setup(ENC1A.port, GPIO_MODE_AF, GPIO_PUPD_NONE, ENC1A.pin);
 	gpio_set_af(ENC1A.port, GPIO_AF2, ENC1A.pin);
 	gpio_mode_setup(ENC1B.port, GPIO_MODE_AF, GPIO_PUPD_NONE, ENC1B.pin);
 	gpio_set_af(ENC1B.port, GPIO_AF2, ENC1B.pin);
 
+	// Encoder 2
+	gpio_mode_setup(ENC2A.port, GPIO_MODE_AF, GPIO_PUPD_NONE, ENC2A.pin);
+	gpio_set_af(ENC2A.port, GPIO_AF2, ENC2A.pin);  // AF1 for TIM2
+	gpio_mode_setup(ENC2B.port, GPIO_MODE_AF, GPIO_PUPD_NONE, ENC2B.pin);
+	gpio_set_af(ENC2B.port, GPIO_AF2, ENC2B.pin);  // AF1 for TIM2
 
-	// Config TIMER3 as a CW encoder
+
+	// Config TIMER3 as a CW encoder (ENC1)
 	rcc_periph_clock_enable(RCC_TIM3);
 
 	timer_slave_set_mode(TIM3, TIM_SMCR_SMS_EM1);
@@ -313,9 +323,20 @@ void inc_enc_setup(void)
 	TIM_CCMR1(TIM3) &= ~TIM_CCMR1_CC2S_MASK;
 	TIM_CCMR1(TIM3) |= TIM_CCMR1_CC1S_IN_TI2 << 8;
 
+	// Config TIMER2 as a CW encoder (ENC2)
+	rcc_periph_clock_enable(RCC_TIM2);
+
+	timer_slave_set_mode(TIM2, TIM_SMCR_SMS_EM1);
+	TIM_CCMR1(TIM2) &= ~TIM_CCMR1_CC1S_MASK;
+	TIM_CCMR1(TIM2) |= TIM_CCMR1_CC1S_IN_TI1;
+
+	TIM_CCMR1(TIM2) &= ~TIM_CCMR1_CC2S_MASK;
+	TIM_CCMR1(TIM2) |= TIM_CCMR1_CC1S_IN_TI2 << 8;
+
 	timer_enable_counter(TIM3);
+	timer_enable_counter(TIM2);
 }
-*/
+
 
 void tim5_isr()
 { // happens every time timer7 overflows
@@ -332,9 +353,9 @@ void tim5_isr()
 		}
 	}
 
-	if (I2C_XFER && TIM_CNT(TIM2) > TIMEOUT_I2C)
+	if (I2C_XFER && TIM_CNT(TIM4) > TIMEOUT_I2C)
 	{
-		TIM_CR1(TIM2) &= ~TIM_CR1_CEN;
+		TIM_CR1(TIM4) &= ~TIM_CR1_CEN;
 	}
 }
 
@@ -346,10 +367,10 @@ void tim5_isr()
  */
 void delay_ms(uint16_t ms)
 {
-	TIM_ARR(TIM2) = 10 * ms - 1;
-	TIM_EGR(TIM2) = TIM_EGR_UG;
-	timer_enable_counter(TIM2);
-	while (TIM_CR1(TIM2) & TIM_CR1_CEN)
+	TIM_ARR(TIM4) = 10 * ms - 1;
+	TIM_EGR(TIM4) = TIM_EGR_UG;
+	timer_enable_counter(TIM4);
+	while (TIM_CR1(TIM4) & TIM_CR1_CEN)
 		;
 }
 
@@ -361,10 +382,10 @@ void delay_ms(uint16_t ms)
  */
 void delay_100us(uint16_t us)
 {
-	TIM_ARR(TIM2) = us;
-	TIM_EGR(TIM2) = TIM_EGR_UG;
-	timer_enable_counter(TIM2);
-	while (TIM_CR1(TIM2) & TIM_CR1_CEN)
+	TIM_ARR(TIM4) = us;
+	TIM_EGR(TIM4) = TIM_EGR_UG;
+	timer_enable_counter(TIM4);
+	while (TIM_CR1(TIM4) & TIM_CR1_CEN)
 		;
 }
 
@@ -412,7 +433,7 @@ int main(void)
 
 	setup_PC_usart();
 
-	setup_STM_usart();
+	//setup_STM_usart();
 
 	uart_printf("\n******************\n");
 	uart_printf("Booting Up...\n");
